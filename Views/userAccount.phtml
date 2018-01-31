@@ -1,0 +1,372 @@
+<?php require('template/header.phtml') ?>
+<?php if (isset($_SESSION['wishMessage'])) : ?>
+    <div class="bg-success lead text-center"><?php  echo $_SESSION['wishMessage'];
+        unset($_SESSION['wishMessage']) ?></div>
+<?php endif; ?>
+
+<div class="container">
+    <div class="row">
+        <div id="welcomeMessage" class="col-md-12">
+            <h4>Hello <?php echo $_SESSION['firstName']?></h4>
+            <p>Welcome to your MallFromAfrica Account</p>
+            <p>Here you can update your account details and take action on items added to your watchlist</p>
+        </div>
+        <div id="accountSection" class="col-sm-12">
+            <div class="accountList col-md-3">
+                <button id ="watchListBtn">WatchList</button>
+                <!--<p><a onclick="changeContent()" href="">My WatchList</a></p>-->
+            </div>
+            <div class="accountList col-md-3">
+                <button id= "detailsBtn">My Details</button>
+                <!--<p><a href="#">My Details</a></p>-->
+            </div>
+            <div class="accountList col-md-3">
+                <button id= "myListBtn">My Listings</button>
+                <!--<p><a href="#">My Details</a></p>-->
+            </div>
+            <div class="accountList col-md-3">
+                <button id= "messageBtn">Messages</button>
+                <!--<p><a href="#">My Details</a></p>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <?php foreach($view->getWish as $keys => $values) { ?>
+                    <div class="sectionsWL row">
+                        <div class="col-lg-4">
+                            <img src="images/<?php echo $values["wishImg"]; ?>" class="img-responsive">
+                        </div>
+                        <div id="watchListDetails" class="col-lg-6">
+                            <h4><?php echo $values["wishTitle"]; ?></h4>
+                            <ul>
+                                <li>Color: <?php echo $values["wishColor"]; ?></li>
+                                <li>Size: <?php echo $values["wishSize"]; ?></li>
+                                <li>Location: <?php echo $values["wishLocation"]; ?></li>
+                            </ul>
+                            <button class="btn btn-primary"  data-toggle="modal" data-target="#contactModal">Contact Seller</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#confirmation">Remove</button>
+                            <!-- Confirmation Box  -->
+                            <div class="modal fade" id="confirmation" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Confirmation</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure you want to remove this item?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="post" action="userAccount.php?item=<?php echo $values["wishID"]; ?>">
+                                                <button type="submit" class="btn btn-danger" name="removeItem">Yes</button>
+                                                <button type="button" class="btn btn-success"  data-dismiss="modal">Cancel</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-2">
+                            <h4 class="lead"><?php echo $values["wishCurrency"]; ?><?php echo $values["wishPrice"]; ?></h4>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+            <!-- start of user listings -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <?php foreach($view->products as $keys => $values) { ?>
+                    <div class="sectionList row">
+                        <div class="col-lg-4">
+                            <img src="images/<?php echo $values["productImg"]; ?>" class="img-responsive">
+                        </div>
+                        <div id="watchListDetails" class="col-lg-6">
+                            <h4><?php echo $values["productTitle"]; ?></h4>
+                            <p><?php echo $values["productDes"]; ?></p>
+                            <ul>
+                                <li>Color: <?php echo $values["productCol"]; ?></li>
+                                <li>Size: <?php echo $values["productSize"]; ?></li>
+                                <li>Location: <?php echo $values["country"]; ?></li>
+                            </ul>
+                            <button class="btn btn-primary"  data-toggle="modal" data-target="#updateList<?php echo $values["productsID"]; ?>">Edit item</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#confirmation">Remove</button>
+                            <!--start of update listing modal-->
+                            <div class="modal fade" id="updateList<?php echo $values["productsID"]; ?>" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h2>Update Listing form</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="updateForm">
+                                                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <label for="updateTitle">Title</label>
+                                                        <input type="text" name="updateTitle" class="form-control" id="updateTitle" placeholder="Enter List Title">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="updateDes">Description</label>
+                                                        <textarea class="form-control" name="updateDes" id="updateDes" rows="3"></textarea>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="updateImage">File input</label>
+                                                        <input type="file" class="form-control-file" name="updateImage" id="updateImage" aria-describedby="fileHelp">
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-lg-6">
+                                                            <label for="updateColor">Color</label>
+                                                            <select class="form-control" name="updateColor" id="updateColor">
+                                                                <option selected>Black</option>
+                                                                <option>White</option>
+                                                                <option>Red</option>
+                                                                <option>Green</option>
+                                                                <option>Blue</option>
+                                                                <option>Purple</option>
+                                                                <option>Yellow</option>
+                                                                <option>Brown</option>
+                                                                <option>Gold</option>
+                                                                <option>Pink</option>
+                                                                <option>Indigo</option>
+                                                                <option>Maroon</option>
+                                                                <option>Grey</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="updateSize">Size</label>
+                                                            <select class="form-control" name="updateSize" id="updateSize">
+                                                                <option>none</option>
+                                                                <option>4</option>
+                                                                <option>6</option>
+                                                                <option>8</option>
+                                                                <option>10</option>
+                                                                <option>12</option>
+                                                                <option>14</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="country">Country</label>
+                                                            <select id="country" name="country" class="form-control" onchange="printState(this.id, 'state');">
+                                                                <option value ="" selected>Select Country</option>
+                                                                <option value="Nigeria">Nigeria</option>
+                                                                <option value="Kenya">Kenya</option>
+                                                                <option value="South Africa">South Africa</option>
+                                                                <option value="Uganda">Uganda</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="state">State</label>
+                                                            <select id="state" name="state" class="form-control">
+                                                                <option value ="" selected>Select State</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group col-md-6">
+                                                        <label class="sr-only" for="updatePrice">Price</label>
+                                                        <div class="input-group-addon">Ksh</div>
+                                                        <input type="text" name="updatePrice" class="form-control" id="updatePrice" placeholder="700">
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success" name="updateListing">Update</button>
+                                            <input type="hidden" name="itemUpdate" value=<?php echo $values["productsID"];?>>
+                                            <button type="button" class="btn btn-primary"  data-dismiss="modal">Cancel</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end of update modal-->
+                            <!-- Confirmation Box  -->
+                            <div class="modal fade" id="confirmation" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Confirmation</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure you want to remove this item?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="post" action="userAccount.php?item=<?php echo $values["wishID"]; ?>">
+                                                <button type="submit" class="btn btn-danger" name="removeItem">Yes</button>
+                                                <button type="button" class="btn btn-success"  data-dismiss="modal">Cancel</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end -->
+                        </div>
+                        <div class="col-lg-2">
+                            <h4 class="lead"><?php echo $values["currency"]; ?><?php echo $values["price"]; ?></h4>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div><!--End of users listing -->
+            <!--Contact seller Modal-->
+            <div class="modal fade" id="contactModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <form class="form-row">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Contact AD owner </h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12" id="yourName">
+                                        <label for="yourName">Name</label>
+                                        <input type="text" name = "yourName" class="form-control" id="yourName" placeholder="Omotola Shogunle">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12" id="email-div">
+                                        <label for="userEmail">Email</label>
+                                        <input type="Email" name = "userEmail" class="form-control" id="userEmail" placeholder="omotola@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12" id="number-div">
+                                        <label for="phoneNo">PhoneNumber(optional)</label>
+                                        <input type="text" name = "phoneNo" class="form-control" id="phoneNo" placeholder="08065521925">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12" id="message-div" >
+                                        <label for="message">Message</label>
+                                        <textarea class="form-control" rows="5" id="message" name="message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="submit" name="send" class="btn-lg btn-success">Send</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--End of contact modal-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="myDetails">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h4 id="update">User information</h4>
+
+                            <?php foreach($view->info as $keys => $values) { ?>
+                            <div class="card userInfo">
+                                <img class="img-responsive" src="images/profile.jpg" alt="userImg" style="width:100%">
+                                <h1><?php echo $values['firstName']." ".$values['surName']?></h1>
+                                <p class="title"><?php echo $values['email']?></p>
+                                <p><?php echo $values['phonenumber']?></p>
+                                <address id="userAddress">
+                                    <b>Address:</b><br>
+                                    <?php echo $values['addressLine1']?><br>
+                                    <?php echo $values['addressLine2']?><br>
+                                    <?php echo $values['state'].", ". $values['country']?>
+                                </address>
+                                <button type="submit" data-toggle="modal" data-target="#delete" class="btn-md btn-danger">Delete Account</button>
+                                <p><button>Change Profile picture</button></p>
+                            </div>
+                            <?php } ?>
+
+                        </div>
+                        <!-- Delete confirmation box-->
+                        <div class="modal fade" id="delete" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Confirmation</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete your account?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="post" action="userAccount.php?item=<?php echo $_SESSION["user_id"]; ?>">
+                                            <button type="submit" class="btn btn-danger" name="removeUser">Yes</button>
+                                            <button type="button" class="btn btn-success"  data-dismiss="modal">Cancel</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--end of deletion confirmation-->
+                        <div class="marginalize col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validate()" name="regForm">
+                                <h4 id="update">Update/Delete Account</h4>
+                                <div class="form-row">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6" id="firstName-div">
+                                            <label for="name">Firstname</label>
+                                            <input type="text" name="firstName" class="form-control" id="name" placeholder="FirstName">
+                                        </div>
+                                        <div class="form-group col-md-6"  id="surName-div">
+                                            <label for="surName">Surname</label>
+                                            <input type="text" name="surName" class="form-control" id="surName" placeholder="SurName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12" id="email-div">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="phoneNumber">PhoneNumber</label>
+                                        <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="PhoneNumber">
+                                    </div>
+                                    <div class="form-group col-md-12" id="country-div">
+                                        <label for="country">Country</label>
+                                        <select id="country" name="country" class="form-control" onchange="printState(this.id, 'state');">
+                                            <option value ="" selected>Select Country</option>
+                                            <option value="Nigeria">Nigeria</option>
+                                            <option value="Kenya">Kenya</option>
+                                            <option value="South Africa">South Africa</option>
+                                            <option value="Uganda">Uganda</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12" id="state-div">
+                                        <label for="state">State</label>
+                                        <select id="state" name="state" class="form-control">
+                                            <option value ="" selected>Select State</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12"  id="address1-div">
+                                        <label for="address">Address Line 1</label>
+                                        <input type="Text" name ="addressLine1" class="form-control" id="address" placeholder="Blk B Flat 1">
+                                    </div>
+                                    <div class="form-group col-md-12"  id="address2-div">
+                                        <label for="inputAddress2">Address Line 2</label>
+                                        <input type="Text" name ="addressLine2" class="form-control" id="inputAddress2" placeholder="Defence Quarters">
+                                    </div>
+                                    <div class="form-group col-md-12" id="password-div">
+                                        <label for="inputPassword">Password</label>
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="submit" name="update" class="btn-lg btn-success">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php require('template/footer.phtml') ?>

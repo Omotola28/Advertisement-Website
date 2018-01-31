@@ -1,0 +1,89 @@
+<?php require('template/header.phtml') ?>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <?php foreach ($view->values as $value)
+            echo '<h1 id="listHeader">
+                <strong>'.$value->getTitle().'</strong>
+                <span class="headerPrice">'.$value->getCurrency().$value->getPrice().'</span>
+            </h1>
+           
+            <div>
+                <strong class="publishDate">Publish Date: </strong>
+                '.$value->getDate().'
+            </div>
+            <div>
+                <strong class="publishLocation">Location: </strong>
+                '.$value->getCountry().','.$value->getState().'
+            </div>
+             
+            <div class="itemImg">
+                <img src=images/'.$value->getImg().'>
+            </div>
+            <!--For this section I want to add the description, available sizes, color and add to watchList-->
+            <div class="usefulInfo">
+                <h3>Useful Information</h3>
+                <p>'.$value->getDescription().'</p>
+
+            </div>';
+             ?>
+
+        </div>
+        <?php if ($view->doHide === true) : ?>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="bg-success lead text-center">This product is listed as yours hence no contact form required</div>
+            </div>
+        <?php elseif ($view->doHide === ""):?>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <form>
+                    <div id="contactHeader">
+                        <h2 class="lead">Contact Publisher</h2>
+                        <?php foreach ($view->values as $value)
+                            echo ' <p><b>Seller Name:</b> '.$value->getfName().' '.$value->getlName().'</p>'
+                        ?>
+
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12" id="yourName">
+                            <label for="yourName">Name</label>
+                            <input type="text" name = "yourName" class="form-control" id="yourName" placeholder="Omotola Shogunle">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12" id="email-div">
+                            <label for="email">Email</label>
+                            <input type="Email" name = "email" class="form-control" id="email" placeholder="omotola@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12" id="number-div">
+                            <label for="phoneNo">PhoneNumber(optional)</label>
+                            <input type="text" name = "phoneNo" class="form-control" id="phoneNo" placeholder="08065521925">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12" id="message-div" >
+                            <label for="message">Message</label>
+                            <textarea class="form-control" rows="5" id="message" name="message"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" name="send" class="btn-lg btn-success">Send</button>
+                    </div>
+                </form>
+            </div>
+        <?php endif; ?>
+
+    </div>
+</div>
+<!--
+<ul>
+    <li>Avoid scams by acting locally or paying with PayPal</li>
+    <li>Never pay with Western Union, Moneygram or other anonymous payment services</li>
+    <li>This site is never involved in any transaction, and does not handle payments, shipping,
+        guarantee transactions, provide escrow services, or offer "buyer protection" or "seller certification"</li>
+    <li>Don't buy or sell outside of your country. Don't accept cashier cheques from outside your country</li>
+</ul>-->
+
+<?php require('template/footer.phtml') ?>

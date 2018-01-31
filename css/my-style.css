@@ -1,0 +1,623 @@
+
+#menu {
+    border-top: solid 6px #f00;
+    background-color: #f00;
+    color: #fff;
+    height: 400px;
+}
+
+#menu a {
+    background-color: #f00;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+#menu a:hover {
+    background-color: #f00;
+    color: #ddd;
+    text-decoration:underline;
+    display: block;
+}
+
+
+/*
+Navigation styling for MallFromAfrica site
+*/
+.bars{
+    float: right;
+}
+
+.navbar{
+    color: #0C5B80;
+    padding: 0 1%;
+    font-size: 1.2em;
+}
+
+.navbar-nav{
+    font-size: 0.9em;!important;
+    font-weight: 700;
+
+}
+
+.navbar-nav .active a, .navbar-nav .active a:focus, .navbar-nav .active a:hover{
+    color:#27C21E;
+}
+
+.button{
+    color: #0C5B80;!important;
+    border: 0;!important;
+    background-color: transparent;!important;
+}
+
+.jumbotron {
+    background: url("../images/images.png") no-repeat ;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+
+#jumbotronInfo{
+    padding: 2em 0;
+}
+
+#userName{
+    margin: 1em 0;
+    color: #607e1e
+}
+/**Styling for homePage starts here **/
+#howTo{
+    margin-top: 2.5em;
+}
+
+@media (max-width: 600px) {
+    .icon{
+        max-width: 100px;
+
+    }
+    h4{
+        font-size: 95%;
+        font-weight: 600;
+    }
+
+    h2{
+        font-size: 2em;
+    }
+}
+
+.container{
+    padding: 8em 0;
+}
+
+.info{
+    background-color: #F6F6F6;
+    padding: 15px;
+    text-align: center;
+}
+
+.greyTextArea{
+    margin-top: 3.5em;
+}
+
+
+/**Styling for homePage ends here **/
+/*footer for MallFromAfrica*/
+
+.bottomList{
+    color: #9e9e9e;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-style: normal;
+    text-align-last: left;
+}
+
+ul.bottomlink {
+    padding: 0;
+
+
+}
+
+ul.bottomlink li{
+    list-style-type: none;
+    margin-bottom: 5px;
+    text-align-last: left;
+}
+
+ul.bottomlink li a{
+    font-size: 14px;
+    color: #707070;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#footerContent{
+    padding: 0 5em;
+}
+
+#socialMedia{
+    font-size: 20px;
+}
+
+.footerIcon{
+    padding: 10px;
+    color: white;
+}
+
+#headerSocialM{
+    text-align-last: center;
+}
+
+address{
+    text-align: left;
+}
+
+
+.footer {
+    text-align: center;
+    display: block;
+    background: #1a1a1a;
+    padding: 50px 0;
+    color: #707070;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+}
+/**ends here**/
+/**Register page for MallfromAfrica**/
+.form{
+    text-align: justify;
+    width: 60%;
+}
+
+.formHeader{
+    background-color: lightgray;
+    padding: 5% 1%;
+    margin-bottom: -1em;
+    text-align: center;
+}
+/**ends here**/
+
+/*Listing page starts here **/
+
+.listing{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listing-card{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3em;
+    text-overflow: clip;
+}
+
+#searchBar{
+    padding: 6px;
+    background-color: #CDCDCD;
+    box-shadow: inset 0px 1px 1px 0px #fff, 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid #cdcddc;
+}
+
+.card-block{
+    text-align: left;
+    border: 1px solid #ECECEC;
+    background-color: #fff;
+    padding: 6px;
+}
+
+.card-img-top{
+    max-width: 100%;
+}
+
+.card-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+}
+
+.price{
+    color: #617D17;
+    font-weight: 600;
+}
+
+.searchCategory{
+    text-align: left;
+}
+
+.addToList{
+    margin-left: 3em;
+}
+
+button:focus{
+    outline:none;
+    color: black;;
+}
+
+.addToList:hover{
+    color: #3578B1;
+    text-decoration: overline;
+}
+
+.vertical-center{
+    display: table-cell;
+    height: 38px;
+    vertical-align: middle;
+    transform: translateY(80%);
+    position: relative;
+    top: 50%;
+    text-align: center;
+}
+
+/* Popup container */
+.popUp {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popUp .popupText {
+    visibility: hidden;
+    width: 160px;
+    background-color: #0c5b80;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 1.5em;
+    margin-left: -2.1em;
+}
+
+/* Popup arrow */
+.popUp .popupText::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0c5b80 transparent transparent transparent;
+
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popUp .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+@media (max-width: 600px){
+    #searchBar{
+        margin: 0.7em;
+    }
+}
+/*listing page ends here*/
+
+/*UserAccount page */
+#welcomeMessage{
+    border-bottom: 1px solid grey;
+}
+
+.accountList{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.accountList a{
+    color: #1a1a1a;
+
+}
+
+.accountList a:hover{
+    background-color: #BBBBBB;
+    color: #101010;
+    text-decoration: none;
+    padding: 10px;
+}
+
+#accountSection{
+    margin: 1em 0;
+    border-bottom: 1px solid grey;
+}
+
+#watchListDetails{
+    list-style-type: none;
+}
+
+.sectionsWL, .sectionList{
+    border-bottom: 1px solid lightgray;
+    display: none;
+    padding-bottom: 1em;
+}
+
+
+div.myDetails{
+    display: none;
+    margin: auto;
+}
+
+.marginalize{
+    border-left: 1px solid gainsboro;
+    padding: 0;
+}
+
+#update{
+    font-weight: 700;
+    background-color: lightgrey;
+    padding: 2%;
+}
+
+.userInfo{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#userAddress{
+    text-align: center;
+    margin: 24px 1px;
+    padding-bottom: 2em;
+
+}
+
+.updateForm{
+    background-color: gainsboro;
+    padding: 2em;
+    width: 100%;
+    margin: auto
+}
+
+.input-group[class*="col-"]{
+    padding: 1.8em 1em 0;
+
+}
+
+#updateBtn{
+    float: right;
+    position: relative;
+    bottom: 2.5em;
+}
+
+#formPage2{
+    display: none;
+}
+
+#fileUpdate{
+    padding-left: 0;
+}
+/*userAccount page ends here*/
+
+/*aboutListingPage styles.css*/
+
+.headerPrice{
+    font-weight: normal;
+    font-size: 24px;
+    color: #48CD00;
+}
+
+#listHeader{
+    width: 80%;
+}
+
+.itemImg{
+    margin: 2em 0;
+    border: 1px solid gainsboro;
+}
+
+.itemImg img{
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    width: 100%;
+}
+
+#contactHeader{
+    padding-left: 15px;
+}
+/*ends here*/
+
+/*****styles for january project****/
+/***********************************/
+/***********************************/
+#contributorImg{
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+    margin: 2em;
+}
+
+#panel{
+    padding: 0;
+    background-color: white;
+    color: black;
+    height: 100%;
+}
+
+#profileHeader{
+    position: relative;
+    top: 2em;
+    right: 5em;
+    line-height: 1px;
+}
+
+#caption{
+    color: gray;
+}
+
+#head{
+    border-bottom: 1px solid gray;
+}
+
+#panelBody{
+    padding: 0 0 2em;
+    height: auto;
+    background-color: #f2f2f2;
+    display: none;
+}
+
+#dashboard{
+    padding: 15em;
+    height: auto;
+    background-color: #f2f2f2;
+}
+
+.tag{
+    margin: 2em;
+}
+
+input[type="file"]{
+    bottom: 1.5em;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    background: none;
+    cursor: inherit;
+    display: block;
+    right: 12.5em;
+}
+
+
+.file-btn input[type="file"]{
+    position: relative;
+}
+
+.file-btn{
+    width: 100px;
+    height: 40px;
+}
+
+
+.control-label{
+    display: block;
+}
+
+.fileUploadList{
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.thumbnail-img{
+    width: 213px;
+    height: 160px;
+}
+
+.footer-caption, .caption-info{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 160px;
+    height: 15px;
+    margin: auto;
+}
+
+.thumbnail-preview{
+    margin: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    padding: 6px;
+    text-align: center;
+    max-width: 230px;
+    max-height: 260px;
+}
+
+.fileUploadList .fileUpload-remove {
+    top: 1px;
+    right: 1px;
+    line-height: 10px;
+}
+
+.fileUpload-remove{
+    position: absolute;
+}
+.close{
+    float: right;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.mediaDiv{
+    padding: 0 3em 2em;
+    border-bottom: 1px solid gray
+}
+
+#contactForm{
+    display: none;
+    background-color: #f2f2f2;
+    padding: 5em;
+}
+
+
+#updateForm{
+    width: 50%;
+    margin: auto;
+}
+
+#addToEvent{
+    padding: 2em;
+    border-bottom: 1px solid gray;
+}
+.img-responsive{
+    margin: auto;
+}
+
+
+#event{
+    display: none;
+    padding: 0 0 2em;
+    height: auto;
+    background-color: #f2f2f2;
+}
+#eventList{
+    padding: 2em;
+}
+
+.titleBars{
+    width: 100%;
+    text-align: left;
+    padding: 1.2em;
+}
+
+.titleBars:hover{
+    background-color: gainsboro;
+}
+
+.titleBars:active{
+    background-color: #f2f2f2;
+}
+
+.titleBars button{
+    color: #0a0a0a;
+}

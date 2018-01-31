@@ -1,0 +1,183 @@
+#contributorImg{
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+    margin: 2em;
+}
+
+#panel{
+    padding: 0;
+    background-color: white;
+    color: black;
+    height: 100%;
+}
+
+#profileHeader{
+    position: relative;
+    top: 2em;
+    right: 5em;
+    line-height: 1px;
+}
+
+#caption{
+    color: gray;
+}
+
+#head{
+    border-bottom: 1px solid gray;
+}
+
+#panelBody{
+    padding: 0 0 2em;
+    height: auto;
+    background-color: #f2f2f2;
+    display: none;
+}
+
+#dashboard{
+    padding: 15em;
+    height: auto;
+    background-color: #f2f2f2;
+}
+
+.tag{
+    margin: 2em;
+}
+
+input[type="file"]{
+    bottom: 1.5em;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    background: none;
+    cursor: inherit;
+    display: block;
+    right: 12.5em;
+}
+
+
+.file-btn input[type="file"]{
+    position: relative;
+}
+
+.file-btn{
+    width: 100px;
+    height: 40px;
+}
+
+
+.control-label{
+    display: block;
+}
+
+.fileUploadList{
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.thumbnail-img{
+    width: 213px;
+    height: 160px;
+}
+
+.footer-caption, .caption-info{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 160px;
+    height: 15px;
+    margin: auto;
+}
+
+.thumbnail-preview{
+    margin: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    padding: 6px;
+    text-align: center;
+    max-width: 230px;
+    max-height: 260px;
+}
+
+.fileUploadList .fileUpload-remove {
+    top: 1px;
+    right: 1px;
+    line-height: 10px;
+}
+
+.fileUpload-remove{
+    position: absolute;
+}
+.close{
+    float: right;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.mediaDiv{
+    padding: 0 3em 2em;
+    border-bottom: 1px solid gray
+}
+
+#contactForm{
+    display: none;
+    background-color: #f2f2f2;
+    padding: 5em;
+}
+
+
+#updateForm{
+    width: 50%;
+    margin: auto;
+}
+
+#addToEvent{
+    padding: 2em;
+    border-bottom: 1px solid gray;
+}
+.img-responsive{
+    margin: auto;
+}
+
+
+#event{
+    display: none;
+    padding: 0 0 2em;
+    height: auto;
+    background-color: #f2f2f2;
+}
+#eventList{
+    padding: 2em;
+}
+
+.titleBars{
+    width: 100%;
+    text-align: left;
+    padding: 1.2em;
+}
+
+.titleBars:hover{
+    background-color: gainsboro;
+}
+
+.titleBars:active{
+    background-color: #f2f2f2;
+}
+
+.titleBars button{
+    color: #0a0a0a;
+}
