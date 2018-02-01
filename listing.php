@@ -29,7 +29,7 @@ $pagination = new Pagination($extractProduct); //__constructor is called
 $view->results = $pagination->getData( $limit, $page );
 
 $view->status = false;
-if(!isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == false){
+if(!isset($_SESSION["logged_in"])){
     $view->status = false;
 
 }else if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ){
