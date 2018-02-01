@@ -13,9 +13,6 @@ require_once 'Models/ExpiredAD.php';
 $view = new stdClass();
 $view->pageTitle = 'Listing';
 
-$extractProduct = new ExtractProductData();
-$extractProduct = $extractProduct->fetchAll();
-
 //Checks to see if any item has reached threshold and then deletes it from the database
 $runExpired = new ExpiredAD();
 $runExpired->expiredAd();
@@ -25,6 +22,8 @@ $limit = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 6; //listing  per page
 $page = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1; //starting page
 $links = 5;
 
+$extractProduct = new ExtractProductData();
+$extractProduct = $extractProduct->fetchAll();
 $pagination = new Pagination($extractProduct); //__constructor is called
 $view->results = $pagination->getData( $limit, $page );
 
