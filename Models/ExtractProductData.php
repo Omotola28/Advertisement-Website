@@ -15,18 +15,30 @@ class ExtractProductData
         $this->_dbConnection = $this->_dbInstance->getDbConnection();
     }
 
-    public function fetchAll() {
+    /*public function filterSearch($userInput){
+        if($userInput === ''){
+
+        }
+
+    }*/
+
+    public function fetchAll()
+    {
         $sqlQuery = "";
-        if(isset($_POST['apply'])){
+        if (isset($_POST['apply'])) {
             $category = $_POST['category'];
             $location = $_POST['location'];
             $maxPrice = $_POST['maxNo'];
             $minPrice = $_POST['minNo'];
             $color = $_POST['colorCategory'];
             $size = $_POST['sizeCategory'];
-            $search = preg_replace('#[^a-z 0-9?!-]#i', '',$_POST['search']);
-            if($category === ""){
-                $sqlQuery = "SELECT * FROM products, users, address WHERE (products.sellerID = users.usersID)
+            $search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['search']);
+
+
+
+            /*if($search != ""){
+                $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
+                          productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address WHERE (products.sellerID = users.usersID)
                          AND (users.usersID = address.userID) AND productTitle LIKE '%$search%' OR productDes LIKE '%$search%'";
 
             }else if($category != ""){
@@ -42,16 +54,14 @@ class ExtractProductData
              and (productDes like '%$search%' or productTitle like '%$search%')";
 
             }
+            */
 
         }else{
-            $sqlQuery = 'SELECT productsID,category, productTitle, productDes, currency, price,
+            $sqlQuery = 'SELECT DISTINCT productsID,category, productTitle, productDes, currency, price,
              productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address WHERE 
              (products.sellerID = users.usersID) AND (users.usersID = address.userID)ORDER BY products.sellerID';
-
         }
-
         return $sqlQuery;
-
     }
 
     public function sellerProduct($users){
