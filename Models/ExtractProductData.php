@@ -25,14 +25,13 @@ class ExtractProductData
             $color = $_POST['colorCategory'];
             $size = $_POST['sizeCategory'];
             $search = preg_replace('#[^a-z 0-9?!-]#i', '',$_POST['search']);
-            //var_dump($category);
             if($category === ""){
                 $sqlQuery = "SELECT * FROM products, users, address WHERE (products.sellerID = users.usersID)
                          AND (users.usersID = address.userID) AND productTitle LIKE '%$search%' OR productDes LIKE '%$search%'";
 
             }else if($category != ""){
               $sqlQuery = "SELECT distinct  productsID,category, productTitle, productDes, currency, price,
-             productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,country, state FROM products, users, address 
+             productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address 
              WHERE  category like '%$category%' 
              and country like '%$location%'
              and (price >= $minPrice and price <= $maxPrice)
@@ -46,7 +45,7 @@ class ExtractProductData
 
         }else{
             $sqlQuery = 'SELECT productsID,category, productTitle, productDes, currency, price,
-             productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,country, state FROM products, users, address WHERE 
+             productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address WHERE 
              (products.sellerID = users.usersID) AND (users.usersID = address.userID)ORDER BY products.sellerID';
 
         }

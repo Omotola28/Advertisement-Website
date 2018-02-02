@@ -44,7 +44,6 @@ class Pagination
                 " LIMIT {$this->_row_start}, $this->_limit";
 
         $result = $this->_dbConnection->prepare($this->query);
-        print_r($result);
         $result->execute();
         if($result->rowCount()== 0){
             $_SESSION['errorM'] = "There was no result found";

@@ -29,21 +29,29 @@
              ?>
 
         </div>
+
         <?php if ($view->doHide === true) : ?>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="bg-success lead text-center">This product is listed as yours hence no contact form required</div>
+                <div class="bg-success lead text-center">This product is listed as yours hence no contact details required</div>
             </div>
-        <?php elseif ($view->doHide === ""):?>
+        <?php elseif (isset($_SESSION['logged_in']) == false):?>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 alert-warning lead">LogIn/Register to view contact details of seller</div>
+
+        <?php endif; ?>
+        <?php if( $view->doHide === "" && isset($_SESSION['logged_in']) === true):?>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <form>
-                    <div id="contactHeader">
-                        <h2 class="lead">Contact Publisher</h2>
-                        <?php foreach ($view->values as $value)
-                            echo ' <p><b>Seller Name:</b> '.$value->getfName().' '.$value->getlName().'</p>'
-                        ?>
+                <div id="contactHeader">
+                    <h2 class="lead">Contact Publisher</h2>
+                    <?php foreach ($view->values as $value)
+                        echo ' <p><b>Seller Name:</b> '.$value->getfName().' '.$value->getlName().'</p>
+                                  <p><b>Seller Email:</b>'.$value->getEmail().'</p>
+                                  <p><b>Seller Mobile No:</b>(44+).'.$value->getPhoneNo().'</p>'
 
-
-                    </div>
+                    ?>
+                </div>
+            </div>
+        <?php endif;?>
+                    <!--<form>
                     <div class="form-row">
                         <div class="form-group col-md-12" id="yourName">
                             <label for="yourName">Name</label>
@@ -72,8 +80,7 @@
                         <button type="submit" name="send" class="btn-lg btn-success">Send</button>
                     </div>
                 </form>
-            </div>
-        <?php endif; ?>
+            </div>-->
 
     </div>
 </div>

@@ -9,7 +9,7 @@
 class ProductData
 {
     protected $product_id, $category, $productTitle, $productDes,$currency, $price,$productColor, $productSize,
-    $productImg,$publishDate, $seller_id, $fName,$lName, $email, $country, $state;
+    $productImg,$publishDate, $seller_id, $fName,$lName, $email, $country, $state, $phoneNumber;
 
     public function __construct($dbRow) {
         $this->product_id = $dbRow['productsID'];
@@ -28,6 +28,7 @@ class ProductData
         $this->email=$dbRow['email'];
         $this->country= $dbRow['country'];
         $this->state=$dbRow['state'];
+        $this->phoneNumber=$dbRow['phonenumber'];
 
     }
 
@@ -101,5 +102,10 @@ class ProductData
     public function getCountry()
     {
         return $this->country;
+    }
+
+    public function getPhoneNo()
+    {
+        return $this->phoneNumber;
     }
 }
