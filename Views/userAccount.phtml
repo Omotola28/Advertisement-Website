@@ -37,13 +37,25 @@
                             <img src="images/<?php echo $values["wishImg"]; ?>" class="img-responsive">
                         </div>
                         <div id="watchListDetails" class="col-lg-6">
-                            <h4><?php echo $values["wishTitle"]; ?></h4>
-                            <ul>
-                                <li>Color: <?php echo $values["wishColor"]; ?></li>
-                                <li>Size: <?php echo $values["wishSize"]; ?></li>
-                                <li>Location: <?php echo $values["wishLocation"]; ?></li>
-                            </ul>
-                            <button class="btn btn-primary"  data-toggle="modal" data-target="#contactModal">Contact Seller</button>
+                            <div class="watchListInfo">
+                                <h4><?php echo $values["wishTitle"]; ?></h4>
+                                <ul>
+                                    <li>Color: <?php echo $values["wishColor"]; ?></li>
+                                    <li>Size: <?php echo $values["wishSize"]; ?></li>
+                                    <li>Location: <?php echo $values["wishLocation"]; ?></li>
+                                </ul>
+                            </div>
+
+                            <div class="watchListInfo">
+                                <h4>Contact AD Owner</h4>
+                                <ul>
+                                    <li><b>Seller Name:</b> <?php echo $values["wishSellerName"]; ?></li>
+                                    <li><b>Seller Email:</b><?php echo $values["wishSellerEmail"]; ?></li>
+                                    <li><b>Seller Phonenumber: </b><?php echo $values["wishSellerNo"]; ?></li>
+                                </ul>
+                            </div>
+
+                            <!--<button class="btn btn-primary"  data-toggle="modal" data-target="#contactModal">Contact Seller</button>-->
                             <button class="btn btn-danger" data-toggle="modal" data-target="#confirmation">Remove</button>
                             <!-- Confirmation Box  -->
                             <div class="modal fade" id="confirmation" role="dialog">
@@ -76,7 +88,7 @@
                     </div>
                 <?php } ?>
             </div>
-            <!-- start of user listings -->
+            <!-- START OF USER LISTING-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <?php foreach($view->products as $keys => $values) { ?>
                     <div class="sectionList row">
@@ -93,7 +105,7 @@
                             </ul>
                             <button class="btn btn-primary"  data-toggle="modal" data-target="#updateList<?php echo $values["productsID"]; ?>">Edit item</button>
                             <button class="btn btn-danger" data-toggle="modal" data-target="#confirmation">Remove</button>
-                            <!--start of update listing modal-->
+                            <!--START OF UPDATE LISTING-->
                             <div class="modal fade" id="updateList<?php echo $values["productsID"]; ?>" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
@@ -174,21 +186,21 @@
                                                     </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success" name="updateListing">Update</button>
-                                            <input type="hidden" name="itemUpdate" value=<?php echo $values["productsID"];?>>
-                                            <button type="button" class="btn btn-primary"  data-dismiss="modal">Cancel</button>
-                                        </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-success" name="updateListing">Update</button>
+                                                    <input type="hidden" name="itemUpdate" value=<?php echo $values["productsID"];?>>
+                                                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Cancel</button>
+                                                </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <!--end of update modal-->
-                            <!-- Confirmation Box  -->
+                            <!--END OF UPDATE MODAL-->
+                            <!-- CONFIRMATION BOX-->
                             <div class="modal fade" id="confirmation" role="dialog">
                                 <div class="modal-dialog">
 
-                                    <!-- Modal content-->
+                                    <!-- MODAL CONTENT-->
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -206,18 +218,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--end -->
+                            <!--END -->
                         </div>
                         <div class="col-lg-2">
                             <h4 class="lead"><?php echo $values["currency"]; ?><?php echo $values["price"]; ?></h4>
                         </div>
                     </div>
                 <?php } ?>
-            </div><!--End of users listing -->
-            <!--Contact seller Modal-->
-            <div class="modal fade" id="contactModal" role="dialog">
+            </div><!--END OF USER LISTING-->
+            <!--CONTACT SELLER MODAL-->
+            <!--<div class="modal fade" id="contactModal" role="dialog">
                 <div class="modal-dialog">
-                    <!-- Modal content-->
+                    <!-- Modal content
                     <div class="modal-content">
                         <form class="form-row">
                             <div class="modal-header">
@@ -225,7 +237,8 @@
                                 <h4 class="modal-title">Contact AD owner </h4>
                             </div>
                             <div class="modal-body">
-                                <div class="form-row">
+
+                                <!--<div class="form-row">
                                     <div class="form-group col-md-12" id="yourName">
                                         <label for="yourName">Name</label>
                                         <input type="text" name = "yourName" class="form-control" id="yourName" placeholder="Omotola Shogunle">
@@ -257,8 +270,8 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <!--End of contact modal-->
+            </div>-->
+            <!--END OF CONTACT MODAL-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="myDetails">
                     <div class="row">

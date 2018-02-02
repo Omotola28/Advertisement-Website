@@ -5,6 +5,8 @@
       <w>dateformat</w>
       <w>getf</w>
       <w>getl</w>
+      <w>sellerf</w>
+      <w>sellerl</w>
       <w>toggler</w>
     </words>
   </dictionary>

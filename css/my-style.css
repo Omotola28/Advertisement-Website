@@ -348,6 +348,9 @@ button:focus{
     padding-bottom: 1em;
 }
 
+.watchListInfo{
+    padding: 0 0 2em;
+}
 
 div.myDetails{
     display: none;

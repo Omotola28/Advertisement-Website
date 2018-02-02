@@ -30,6 +30,10 @@
                                         <input type="hidden" name="sellerID" value="<?php echo $results->getSellerId()?>">
                                         <input type="hidden" name="location" value="<?php echo $results->getCountry()?>">
                                         <input type="hidden" name="currency" value="<?php echo $results->getCurrency()?>">
+                                        <input type="hidden" name="sellerfName" value="<?php echo $results->getfName()?>">
+                                        <input type="hidden" name="sellerEmail" value="<?php echo $results->getEmail()?>">
+                                        <input type="hidden" name="phoneNo" value="<?php echo $results->getPhoneNo()?>">
+
                                         <?php if(isset($_SESSION['user_id'])){?>
                                             <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>">
                                         <?php } ?>
