@@ -15,16 +15,6 @@ class ExtractProductData
         $this->_dbConnection = $this->_dbInstance->getDbConnection();
     }
 
-    public function filterSearch($userInput){
-        $filter = '';
-        if($userInput === ''){
-            $filter+= $userInput;
-
-        }
-        return $filter;
-
-    }
-
     public function fetchAll()
     {
         if (isset($_POST['apply'])) {

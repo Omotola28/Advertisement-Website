@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed39860b-6fc6-46fb-8454-bf0789b9e0e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/ExtractProductData.php" afterPath="$PROJECT_DIR$/Models/ExtractProductData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/listing.php" afterPath="$PROJECT_DIR$/listing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/login.phtml" afterPath="$PROJECT_DIR$/Views/login.phtml" />
     </list>
     <ignored path="MVCtemplate.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,17 +82,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtractProductData.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ExtractProductData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+            <state relative-caret-position="-697">
+              <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
-                <marker date="1517619784490" expanded="true" signature="980:1231" ph="SELECT DISTI... products" />
-                <marker date="1517619784490" expanded="true" signature="980:1337" ph="SELECT DISTI... products" />
-                <marker date="1517619784490" expanded="true" signature="2273:2629" ph="SELECT produ... products" />
-                <marker date="1517619784490" expanded="true" signature="2734:2947" ph="SELECT * FRO... users" />
+                <marker date="1517620106027" expanded="true" signature="804:1055" ph="SELECT DISTI... products" />
+                <marker date="1517620106027" expanded="true" signature="804:1161" ph="SELECT DISTI... products" />
+                <marker date="1517620106027" expanded="true" signature="2097:2453" ph="SELECT produ... products" />
+                <marker date="1517620106027" expanded="true" signature="2558:2771" ph="SELECT * FRO... users" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/login.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="70" lean-forward="false" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="captcha.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/captcha.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,6 +169,8 @@
         <option value="$PROJECT_DIR$/listing.php" />
         <option value="$PROJECT_DIR$/Models/Pagination.php" />
         <option value="$PROJECT_DIR$/Models/ExtractProductData.php" />
+        <option value="$PROJECT_DIR$/Views/login.phtml" />
+        <option value="$PROJECT_DIR$/Views/captcha.php" />
       </list>
     </option>
   </component>
@@ -163,9 +184,6 @@
     <option name="servers">
       <server host="localhost" name="localhost" port="8000" />
     </option>
-  </component>
-  <component name="PhpTemplates">
-    <option name="NEW_PHP_FILE_LAST_EXTENSION" value="phtml" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
@@ -204,11 +222,6 @@
               <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
               <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -313,12 +326,12 @@
       <workItem from="1517087394677" duration="24638000" />
       <workItem from="1517397483359" duration="2148000" />
       <workItem from="1517513435848" duration="19311000" />
-      <workItem from="1517611801689" duration="7555000" />
+      <workItem from="1517611801689" duration="8697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67054000" />
+    <option name="totallyTimeSpent" value="68196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -366,27 +379,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Views/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/template/header.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/my-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/template/footer.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -647,6 +639,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="351" column="21" lean-forward="false" selection-start-line="351" selection-start-column="21" selection-end-line="351" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -736,14 +729,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        <state relative-caret-position="-697">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
-            <marker date="1517619784490" expanded="true" signature="980:1231" ph="SELECT DISTI... products" />
-            <marker date="1517619784490" expanded="true" signature="980:1337" ph="SELECT DISTI... products" />
-            <marker date="1517619784490" expanded="true" signature="2273:2629" ph="SELECT produ... products" />
-            <marker date="1517619784490" expanded="true" signature="2734:2947" ph="SELECT * FRO... users" />
+            <marker date="1517620106027" expanded="true" signature="804:1055" ph="SELECT DISTI... products" />
+            <marker date="1517620106027" expanded="true" signature="804:1161" ph="SELECT DISTI... products" />
+            <marker date="1517620106027" expanded="true" signature="2097:2453" ph="SELECT produ... products" />
+            <marker date="1517620106027" expanded="true" signature="2558:2771" ph="SELECT * FRO... users" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/login.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="70" lean-forward="false" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/captcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
