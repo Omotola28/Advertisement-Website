@@ -15,16 +15,18 @@ class ExtractProductData
         $this->_dbConnection = $this->_dbInstance->getDbConnection();
     }
 
-    /*public function filterSearch($userInput){
+    public function filterSearch($userInput){
+        $filter = '';
         if($userInput === ''){
+            $filter+= $userInput;
 
         }
+        return $filter;
 
-    }*/
+    }
 
     public function fetchAll()
     {
-        $sqlQuery = "";
         if (isset($_POST['apply'])) {
             $category = $_POST['category'];
             $location = $_POST['location'];
@@ -34,27 +36,36 @@ class ExtractProductData
             $size = $_POST['sizeCategory'];
             $search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['search']);
 
+            $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
+                          productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address 
+                          WHERE (products.sellerID = users.usersID) AND (users.usersID = address.userID)";
+            $condition = [];
 
-
-            /*if($search != ""){
-                $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
-                          productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address WHERE (products.sellerID = users.usersID)
-                         AND (users.usersID = address.userID) AND productTitle LIKE '%$search%' OR productDes LIKE '%$search%'";
-
-            }else if($category != ""){
-              $sqlQuery = "SELECT distinct  productsID,category, productTitle, productDes, currency, price,
-             productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address 
-             WHERE  category like '%$category%' 
-             and country like '%$location%'
-             and (price >= $minPrice and price <= $maxPrice)
-             and productCol like '%$color%'
-             and (productSize like $size or productSize is null)
-             and (users.usersID = products.sellerID )
-		     and (users.usersID = address.userID) 
-             and (productDes like '%$search%' or productTitle like '%$search%')";
-
+            if($category != ""){
+                $condition[] = "category='$category'";
             }
-            */
+            if($location != ""){
+                $condition[] = "country='$location'";
+            }
+            if($maxPrice != ""){
+                $condition[] = "price<='$maxPrice'";
+            }
+            if($minPrice != ""){
+                $condition[] = "price>='$minPrice'";
+            }
+            if($color != ""){
+                $condition[] = "productCol='$color'";
+            }
+            if($size != ""){
+                $condition[] = "productSize='$size'";
+            }
+            if($search != ""){
+                $condition[] = "productTitle like '%$search%' or productDes like '%$search'";
+            }
+
+            if (count($condition) > 0) {
+                $sqlQuery .= ' AND ' . implode(' AND ', $condition);
+            }
 
         }else{
             $sqlQuery = 'SELECT DISTINCT productsID,category, productTitle, productDes, currency, price,

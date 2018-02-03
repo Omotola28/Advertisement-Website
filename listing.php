@@ -23,8 +23,7 @@ $page = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1; //starting page
 $links = 5;
 
 $extractProduct = new ExtractProductData();
-$extractProduct = $extractProduct->fetchAll();
-$pagination = new Pagination($extractProduct); //__constructor is called
+$pagination = new Pagination($extractProduct->fetchAll()); //__constructor is called
 $view->results = $pagination->getData( $limit, $page );
 
 $view->status = false;
