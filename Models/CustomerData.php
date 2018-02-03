@@ -73,6 +73,9 @@ class CustomerData
     public function loginUser(){
         if(isset($_POST['loginBtn'])){
             $email = $_POST['emailInput'];
+            $captcha = $_POST['captcha'];
+
+
 
             // validate user input
             $sql = "SELECT * FROM users WHERE email='$email'";
@@ -86,15 +89,19 @@ class CustomerData
                 exit();
             }else{
                 $user = $result->fetch(PDO::FETCH_ASSOC);
-                if ( password_verify($_POST['inputPwd'], $user['password']) ) {
-                    $_SESSION['firstName'] = $user['firstName'];
-                    $_SESSION['email'] = $user['email'];
-                    $_SESSION['user_id'] = $user['usersID'];
-                    $_SESSION['logged_in'] = true;
-                    header("location: index.php");
-                    exit();
-
+                if (password_verify($_POST['inputPwd'], $user['password']) ) {
+                    if($captcha != $_SESSION['captcha']){
+                        $_SESSION['message'] = "Captcha text entered wrong";
                     }else{
+                        $_SESSION['firstName'] = $user['firstName'];
+                        $_SESSION['email'] = $user['email'];
+                        $_SESSION['user_id'] = $user['usersID'];
+                        $_SESSION['logged_in'] = true;
+                        header("location: index.php");
+                        exit();
+                    }
+
+                }else{
                     $_SESSION['message'] = "You have entered wrong password, try again!";
                     $_SESSION['logged_in'] = false;
                     header("location: login.php");

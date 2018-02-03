@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed39860b-6fc6-46fb-8454-bf0789b9e0e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/listing.phtml" afterPath="$PROJECT_DIR$/Views/listing.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/CustomerData.php" afterPath="$PROJECT_DIR$/Models/CustomerData.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/login.phtml" afterPath="$PROJECT_DIR$/Views/login.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/template/header.phtml" afterPath="$PROJECT_DIR$/Views/template/header.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/captcha.php" afterPath="$PROJECT_DIR$/captcha.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/my-style.css" afterPath="$PROJECT_DIR$/css/my-style.css" />
     </list>
     <ignored path="MVCtemplate.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,21 +86,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.phtml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.phtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/login.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="391">
+              <caret line="23" column="67" lean-forward="false" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="captcha.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/CustomerData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="103" column="16" lean-forward="false" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+              <folding>
+                <marker date="1517663901724" expanded="true" signature="1141:1209" ph="SELECT * FRO... users" />
+                <marker date="1517663901724" expanded="true" signature="1637:1803" ph="INSERT INTO users... " />
+                <marker date="1517663901724" expanded="true" signature="2118:2279" ph="INSERT INTO address... " />
+                <marker date="1517663901724" expanded="true" signature="3036:3076" ph="SELECT * FRO... users" />
+                <marker date="1517663901724" expanded="true" signature="4643:4728" ph="SELECT * FRO... users" />
+                <marker date="1517663901724" expanded="true" signature="5630:5966" ph="update users... " />
+                <marker date="1517663901724" expanded="true" signature="6130:6170" ph="delete from " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my-style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/my-style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="188" column="23" lean-forward="false" selection-start-line="188" selection-start-column="23" selection-end-line="188" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="captcha.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/captcha.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="74">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -133,7 +174,6 @@
         <option value="$PROJECT_DIR$/Views/page1.phtml" />
         <option value="$PROJECT_DIR$/Views/index.phtml" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/Views/template/header.phtml" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/Models/Database.php" />
         <option value="$PROJECT_DIR$/Models/ExipredAD.php" />
@@ -149,15 +189,17 @@
         <option value="$PROJECT_DIR$/Models/itemData.php" />
         <option value="$PROJECT_DIR$/Views/aboutListing.phtml" />
         <option value="$PROJECT_DIR$/Models/WishList.php" />
-        <option value="$PROJECT_DIR$/css/my-style.css" />
         <option value="$PROJECT_DIR$/Views/userAccount.phtml" />
         <option value="$PROJECT_DIR$/listing.php" />
         <option value="$PROJECT_DIR$/Models/Pagination.php" />
         <option value="$PROJECT_DIR$/Models/ExtractProductData.php" />
         <option value="$PROJECT_DIR$/Views/captcha.php" />
         <option value="$PROJECT_DIR$/Views/listing.phtml" />
-        <option value="$PROJECT_DIR$/Views/login.phtml" />
         <option value="$PROJECT_DIR$/captcha.php" />
+        <option value="$PROJECT_DIR$/Views/template/header.phtml" />
+        <option value="$PROJECT_DIR$/css/my-style.css" />
+        <option value="$PROJECT_DIR$/Models/CustomerData.php" />
+        <option value="$PROJECT_DIR$/Views/login.phtml" />
       </list>
     </option>
   </component>
@@ -208,13 +250,7 @@
             <path>
               <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
               <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="template" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -320,12 +356,12 @@
       <workItem from="1517087394677" duration="24638000" />
       <workItem from="1517397483359" duration="2148000" />
       <workItem from="1517513435848" duration="19311000" />
-      <workItem from="1517611801689" duration="12330000" />
+      <workItem from="1517611801689" duration="17459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71829000" />
+    <option name="totallyTimeSpent" value="76958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -502,22 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/CustomerData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2253">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1515373705450" expanded="true" signature="1141:1209" ph="SELECT * FRO... users" />
-            <marker date="1515373705450" expanded="true" signature="1637:1803" ph="INSERT INTO users... " />
-            <marker date="1515373705450" expanded="true" signature="2118:2279" ph="INSERT INTO address... " />
-            <marker date="1515373705450" expanded="true" signature="2992:3032" ph="SELECT * FRO... users" />
-            <marker date="1515373705450" expanded="true" signature="4396:4481" ph="SELECT * FRO... users" />
-            <marker date="1515373705450" expanded="true" signature="5383:5719" ph="update users... " />
-            <marker date="1515373705450" expanded="true" signature="5883:5923" ph="delete from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -526,14 +546,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/item.jpg" />
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/placeAd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -621,14 +633,6 @@
             <marker date="1517529503519" expanded="true" signature="3578:3783" ph="..." />
             <marker date="1517529503519" expanded="true" signature="3865:3991" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/my-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="351" column="21" lean-forward="false" selection-start-line="351" selection-start-column="21" selection-end-line="351" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,14 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/template/header.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="42" column="77" lean-forward="false" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -763,18 +759,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/login.phtml">
+    <entry file="file://$PROJECT_DIR$/Views/template/header.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/my-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="188" column="23" lean-forward="false" selection-start-line="188" selection-start-column="23" selection-end-line="188" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/captcha.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="74">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/CustomerData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="103" column="16" lean-forward="false" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
+          <folding>
+            <marker date="1517663901724" expanded="true" signature="1141:1209" ph="SELECT * FRO... users" />
+            <marker date="1517663901724" expanded="true" signature="1637:1803" ph="INSERT INTO users... " />
+            <marker date="1517663901724" expanded="true" signature="2118:2279" ph="INSERT INTO address... " />
+            <marker date="1517663901724" expanded="true" signature="3036:3076" ph="SELECT * FRO... users" />
+            <marker date="1517663901724" expanded="true" signature="4643:4728" ph="SELECT * FRO... users" />
+            <marker date="1517663901724" expanded="true" signature="5630:5966" ph="update users... " />
+            <marker date="1517663901724" expanded="true" signature="6130:6170" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/login.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="67" lean-forward="false" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
           <folding />
         </state>
       </provider>

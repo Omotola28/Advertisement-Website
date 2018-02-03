@@ -10,15 +10,18 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="emailInput">Email</label>
-                    <input type="email" class="form-control" id="emailInput" name="emailInput" placeholder="Email">
+                    <input type="email" class="form-control" value="" id="emailInput" name="emailInput" placeholder="Email">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputPwd">Password</label>
-                    <input type="password" class="form-control" id="inputPwd" name="inputPwd" placeholder="Password">
+                    <input type="password" class="form-control" value="" id="inputPwd" name="inputPwd" placeholder="Password">
                 </div>
                 <div class="form-group col-md-12">
-                    <img src="captcha.php">
-                    <input type="text" class="form-control" name="captcha">
+                    <div><img class="captcha" src="captcha.php">
+                        <button type="submit" name="reload" id="reload" onclick="return false"><i class="reload fas fa-sync"></i></button>
+                    </div>
+
+                    <input type="text" class="form-control" value="" id="captcha" name="captcha" placeholder="Enter Text above">
 
                 </div>
             </div>

@@ -178,6 +178,18 @@ address{
 }
 /**ends here**/
 
+/**LOGIN PAGE STARTS HERE **/
+
+.captcha{
+    border: 1px solid gainsboro;
+}
+
+.reload{
+    font-size: 1.5em;
+    padding-left: 10px;
+}
+/**LOGIN AGE ENDS HERE **/
+
 /*Listing page starts here **/
 
 .listing{
