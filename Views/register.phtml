@@ -60,9 +60,17 @@
                 <input type="text" id="phoneNumber" name="phoneNumber" class="form-control">
             </div>
         </div>
+        <div class="form-group col-md-12">
+          <div><img class="captcha" src="captcha.php">
+              <button type="submit" name="reload" id="reload" onclick="return false"><i class="reload fas fa-sync"></i></button>
+          </div>
+
+          <input type="text" class="form-control" value="" id="captcha" name="captcha" placeholder="Enter Text above">
+        </div>
          <div class="form-group col-md-12">
              <button type="submit" name="register" class="btn-lg btn-success">Register</button>
          </div>
+
 
     </div>
   </form>

@@ -34,6 +34,7 @@ class CustomerData
             $address2 = $_POST['addressLine2'];
             $state = $_POST['state'];
             $country = $_POST['country'];
+            $captcha = $_POST['captcha'];
 
 
             // Check if user with that email already exists
@@ -47,20 +48,24 @@ class CustomerData
                 header("location: register.php");
                 exit();
             } else {
-                $sqlQuery1 = "INSERT INTO users (firstName,surName,email, password,hash, phonenumber) VALUES ('$first_N','$last_N','$email',
+                if($captcha != $_SESSION['captcha'])
+                    $_SESSION['message'] = "Captcha text entered wrong";
+                else {
+                    $sqlQuery1 = "INSERT INTO users (firstName,surName,email, password,hash, phonenumber) VALUES ('$first_N','$last_N','$email',
                         '$password','$hash','$phoneNo')";
-                $statement = $this->_dbConnection->prepare($sqlQuery1); // prepare a PDO statement
-                $statement->execute(); // execute the PDO statement
-                $last_id = $this->_dbConnection->lastInsertId() ;
-                $_SESSION['lastID'] = $last_id;
+                    $statement = $this->_dbConnection->prepare($sqlQuery1); // prepare a PDO statement
+                    $statement->execute(); // execute the PDO statement
+                    $last_id = $this->_dbConnection->lastInsertId();
+                    $_SESSION['lastID'] = $last_id;
 
-                $sqlQuery2 = "INSERT INTO address (addressLine1, addressLine2, country, state, userID) VALUES ('$address1',
+                    $sqlQuery2 = "INSERT INTO address (addressLine1, addressLine2, country, state, userID) VALUES ('$address1',
                         '$address2', '$country', '$state',$last_id)";
-                $statement1 = $this->_dbConnection->prepare($sqlQuery2);
-                $statement1->execute();
-                $_SESSION['message'] = 'Successfully registered!';
-                header("location:login.php");
-                exit();
+                    $statement1 = $this->_dbConnection->prepare($sqlQuery2);
+                    $statement1->execute();
+                    $_SESSION['message'] = 'Successfully registered!';
+                    header("location:login.php");
+                    exit();
+                }
             }
         }
     }
