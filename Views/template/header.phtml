@@ -33,18 +33,27 @@
                 </div>
                 <div class="collapse navbar-collapse" id="MyNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) : ?>
-                            <li><div id="userName"><?php echo 'Hi' . ' '.$_SESSION['firstName']?></div></li>
-                            <li class="active"><a href="index.php" >Home</a></li>
-                            <li><a href="listing.php">Listings</a></li>
-                            <li><a href="userAccount.php">My Account</a></li>
-                            <li><a href="index.php?action=logout">Logout</a></li>
-                        <?php else :?>
-                        <li class="active"><a href="index.php" >Home</a></li>
-                        <li><a href="listing.php">Listings</a></li>
-                        <li><a href="login.php">Login</a></li>
-                        <li><a href="register.php">Register</a></li>
-                        <?php endif; ?>
+                        <?php
+                        if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ){
+                            if(isset($_SESSION["userRole"]) && $_SESSION['userRole'] === "admin-true"){
+                                echo "<li><div id='userName'>Hi ".$_SESSION['firstName']."</div></li>
+                                        <li><a href='listing.php'>Listings</a></li>
+                                       <li><a href='index.php?action=logout'>Logout</a></li>";
+                            }else{
+                                echo "<li><div id='userName'>Hi ".$_SESSION['firstName']."</div></li>
+                                <li class='active'><a href='index.php'>Home</a></li>
+                                <li><a href='listing.php'>Listings</a></li>
+                                <li><a href='userAccount.php'>My Account</a></li>
+                                <li><a href='index.php?action=logout'>Logout</a></li>";
+                            }
+                        }else{
+                            echo "<li class='active'><a href='index.php'>Home</a></li>
+                                  <li><a href='listing.php'>Listings</a></li>
+                                  <li><a href='login.php'>Login</a></li>
+                                  <li><a href='register.php'>Register</a></li>";
+                        }
+
+                        ?>
                     </ul>
                 </div>
 

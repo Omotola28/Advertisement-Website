@@ -97,12 +97,20 @@ class CustomerData
                 if (password_verify($_POST['inputPwd'], $user['password']) ) {
                     if($captcha != $_SESSION['captcha']){
                         $_SESSION['message'] = "Captcha text entered wrong";
-                    }else{
+                    }else if($user['userRole']=== 'admin-false'){
                         $_SESSION['firstName'] = $user['firstName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
                         $_SESSION['logged_in'] = true;
                         header("location: index.php");
+                        exit();
+                    }else{
+                        $_SESSION['firstName'] = $user['firstName'];
+                        $_SESSION['email'] = $user['email'];
+                        $_SESSION['user_id'] = $user['usersID'];
+                        $_SESSION['logged_in'] = true;
+                        $_SESSION['userRole'] = $user['userRole'];
+                        header("location: admin.php");
                         exit();
                     }
 

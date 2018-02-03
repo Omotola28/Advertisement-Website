@@ -295,7 +295,13 @@
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="66" parent="8" name="PRIMARY">
+    <column id="66" parent="8" name="userRole">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;admin-false&apos;</DefaultExpression>
+    </column>
+    <key id="67" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>usersID</ColNames>
       <Primary>1</Primary>
