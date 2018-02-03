@@ -29,5 +29,5 @@ imagettftext($img,$fontSize,-3, 20, 30, $black, $font,$captcha_string);
 imagejpeg($img);
 imagedestroy($img);
 
-?>
+require_once('Views/login.phtml');
 
