@@ -6,6 +6,7 @@
  * Time: 23:39
  */
 require_once 'Models/Database.php';
+require_once 'Models/ProductData.php';
 class ExtractProductData
 {
     protected $_dbConnection, $_dbInstance;
@@ -81,5 +82,31 @@ class ExtractProductData
         }
         return $results;
     }
+
+    /**
+     * @param $query to be executed
+     * @return array an array of the results
+     */
+    public function executeQuery($query){
+        $result = $this->_dbConnection->query($query);
+        $result->execute();
+
+        $results = [];
+        while ( $row = $result->fetch() ) {
+            //store this array in $result[] below
+            $results[]  = new ProductData($row);
+        }
+        return $results;
+    }
+
+    /**
+     * @param $id of item to be deleted by admin from database
+     */
+    public function adminDeleteAd($id){
+        $query = "DELETE FROM products WHERE productsID = $id";
+        $result = $this->_dbConnection->query($query);
+        $result->execute();
+    }
+
 
 }

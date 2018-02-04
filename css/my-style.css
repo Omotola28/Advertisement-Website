@@ -636,3 +636,35 @@ img{
 .titleBars button{
     color: #0a0a0a;
 }
+
+/***ADMIN PANEL STYLES **/
+#panelDivider{
+    border-top: 1px solid cadetblue;
+}
+
+#adminNav{
+    padding: 100% 0;
+    background-color: cadetblue;
+}
+
+.navIcons{
+    font-size: 2em;
+    position: relative;
+    top: -47em;
+}
+
+.navIcons button{
+    color: gainsboro;
+}
+
+#actionSubmit{
+    margin: 3.7em 0;
+}
+
+.action{
+    margin: 2em 0;
+    padding: 0;
+}
+
+
+/***END ADMIN PANEL ***/

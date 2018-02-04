@@ -6,7 +6,26 @@ session_start();
 * Date: 08/11/2017
 * Time: 00:20
 */
+require_once('Models/ExtractProductData.php');
 $view = new stdClass();
-$view->pageTitle = 'Listing';
+$view->pageTitle = 'Admin';
+
+$extractProduct = new ExtractProductData();
+$query = $extractProduct->fetchAll();
+$view->displayAd = $extractProduct->executeQuery($query);
+
+if(isset($_POST['apply_action'])){
+    $ids = $_POST['action_list'];
+    $action = $_POST['chooseAction'];
+    if($action === "delete"){
+         for($i = 0; $i < count($ids); $i++){
+            $extractProduct->adminDeleteAd($ids[$i]);
+        }
+    }
+
+
+}
+
+
 
 require_once('Views/admin.phtml');

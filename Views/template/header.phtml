@@ -59,15 +59,21 @@
 
             </div>
         </nav>
-       <div class="jumbotron jumbotron-fluid">
-           <div class="container" id="jumbotronInfo">
-               <h1 class="display-3">Africa To Uk</h1>
-               <p class="lead">The site that accommodates adverts directly from Africa and delivers to your door step
-                   in the UK.</p>
+        <?php if($_SESSION['userRole'] === "admin-true"):?>
+            <!--hide jumbotron-->
 
-               <a href="placeAd.php"><button class="btn btn-primary">Place Free Ad</button></a>
-           </div>
-       </div>
+        <?php else:?>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container" id="jumbotronInfo">
+                    <h1 class="display-3">Africa To Uk</h1>
+                    <p class="lead">The site that accommodates adverts directly from Africa and delivers to your door step
+                        in the UK.</p>
+
+                    <a href="placeAd.php"><button class="btn btn-primary">Place Free Ad</button></a>
+                </div>
+            </div>
+        <?php endif;?>
+
 
     <div class="container-fluid">
 

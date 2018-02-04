@@ -1,4 +1,65 @@
 <?php require('template/header.phtml') ?>
 
+<div id="panelDivider" class="row">
+    <div id="adminNav" class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+        <div class=" navIcons ">
+            <button><i class="fas fa-users"></i></button>
+        </div>
+        <div class=" navIcons ">
+            <button><i class="fab fa-adversal"></i></button>
+        </div>
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+      <div class="row">
+        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+            <div class="form-group col-lg-4 action">
+                <label for="action">Action</label>
+                <select id="action" class="form-control" name="chooseAction">
+                    <option selected value="nothing">Choose Action...</option>
+                    <option value="delete">Delete</option>
+                </select>
+            </div>
+            <div id="actionSubmit" class="col-lg-4">
+                <input type="submit" class="btn btn-success" name="apply_action" value="Apply"/>
+            </div>
+
+                <h4 class="col-lg-12"><p>Table of Adverts</p></h4>
+                <table class="table table-responsive table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Title Of Adverts</th>
+                        <th>Date published</th>
+                        <th>Expiry Date</th>
+                        <th>Action CheckList</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($view->displayAd as $ad) {
+                            echo '<tr>
+                        <td class="col-lg-1">' . $ad->getProductId() . '</td>
+                        <td class="col-lg-6">' . $ad->getTitle() . '</td>
+                        <td class="alert-info col-lg-2">'. date_format(date_create($ad->getDate()),'jS F Y') . ' </td>
+    
+                        <td class="alert-danger col-lg-2">'. date('jS F Y', strtotime($ad->getDate().' +14 days')).' </td>
+                        
+                         <!--<form action="' . $_SERVER['PHP_SELF'] . '" method="post">
+                            <input type="submit" class="btn btn-primary" value="Edit Event" name="edit" id="edit">
+                            <!--<input type="hidden" name="eventId" value="">
+                         </form>-->
+                        
+    
+                        <td class="col-lg-1"><input type="checkbox" name="action_list[]" value="' . $ad->getProductId() . '"/></td>
+    
+                     </tr>';
+                        }?>
+                    </tbody>
+                </table>
+        </form>
+      </div>
+    </div>
+
+</div>
+
 
 <?php require('template/footer.phtml') ?>
