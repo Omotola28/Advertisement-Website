@@ -57,11 +57,6 @@ class PlaceAd
             $sql = "SELECT * FROM users WHERE email='$email'";
             $result = $this->_dbConnection->prepare($sql);
             $result->execute();
-            if(isset($_SESSION['lastID'])){
-                $lastID = $_SESSION['lastID'];
-            }
-
-
             //echo $category, $title, $description, $currency, $price,$color, $country, $state, $seller_N,$size, $email,$dateFormat,$fileName, $lastID;
 
             // We know user email exists if the rows returned are more than 0
@@ -86,12 +81,13 @@ class PlaceAd
                     } else if (file_exists($target_file)) { // Check if file already exists
                         $_SESSION['adMessage'] = "Sorry, file already exists.";
                     } else if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-
-                        $sqlQuery = "INSERT INTO products (category,productTitle,productDes, currency,price,productCol,productSize,productImg,publishDate, sellerID)
-                          VALUES ('$category','$title','$description','$currency','$price','$color',$size,'$fileName','$dateFormat',$lastID)";
-                        $statement = $this->_dbConnection->prepare($sqlQuery); // prepare a PDO statement
-                        $statement->execute(); // execute the PDO statement
-
+                        if(isset($_SESSION['user_id'])){
+                            $userID = $_SESSION['user_id'];
+                            $sqlQuery = "INSERT INTO products (category,productTitle,productDes, currency,price,productCol,productSize,productImg,publishDate, sellerID)
+                          VALUES ('$category','$title','$description','$currency','$price','$color',$size,'$fileName','$dateFormat','$userID')";
+                            $statement = $this->_dbConnection->prepare($sqlQuery); // prepare a PDO statement
+                            $statement->execute(); // execute the PDO statement
+                        }
                         $_SESSION['adMessage'] = "The file " . basename($_FILES["file"]["name"]) . "/product details has been uploaded.";
                     } else {
                         $_SESSION['adMessage'] = "Sorry, there was an error uploading your file.";

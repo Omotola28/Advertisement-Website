@@ -43,42 +43,6 @@ if(isset($_POST["wishList"]))
 
             $wishData = new WishList();
             $wishData->insertWishItem();
-          /*if (isset($_SESSION["shopping_cart"])) {
-              $item_array_id = array_column($_SESSION["shopping_cart"], "id");
-              if (!in_array($_GET["id"], $item_array_id)) {
-                  $count = count($_SESSION["shopping_cart"]);
-                  $item_array = array(
-                      'id' => $_GET["id"],
-                      'itemTitle' => $_POST["title"],
-                      'itemPrice' => $_POST["price"],
-                      'itemSize' => $_POST["size"],
-                      'itemColor' => $_POST["color"],
-                      'itemImage' => $_POST["image"],
-                      'itemSellerID' => $_POST["sellerID"],
-                      'itemLocation' => $_POST["location"],
-                      'itemCurrency' => $_POST["currency"],
-                      'userid' => $_POST["userID"]
-                  );
-                  $_SESSION["shopping_cart"][$count] = $item_array;
-              } else {
-                  echo '<script>alert("Item Already Added")</script>';
-                  echo '<script>window.location="listing.php"</script>';
-              }
-          } else {
-              $item_array = array(
-                  'id' => $_GET["id"],
-                  'itemTitle' => $_POST["title"],
-                  'itemPrice' => $_POST["price"],
-                  'itemSize' => $_POST["size"],
-                  'itemColor' => $_POST["color"],
-                  'itemImage' => $_POST["image"],
-                  'itemSellerID' => $_POST["sellerID"],
-                  'itemLocation' => $_POST["location"],
-                  'itemCurrency' => $_POST["currency"],
-                  'userid' => $_POST["userID"]
-              );
-              $_SESSION["shopping_cart"][0] = $item_array;
-          }*/
       }
 }
 require_once('Views/listing.phtml');

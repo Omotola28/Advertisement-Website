@@ -212,11 +212,29 @@ function addToWatchList(buttonID, status) {
 }
 
 /**
- * @param x id of element we want to target
- * @returns {Element}
+ * Toggles the admin panels divs to show pages without refreshing page
  */
-function getId(x) {
-    return document.getElementById(x);
+var adminPanels = ["adminAdList", "adminUsersList"];
+var visibleDivId = null;
+function displayPanels(divId) {
+    if(visibleDivId === divId) {
+        visibleDivId = null;
+    } else {
+        visibleDivId = divId;
+    }
+    hideNonVisibleDivs();
+}
+function hideNonVisibleDivs() {
+    var i, divId, div;
+    for(i = 0; i < adminPanels.length; i++) {
+        divId = adminPanels[i];
+        div = document.getElementById(divId);
+        if(visibleDivId === divId) {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
 }
 
 /*function processFormPage() {

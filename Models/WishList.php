@@ -92,10 +92,5 @@ class WishList
 
         echo '<script>window.location="userAccount.php"</script>';
     }
-   /* public function insertWishItem($sql)
-    {
-        $res = $this->_dbConnection->query($sql);
-        $res->execute();
 
-    }*/
 }

@@ -216,6 +216,7 @@ address{
     border: 1px solid #ECECEC;
     background-color: #fff;
     padding: 6px;
+    min-height: 35em;
 }
 
 .card-img-top{
@@ -435,24 +436,22 @@ div.myDetails{
 
 .itemImg{
     margin: 2em 0;
-    border: 1px solid gainsboro;
 }
 
 .itemImg img{
-    height: auto;
+    height: 300px;
     vertical-align: middle;
     border: 0;
-    width: 100%;
+    width: 300px;
 }
 
 #contactHeader{
     padding-left: 15px;
 }
 /*ends here*/
-
 /*****styles for january project****/
 /***********************************/
-/***********************************/
+/**********************************
 #contributorImg{
     width: 50px;
     border-radius: 50%;
@@ -636,7 +635,7 @@ img{
 .titleBars button{
     color: #0a0a0a;
 }
-
+*/
 /***ADMIN PANEL STYLES **/
 #panelDivider{
     border-top: 1px solid cadetblue;

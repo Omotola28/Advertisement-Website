@@ -106,6 +106,7 @@ class ExtractProductData
         $query = "DELETE FROM products WHERE productsID = $id";
         $result = $this->_dbConnection->query($query);
         $result->execute();
+        header("location: admin.php");
     }
 
 
