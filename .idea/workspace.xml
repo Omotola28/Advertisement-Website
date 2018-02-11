@@ -2,41 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed39860b-6fc6-46fb-8454-bf0789b9e0e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/shoes.jpg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/191.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/ada.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/africa.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/afro.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/aqua.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/attire.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/bethy.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/bonnet.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/cards.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/cart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/charter.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/cup.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/cushion.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/dress.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/earring.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/event.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/fan.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/headgear.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/headwrap.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/jumper.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/patch.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/shortsTop.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/africanCard.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/ExpiredAD.php" afterPath="$PROJECT_DIR$/Models/ExpiredAD.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/ExtractProductData.php" afterPath="$PROJECT_DIR$/Models/ExtractProductData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/PlaceAd.php" afterPath="$PROJECT_DIR$/Models/PlaceAd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/WishList.php" afterPath="$PROJECT_DIR$/Models/WishList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/admin.phtml" afterPath="$PROJECT_DIR$/Views/admin.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/listing.phtml" afterPath="$PROJECT_DIR$/Views/listing.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/placeAd.phtml" afterPath="$PROJECT_DIR$/Views/placeAd.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin.php" afterPath="$PROJECT_DIR$/admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/my-style.css" afterPath="$PROJECT_DIR$/css/my-style.css" />
     </list>
     <ignored path="MVCtemplate.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,12 +38,6 @@
         <item name="lae891@helios.csesalford.com" type="e3449647:DbNodeDescriptor" />
         <item name="lae891" type="e3449647:DbNodeDescriptor" />
       </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="lae891@helios.csesalford.com" type="e3449647:DbNodeDescriptor" />
-        <item name="lae891" type="e3449647:DbNodeDescriptor" />
-        <item name="products" type="e3449647:DbNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
@@ -86,9 +49,18 @@
       <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+            <state relative-caret-position="220">
+              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products" pinned="false" current-in-tab="true">
+        <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.products">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -96,14 +68,15 @@
       <file leaf-file-name="ExtractProductData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+            <state relative-caret-position="305">
+              <caret line="109" column="52" lean-forward="false" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="52" />
               <folding>
-                <marker date="1518381354826" expanded="true" signature="843:1094" ph="SELECT DISTI... products" />
-                <marker date="1518381354826" expanded="true" signature="843:1200" ph="SELECT DISTI... products" />
-                <marker date="1518381354826" expanded="true" signature="2136:2498" ph="SELECT DISTI... products" />
-                <marker date="1518381354826" expanded="true" signature="2603:2816" ph="SELECT * FRO... users" />
-                <marker date="1518381354826" expanded="true" signature="3667:3707" ph="DELETE FROM " />
+                <marker date="1518382436248" expanded="true" signature="843:1094" ph="SELECT DISTI... products" />
+                <marker date="1518382436248" expanded="true" signature="843:1200" ph="SELECT DISTI... products" />
+                <marker date="1518382436248" expanded="true" signature="2136:2498" ph="SELECT DISTI... products" />
+                <marker date="1518382436248" expanded="true" signature="2603:2816" ph="SELECT * FRO... users" />
+                <marker date="1518382436248" expanded="true" signature="3667:3707" ph="DELETE FROM " />
+                <marker date="1518382436248" expanded="true" signature="3815:3851" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -138,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WishList.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WishList.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/WishList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="34" />
+            <state relative-caret-position="337">
+              <caret line="80" column="22" lean-forward="true" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
               <folding>
                 <marker date="1518355918772" expanded="true" signature="1198:1534" ph="INSERT INTO WishList... " />
                 <marker date="1518355918772" expanded="true" signature="1823:1861" ph="select * fro... WishList" />
@@ -219,9 +192,9 @@
         <option value="$PROJECT_DIR$/Models/PlaceAd.php" />
         <option value="$PROJECT_DIR$/css/my-style.css" />
         <option value="$PROJECT_DIR$/Views/listing.phtml" />
+        <option value="$PROJECT_DIR$/Views/admin.phtml" />
         <option value="$PROJECT_DIR$/Models/ExtractProductData.php" />
         <option value="$PROJECT_DIR$/admin.php" />
-        <option value="$PROJECT_DIR$/Views/admin.phtml" />
       </list>
     </option>
   </component>
@@ -387,12 +360,12 @@
       <workItem from="1517397483359" duration="2148000" />
       <workItem from="1517513435848" duration="19311000" />
       <workItem from="1517611801689" duration="43209000" />
-      <workItem from="1518171557657" duration="29494000" />
+      <workItem from="1518171557657" duration="33412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132202000" />
+    <option name="totallyTimeSpent" value="136120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -688,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.WishList">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -762,13 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.products">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/listing.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -808,28 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding>
-            <marker date="1518381354826" expanded="true" signature="843:1094" ph="SELECT DISTI... products" />
-            <marker date="1518381354826" expanded="true" signature="843:1200" ph="SELECT DISTI... products" />
-            <marker date="1518381354826" expanded="true" signature="2136:2498" ph="SELECT DISTI... products" />
-            <marker date="1518381354826" expanded="true" signature="2603:2816" ph="SELECT * FRO... users" />
-            <marker date="1518381354826" expanded="true" signature="3667:3707" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/admin.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -857,16 +794,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.WishList">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Models/WishList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="34" />
+        <state relative-caret-position="337">
+          <caret line="80" column="22" lean-forward="true" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
           <folding>
             <marker date="1518355918772" expanded="true" signature="1198:1534" ph="INSERT INTO WishList... " />
             <marker date="1518355918772" expanded="true" signature="1823:1861" ph="select * fro... WishList" />
             <marker date="1518355918772" expanded="true" signature="2129:2167" ph="select * fro... WishList" />
             <marker date="1518355918772" expanded="true" signature="2624:2660" ph="DELETE FROM " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="109" column="52" lean-forward="false" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="52" />
+          <folding>
+            <marker date="1518382436248" expanded="true" signature="843:1094" ph="SELECT DISTI... products" />
+            <marker date="1518382436248" expanded="true" signature="843:1200" ph="SELECT DISTI... products" />
+            <marker date="1518382436248" expanded="true" signature="2136:2498" ph="SELECT DISTI... products" />
+            <marker date="1518382436248" expanded="true" signature="2603:2816" ph="SELECT * FRO... users" />
+            <marker date="1518382436248" expanded="true" signature="3667:3707" ph="DELETE FROM " />
+            <marker date="1518382436248" expanded="true" signature="3815:3851" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.products">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
