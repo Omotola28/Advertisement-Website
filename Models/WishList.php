@@ -27,6 +27,7 @@ class WishList
             $price = $_POST['price'];
             $color = $_POST['color'];
             $image = $_POST['image'];
+            $date = $_POST['date'];
             //$sellerId = $_POST['sellerID'];
             $sellerName = $_POST['sellerfName'];
             $sellerEmail = $_POST['sellerEmail'];
@@ -41,8 +42,8 @@ class WishList
             }
 
             if($this->checkIfExist($id) != true){
-                $sql = "INSERT INTO WishList (wishID,wishImg, wishColor, wishSize, wishLocation, wishCurrency, wishPrice, wishTitle, userID, wishSellerName, wishSellerEmail, wishSellerNo) VALUE 
-                ('$id','$image','$color',$size,'$location','$currency','$price','$title','$userId', '$sellerName', '$sellerEmail', '$sellerPhone')";
+                $sql = "INSERT INTO WishList (wishID,wishImg, wishColor, wishSize, wishLocation, wishCurrency, wishPrice, wishTitle, userID, wishSellerName, wishSellerEmail, wishSellerNo, wishDate) VALUE 
+                ('$id','$image','$color',$size,'$location','$currency','$price','$title','$userId', '$sellerName', '$sellerEmail', '$sellerPhone', '$date')";
                 $result = $this->_dbConnection->query($sql);
                 $result->execute();
             }else

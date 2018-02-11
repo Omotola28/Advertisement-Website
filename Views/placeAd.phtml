@@ -109,7 +109,21 @@
                 <h3>Seller Information</h3>
                 <hr>
             </div>
-            <div class="form-row">
+            <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ){
+                echo '<div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="sellerName">Name</label>
+                    <p>'.$_SESSION['firstName'].'</p>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sellerEmail">Email</label>
+                     <p>'.$_SESSION['email'].'</p>
+                </div>
+            </div>';
+
+            }
+            else{
+                echo ' <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="sellerName">Name</label>
                     <input type="text" name="sellerName" class="form-control" id="sellerName">
@@ -118,14 +132,10 @@
                     <label for="sellerEmail">Email</label>
                     <input type="email" name="sellerEmail" class="form-control" id="sellerEmail">
                 </div>
-            </div>
-            <!--<div class="form-group col-md-12">
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Add Email To Ad?
-                    </label>
-                </div>
-            </div>-->
+            </div>';
+            }
+
+            ?>
             <div class="form-group col-md-12">
                 <button type="submit" name="publish" class="btn-lg btn-success">Publish</button>
             </div>

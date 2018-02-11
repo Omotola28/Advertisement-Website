@@ -43,13 +43,6 @@
                         <td class="alert-info col-lg-2">'. date_format(date_create($ad->getDate()),'jS F Y') . ' </td>
     
                         <td class="alert-danger col-lg-2">'. date('jS F Y', strtotime($ad->getDate().' +14 days')).' </td>
-                        
-                         <!--<form action="' . $_SERVER['PHP_SELF'] . '" method="post">
-                            <input type="submit" class="btn btn-primary" value="Edit Event" name="edit" id="edit">
-                            <!--<input type="hidden" name="eventId" value="">
-                         </form>-->
-                        
-    
                         <td class="col-lg-1"><input type="checkbox" name="action_list[]" value="' . $ad->getProductId() . '"/></td>
     
                      </tr>';

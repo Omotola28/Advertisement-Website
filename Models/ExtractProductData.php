@@ -61,7 +61,7 @@ class ExtractProductData
         }else{
             $sqlQuery = 'SELECT DISTINCT productsID,category, productTitle, productDes, currency, price,
              productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address WHERE 
-             (products.sellerID = users.usersID) AND (users.usersID = address.userID)ORDER BY products.sellerID';
+             (products.sellerID = users.usersID) AND (users.usersID = address.userID)ORDER BY products.productsID ASC';
         }
         return $sqlQuery;
     }
@@ -108,6 +108,7 @@ class ExtractProductData
         $result->execute();
         header("location: admin.php");
     }
+
 
 
 }

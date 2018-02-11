@@ -16,16 +16,15 @@ $view->displayAd = $extractProduct->executeQuery($query);
 
 if(isset($_POST['apply_action'])){
     $ids = $_POST['action_list'];
+    $title = $_POST['title'];
     $action = $_POST['chooseAction'];
+    var_dump($title);
     if($action === "delete"){
          for($i = 0; $i < count($ids); $i++){
             $extractProduct->adminDeleteAd($ids[$i]);
         }
     }
-
-
 }
-
 
 
 require_once('Views/admin.phtml');

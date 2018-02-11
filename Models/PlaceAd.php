@@ -28,19 +28,18 @@ class PlaceAd
             $currency = $_POST['currency'];
             $price = $_POST['amount'];
             $color = $_POST['color'];
-            if (!isset($_POST['size'])) {
-                $size = 'null';
-            }else{
-                $size = $_POST['size'];
-            }
             $country = $_POST['country'];
             $state = $_POST['state'];
-            $seller_N = $_POST['sellerEmail'];
-            $email = $_POST['sellerEmail'];
+            //$email = $_POST['sellerEmail'];
             $date = $_POST['date'];
             $dateFormat = date("Y-m-d", strtotime($date));
             if (!isset($_SESSION['logged_in'])) {
                 $_SESSION['logged_in'] = false;
+            }
+            if (!isset($_POST['size'])) {
+                $size = 'null';
+            }else{
+                $size = $_POST['size'];
             }
 
 
@@ -53,18 +52,17 @@ class PlaceAd
 
 
 
-            // Check if user with that email already exists
+           /* // Check if user with that email already exists
             $sql = "SELECT * FROM users WHERE email='$email'";
             $result = $this->_dbConnection->prepare($sql);
-            $result->execute();
-            //echo $category, $title, $description, $currency, $price,$color, $country, $state, $seller_N,$size, $email,$dateFormat,$fileName, $lastID;
+            $result->execute();*/
 
             // We know user email exists if the rows returned are more than 0
-            if ($result->rowCount() == 0 || $_SESSION['logged_in'] == false) {
+            if ($_SESSION['logged_in'] == false) {
                 $_SESSION['adMessage'] = 'You need to register/login before advertisement is placed';
                 header("location: placeAd.php");
                 exit();
-            } else if ($_SESSION['logged_in'] == true && $email == $_SESSION['email']) {
+            } else if ($_SESSION['logged_in'] == true ) {
                 // Allow certain file formats
                 if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                     $_SESSION['adMessage'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
@@ -87,6 +85,8 @@ class PlaceAd
                           VALUES ('$category','$title','$description','$currency','$price','$color',$size,'$fileName','$dateFormat','$userID')";
                             $statement = $this->_dbConnection->prepare($sqlQuery); // prepare a PDO statement
                             $statement->execute(); // execute the PDO statement
+                            echo $category, $title, $description, $currency, $price,$color, $country, $state,$size,$dateFormat,$fileName, $userID;
+
                         }
                         $_SESSION['adMessage'] = "The file " . basename($_FILES["file"]["name"]) . "/product details has been uploaded.";
                     } else {

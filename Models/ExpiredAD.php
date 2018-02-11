@@ -34,10 +34,13 @@ class ExpiredAD
             $datediff = $now - $adDate;
             $duration = floor($datediff / (60 * 60 * 24));
 
-            if($duration <= 7){
-                echo "we are here";
+            if($duration >= 14){
                 $delQuery = "DELETE FROM products WHERE publishDate = '$dateformat'";
                 $result = $this->_dbConnection->query($delQuery);
+                $result->execute();
+
+                $delQuery1 = "Delete from WishList where wishDate = '$dateformat'";
+                $result = $this->_dbConnection->query($delQuery1);
                 $result->execute();
             }
         }
