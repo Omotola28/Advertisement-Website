@@ -23,14 +23,13 @@ class PlaceAd
 
         if (isset($_POST["publish"])) {
             $category = $_POST['category'];
-            $title = $_POST['title'];
-            $description = $_POST['description'];
+            $title = $this->test_input($_POST['title']);
+            $description = $this->test_input($_POST['description']);
             $currency = $_POST['currency'];
-            $price = $_POST['amount'];
+            $price = $this->test_input($_POST['amount']);
             $color = $_POST['color'];
             $country = $_POST['country'];
             $state = $_POST['state'];
-            //$email = $_POST['sellerEmail'];
             $date = $_POST['date'];
             $dateFormat = date("Y-m-d", strtotime($date));
             if (!isset($_SESSION['logged_in'])) {
@@ -49,13 +48,6 @@ class PlaceAd
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-
-
-
-           /* // Check if user with that email already exists
-            $sql = "SELECT * FROM users WHERE email='$email'";
-            $result = $this->_dbConnection->prepare($sql);
-            $result->execute();*/
 
             // We know user email exists if the rows returned are more than 0
             if ($_SESSION['logged_in'] == false) {
@@ -98,5 +90,19 @@ class PlaceAd
 
 
         }
+    }
+
+    /**
+     * Checks input from form and strips any unwanted characters making sure to remove sql injections
+     * @param $data of unfiltered input
+     * @return string of filtered input
+     */
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        $data = preg_replace("#[']#i", '', $data);
+        return $data;
     }
 }

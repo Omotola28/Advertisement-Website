@@ -8,7 +8,7 @@ function printState(country, state) {
     }else if(selectedCountry.value == "Kenya"){
         var optionArray = ["|", "nairobi|Nairobi", "mombasa|Mombasa", "nakuru|Nakuru"];
     }else if(selectedCountry.value == "South Africa") {
-        var optionArray = ["|", "nairobi|Nairobi", "mombasa|Mombasa", "nakuru|Nakuru"];
+        var optionArray = ["|", "cape town|Cape Town", "johannesburg|Johannesburg", "durban|Durban"];
     }
     for(var option in optionArray){
         var pair = optionArray[option].split("|");
@@ -188,7 +188,7 @@ function verifyNo() {
 function select(category, size) {
     var category = document.getElementById(category);
     var size = document.getElementById(size);
-    if(category.value == "Accessory" || category.value =="Jewelry"){
+    if(category.value == "Accessory" || category.value =="Jewellery"){
         size.disabled = true;
     }
     else
@@ -237,31 +237,6 @@ function hideNonVisibleDivs() {
     }
 }
 
-/*function processFormPage() {
-var title, des,image, color, size, country, state, nextBtn1, nextBtn2, firstPhase, secondPhase, thirdPhase;
-title = getId('titleUpdate').value;
-des = getId('desUpdate').value;
-image = getId('fileUpdate').value;
-color = getId('updateColor').value;
-size = getId('updateSize').value;
-country = getId('updateCountry').value;
-state = getId('updateState').value;
-nextBtn1 = getId('first').value;
-
-if(nextBtn1){
-    if(title != '' || des != ''){
-        getId('formPage1').style.display = 'none';
-        getId('formPage2').style.display = 'block';
-    }else if(title == '') {
-        title.style.border = "1px solid red";
-        title.focus();
-    }else if (des == ''){
-        des.style.border = "1px solid red";
-        des.focus();
-    }
-}
-
-}*/
 
 $(function(){
     $("#watchListBtn").click(function() {

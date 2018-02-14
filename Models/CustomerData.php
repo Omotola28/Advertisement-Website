@@ -105,7 +105,6 @@ class CustomerData
                         header("location: index.php");
                         exit();
                     }else{
-                        //$_SESSION['userId'] = $user['usersID'];
                         $_SESSION['firstName'] = $user['firstName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
