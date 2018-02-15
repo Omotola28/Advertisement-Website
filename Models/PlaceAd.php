@@ -18,6 +18,9 @@ class PlaceAd
 
     }
 
+    /**
+     * insert products into the products table
+     */
     public function insertAd()
     {
 

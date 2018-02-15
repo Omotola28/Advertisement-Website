@@ -15,6 +15,7 @@ $view->pageTitle = 'LogIn';
 $runExpired = new ExpiredAD();
 $runExpired->expiredAd();
 
+//login user
 $customerData = new CustomerData();
 $customerData->loginUser();
 

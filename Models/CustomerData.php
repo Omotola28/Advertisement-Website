@@ -56,7 +56,6 @@ class CustomerData
                     $statement = $this->_dbConnection->prepare($sqlQuery1); // prepare a PDO statement
                     $statement->execute(); // execute the PDO statement
                     $last_id = $this->_dbConnection->lastInsertId();
-                    /*$_SESSION['lastID'] = $last_id;*/
 
                     $sqlQuery2 = "INSERT INTO address (addressLine1, addressLine2, country, state, userID) VALUES ('$address1',
                         '$address2', '$country', '$state',$last_id)";
@@ -79,8 +78,6 @@ class CustomerData
         if(isset($_POST['loginBtn'])){
             $email = $_POST['emailInput'];
             $captcha = $_POST['captcha'];
-
-
 
             // validate user input
             $sql = "SELECT * FROM users WHERE email='$email'";

@@ -18,6 +18,10 @@ class itemData
         $this->_dbConnection = $this->_dbInstance->getDbConnection();
     }
 
+    /**
+     * @param $seller_id identifies what seller is logged in so contact details can be hidden
+     * @return array
+     */
     public function hideContactForm($seller_id){
         $query = "SELECT productsID, sellerID FROM products where sellerID = $seller_id";
         $result = $this->_dbConnection->query($query);
@@ -32,6 +36,10 @@ class itemData
     }
 
 
+    /**
+     * @param $item collects id for specific item to be displayed
+     * @return array
+     */
     public function specificItem($item){
 
         $query = "SELECT productsID,category, productTitle, productDes, currency, price,
@@ -50,6 +58,9 @@ class itemData
 
     }
 
+    /**
+     * update an existing item by user
+     */
     public function updateListing(){
             $id = $_POST['itemUpdate'];
             $title = $_POST['updateTitle'];
@@ -64,7 +75,6 @@ class itemData
             $price = $_POST['updatePrice'];
             $country = $_POST['country'];
             $state = $_POST['state'];
-            //$date = date("Y-m-d", strtotime($_POST['updateDate']));
 
             $target_dir = "images/";
             $fileName = $_FILES["updateImage"]["name"];

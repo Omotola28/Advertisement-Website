@@ -12,8 +12,10 @@ $view->pageTitle = 'Admin';
 
 $extractProduct = new ExtractProductData();
 $query = $extractProduct->fetchAll();
+//displays the ads in the admin panel
 $view->displayAd = $extractProduct->executeQuery($query);
 
+//applies action to selected products
 if(isset($_POST['apply_action'])){
     $ids = $_POST['action_list'];
     $action = $_POST['chooseAction'];

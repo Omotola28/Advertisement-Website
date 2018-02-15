@@ -15,6 +15,7 @@ $view->pageTitle = 'PlaceAd';
 $runExpired = new ExpiredAD();
 $runExpired->expiredAd();
 
+//insert product into database
 $placeAd = new PlaceAd();
 $placeAd->insertAd();
 

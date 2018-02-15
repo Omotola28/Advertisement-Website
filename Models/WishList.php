@@ -20,6 +20,9 @@ class WishList
     }
 
 
+    /**
+     * insert item into the wishList table
+     */
     public function  insertWishItem(){
         if(isset($_POST['wishList'])) {
             $id = $_GET["id"];
@@ -28,7 +31,6 @@ class WishList
             $color = $_POST['color'];
             $image = $_POST['image'];
             $date = $_POST['date'];
-            //$sellerId = $_POST['sellerID'];
             $sellerName = $_POST['sellerfName'];
             $sellerEmail = $_POST['sellerEmail'];
             $sellerPhone = $_POST['phoneNo'];
@@ -55,6 +57,10 @@ class WishList
         }
     }
 
+    /**
+     * @param $id for item to check if it already exist in table
+     * @return bool true if exist false if not
+     */
     public function checkIfExist($id){
         $sql = "select * from WishList where wishID = $id";
         $result = $this->_dbConnection->query($sql);

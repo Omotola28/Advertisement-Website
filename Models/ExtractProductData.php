@@ -16,6 +16,11 @@ class ExtractProductData
         $this->_dbConnection = $this->_dbInstance->getDbConnection();
     }
 
+    /**
+     * fetchAll displays the list of items on the listings page
+     * @return string of the query to display the list of items on the website
+     */
+
     public function fetchAll()
     {
         if (isset($_POST['apply'])) {
@@ -30,7 +35,7 @@ class ExtractProductData
             $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
                           productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address 
                           WHERE (products.sellerID = users.usersID) AND (users.usersID = address.userID)";
-            $condition = [];
+            $condition = []; //create a an array of conditions to be added to search query
 
             if($category != ""){
                 $condition[] = "category='$category'";
@@ -59,6 +64,7 @@ class ExtractProductData
             }
 
         }else{
+            //query that runs if the search bar is not being used
             $sqlQuery = 'SELECT DISTINCT productsID,category, productTitle, productDes, currency, price,
              productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address WHERE 
              (products.sellerID = users.usersID) AND (users.usersID = address.userID)ORDER BY products.productsID ASC';
@@ -66,6 +72,10 @@ class ExtractProductData
         return $sqlQuery;
     }
 
+    /**
+     * @param $users takes userId for the seller inorder to display their products
+     * @return array of products belonging to a particular seller
+     */
     public function sellerProduct($users){
         $sql = "SELECT *
                 FROM users
@@ -87,8 +97,8 @@ class ExtractProductData
      * @param $query to be executed
      * @return array an array of the results
      */
-    public function executeQuery($query){
-        $result = $this->_dbConnection->query($query);
+    public function executeQuery($sql){
+        $result = $this->_dbConnection->query($sql);
         $result->execute();
 
         $results = [];

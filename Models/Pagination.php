@@ -31,10 +31,15 @@ class Pagination
         $this->_total = $statement->rowCount();
     }
 
+    /**
+     * @param $limit on the number of items that can be shown on each page
+     * @param $page number of current page
+     * @return array
+     */
     public function getData($limit, $page){
         $this->_limit = $limit;
         $this->_page = $page;
-        //echo ( ( $this->_page - 1 ) * $this->_limit );die;
+
         //create the query, limiting records from page, to limit
         $this->_row_start = ( ( $this->_page - 1 ) * $this->_limit );
         $this->query = $this->_query .
@@ -66,14 +71,14 @@ class Pagination
         //calculate end of range for link printing
         $end = (($this->_page + $links) < $last) ? $this->_page + $links : $last;
 
-        echo '$total: ' . $this->_total . ' | '; //total rows
+        /*echo '$total: ' . $this->_total . ' | '; //total rows
         echo '$row_start: ' . $this->_row_start . ' | '; //total rows
         echo '$limit: ' . $this->_limit . ' | '; //total rows per query
         echo '$start: ' . $start . ' | '; //start printing links from
         echo '$end: ' . $end . ' | '; //end printing links at
         echo '$last: ' . $last . ' | '; //last page
         echo '$page: ' . $this->_page . ' | '; //current page
-        echo '$links: ' . $links . ' <br /> '; //links
+        echo '$links: ' . $links . ' <br /> '; //links*/
 
         //ul boot strap class - "pagination pagination-sm"
         $html = '<ul class="' . $list_class . '">';
