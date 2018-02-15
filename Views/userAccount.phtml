@@ -13,24 +13,17 @@
         </div>
         <div id="accountSection" class="col-sm-12">
             <div class="accountList col-md-3">
-                <button id ="watchListBtn">WatchList</button>
-                <!--<p><a onclick="changeContent()" href="">My WatchList</a></p>-->
+                <button onclick="displayPanels('sections-WL')" id ="watchListBtn">WatchList</button>
             </div>
             <div class="accountList col-md-3">
-                <button id= "detailsBtn">My Details</button>
-                <!--<p><a href="#">My Details</a></p>-->
+                <button onclick="displayPanels('my-Details')" id= "detailsBtn">My Details</button>
             </div>
             <div class="accountList col-md-3">
-                <button id= "myListBtn">My Listings</button>
-                <!--<p><a href="#">My Details</a></p>-->
+                <button id= "myListBtn" onclick="displayPanels('section-List')">My Listings</button>
             </div>
-            <!--<div class="accountList col-md-3">
-                <button id= "messageBtn">Messages</button>
-                <!--<p><a href="#">My Details</a></p>
-            </div>-->
         </div>
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div id="sections-WL" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <?php foreach($view->getWish as $keys => $values) { ?>
                     <div class="sectionsWL row">
                         <div class="col-lg-4">
@@ -55,7 +48,6 @@
                                 </ul>
                             </div>
 
-                            <!--<button class="btn btn-primary"  data-toggle="modal" data-target="#contactModal">Contact Seller</button>-->
                             <button class="btn btn-danger" data-toggle="modal" data-target="#confirmation">Remove</button>
                             <!-- Confirmation Box  -->
                             <div class="modal fade" id="confirmation" role="dialog">
@@ -89,9 +81,9 @@
                 <?php } ?>
             </div>
             <!-- START OF USER LISTING-->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div id="section-List" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <?php foreach($view->products as $keys => $values) { ?>
-                    <div class="sectionList row">
+                    <div  class="sectionList row">
                         <div class="col-lg-4">
                             <img src="images/<?php echo $values["productImg"]; ?>" class="img-responsive">
                         </div>
@@ -226,53 +218,8 @@
                     </div>
                 <?php } ?>
             </div><!--END OF USER LISTING-->
-            <!--CONTACT SELLER MODAL-->
-            <!--<div class="modal fade" id="contactModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content
-                    <div class="modal-content">
-                        <form class="form-row">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Contact AD owner </h4>
-                            </div>
-                            <div class="modal-body">
-
-                                <!--<div class="form-row">
-                                    <div class="form-group col-md-12" id="yourName">
-                                        <label for="yourName">Name</label>
-                                        <input type="text" name = "yourName" class="form-control" id="yourName" placeholder="Omotola Shogunle">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12" id="email-div">
-                                        <label for="userEmail">Email</label>
-                                        <input type="Email" name = "userEmail" class="form-control" id="userEmail" placeholder="omotola@gmail.com">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12" id="number-div">
-                                        <label for="phoneNo">PhoneNumber(optional)</label>
-                                        <input type="text" name = "phoneNo" class="form-control" id="phoneNo" placeholder="08065521925">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12" id="message-div" >
-                                        <label for="message">Message</label>
-                                        <textarea class="form-control" rows="5" id="message" name="message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <button type="submit" name="send" class="btn-lg btn-success">Send</button>
-                                </div>
-                            </div>
-                            <div class="modal-footer"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>-->
-            <!--END OF CONTACT MODAL-->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <!--START OF USER DETAILS -->
+            <div id="my-Details" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="myDetails">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">

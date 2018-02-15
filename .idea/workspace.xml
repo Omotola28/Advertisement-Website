@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed39860b-6fc6-46fb-8454-bf0789b9e0e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/CustomerData.php" afterPath="$PROJECT_DIR$/Models/CustomerData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/PlaceAd.php" afterPath="$PROJECT_DIR$/Models/PlaceAd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/placeAd.phtml" afterPath="$PROJECT_DIR$/Views/placeAd.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/userAccount.phtml" afterPath="$PROJECT_DIR$/Views/userAccount.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/my-style.css" afterPath="$PROJECT_DIR$/css/my-style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scripts.js" afterPath="$PROJECT_DIR$/js/scripts.js" />
     </list>
     <ignored path="MVCtemplate.iws" />
@@ -46,7 +44,58 @@
     <favorites_list name="MVCtemplate" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="251" column="37" lean-forward="false" selection-start-line="251" selection-start-column="37" selection-end-line="251" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userAccount.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/userAccount.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="222" column="21" lean-forward="false" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my-style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/my-style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="367" column="39" lean-forward="false" selection-start-line="367" selection-start-column="39" selection-end-line="367" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/admin.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+              <folding>
+                <marker date="1518381805416" expanded="true" signature="1829:1975" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="1829:2037" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="1829:2039" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="1829:2164" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="1829:2263" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="1829:2325" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="1829:2392" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="2095:2100" ph="..." />
+                <marker date="1518381805416" expanded="true" signature="2164:2229" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -69,6 +118,15 @@
       <find>0</find>
       <find>.card</find>
       <find>pre</find>
+      <find>watc</find>
+      <find>watchListDetails</find>
+      <find>section</find>
+      <find>myDetails</find>
+      <find>sectionList</find>
+      <find>sectionLi</find>
+      <find>sec</find>
+      <find>SECTION</find>
+      <find>sect</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -94,7 +152,6 @@
         <option value="$PROJECT_DIR$/aboutListing.php" />
         <option value="$PROJECT_DIR$/Models/ProductData.php" />
         <option value="$PROJECT_DIR$/Models/itemData.php" />
-        <option value="$PROJECT_DIR$/Views/userAccount.phtml" />
         <option value="$PROJECT_DIR$/Views/captcha.php" />
         <option value="$PROJECT_DIR$/Views/register.phtml" />
         <option value="$PROJECT_DIR$/captcha.php" />
@@ -107,7 +164,6 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Models/WishList.php" />
         <option value="$PROJECT_DIR$/Models/ExpiredAD.php" />
-        <option value="$PROJECT_DIR$/css/my-style.css" />
         <option value="$PROJECT_DIR$/Views/listing.phtml" />
         <option value="$PROJECT_DIR$/Views/admin.phtml" />
         <option value="$PROJECT_DIR$/Models/ExtractProductData.php" />
@@ -115,6 +171,8 @@
         <option value="$PROJECT_DIR$/Models/CustomerData.php" />
         <option value="$PROJECT_DIR$/Models/PlaceAd.php" />
         <option value="$PROJECT_DIR$/Views/placeAd.phtml" />
+        <option value="$PROJECT_DIR$/Views/userAccount.phtml" />
+        <option value="$PROJECT_DIR$/css/my-style.css" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
       </list>
     </option>
@@ -166,6 +224,21 @@
             <path>
               <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
               <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -274,17 +347,18 @@
       <workItem from="1518171557657" duration="33474000" />
       <workItem from="1518467729400" duration="462000" />
       <workItem from="1518474290726" duration="4605000" />
-      <workItem from="1518645014517" duration="598000" />
+      <workItem from="1518645014517" duration="6084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141847000" />
+    <option name="totallyTimeSpent" value="147333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16798732" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.084919475" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -334,13 +408,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/images/item.jpg" />
-    <entry file="file://$PROJECT_DIR$/Views/userAccount.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/captcha.php" />
     <entry file="file://$PROJECT_DIR$/register.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -538,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/my-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="225" column="34" lean-forward="false" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/listing.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -556,24 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/admin.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="12" lean-forward="false" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-          <folding>
-            <marker date="1518381805416" expanded="true" signature="1829:1975" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="1829:2037" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="1829:2039" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="1829:2164" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="1829:2263" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="1829:2325" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="1829:2392" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="2095:2100" ph="..." />
-            <marker date="1518381805416" expanded="true" signature="2164:2229" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -635,14 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="98" lean-forward="false" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/placeAd.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -672,6 +706,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/admin.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <marker date="1518381805416" expanded="true" signature="1829:1975" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="1829:2037" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="1829:2039" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="1829:2164" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="1829:2263" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="1829:2325" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="1829:2392" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="2095:2100" ph="..." />
+            <marker date="1518381805416" expanded="true" signature="2164:2229" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/my-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="367" column="39" lean-forward="false" selection-start-line="367" selection-start-column="39" selection-end-line="367" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/userAccount.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="222" column="21" lean-forward="false" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="251" column="37" lean-forward="false" selection-start-line="251" selection-start-column="37" selection-end-line="251" selection-end-column="37" />
           <folding />
         </state>
       </provider>

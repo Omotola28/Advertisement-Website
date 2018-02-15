@@ -366,7 +366,6 @@ button:focus{
 
 .sectionsWL, .sectionList{
     border-bottom: 1px solid lightgray;
-    display: none;
     padding-bottom: 1em;
 }
 
@@ -375,7 +374,6 @@ button:focus{
 }
 
 div.myDetails{
-    display: none;
     margin: auto;
 }
 

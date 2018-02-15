@@ -1,4 +1,10 @@
-
+/**
+ *
+ * @param country collects the id for the country selected
+ * @param state collects id for associated states of the country
+ *
+ * printState dynamically loads states depending on what country is chosen
+ */
 function printState(country, state) {
     var selectedCountry = document.getElementById(country);
     var printState = document.getElementById(state);
@@ -20,7 +26,11 @@ function printState(country, state) {
 }
 
 var firstN, surName, email, password, addressL1, addressL2, country, state, number;
-// validation function
+
+/**
+ * Validates input in form makes sure that form input is not empty
+ * @returns {boolean} false if it is not empty and true if it is
+ */
 function validate() {
     //COLLECT INPUT TEXT OBJECTS
     firstN = document.forms['regForm']['firstName'];
@@ -196,7 +206,13 @@ function select(category, size) {
 
 }
 
-// When the user clicks on <div>, open the popup
+/**
+ * When users visit site and they want to add items to wishlist a popup shows
+ * to inform user to login first
+ * @param buttonID identifies which button was pressed
+ * @param status identifies if user is logged in or not
+ * @returns {boolean}
+ */
 function addToWatchList(buttonID, status) {
     var popUp = document.getElementById("itemPopUp"+buttonID);
        if(status == false){
@@ -215,6 +231,7 @@ function addToWatchList(buttonID, status) {
  * Toggles the admin panels divs to show pages without refreshing page
  */
 var adminPanels = ["adminAdList", "adminUsersList"];
+var watchListPanels = ["sections-WL","my-Details", "section-List"];
 var visibleDivId = null;
 function displayPanels(divId) {
     if(visibleDivId === divId) {
@@ -222,12 +239,22 @@ function displayPanels(divId) {
     } else {
         visibleDivId = divId;
     }
-    hideNonVisibleDivs();
+    if(watchListPanels.indexOf(divId) != -1){
+        hideNonVisibleDivs(watchListPanels);
+    }else {
+        hideNonVisibleDivs(adminPanels);
+    }
+
 }
-function hideNonVisibleDivs() {
+
+/**
+ * Hides shown divs
+ * @param panel the panels to toggle 
+ */
+function hideNonVisibleDivs(panel) {
     var i, divId, div;
-    for(i = 0; i < adminPanels.length; i++) {
-        divId = adminPanels[i];
+    for(i = 0; i < panel.length; i++) {
+        divId = panel[i];
         div = document.getElementById(divId);
         if(visibleDivId === divId) {
             div.style.display = "block";
@@ -236,29 +263,3 @@ function hideNonVisibleDivs() {
         }
     }
 }
-
-
-$(function(){
-    $("#watchListBtn").click(function() {
-        $(".sectionsWL").show();
-        $(".myDetails").hide();
-        $(".sectionList").hide();
-
-    });
-
-    $("#detailsBtn").click(function() {
-        $(".myDetails").show();
-        $(".sectionsWL").hide();
-        $(".sectionList").hide();
-
-    });
-
-    $("#myListBtn").click(function() {
-        $(".sectionList").show();
-        $(".sectionsWL").hide();
-        $(".myDetails").hide();
-
-
-    });
-});
-
