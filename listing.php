@@ -26,6 +26,19 @@ $extractProduct = new ExtractProductData();
 $pagination = new Pagination($extractProduct->fetchAll()); //__constructor is called
 $view->results = $pagination->getData( $limit, $page );
 
+if(isset($_POST["wishList"]))
+{
+
+    if( $_SESSION['user_id'] == $_POST["sellerID"])
+        echo '<script>alert("Item owned by you, cannot be added to watchList")</script>';
+    else {
+
+        $wishData = new WishList();
+        $wishData->insertWishItem();
+        echo "hey x what";
+    }
+}
+
 $view->status = false;
 if(!isset($_SESSION["logged_in"])){
     $view->status = false;
@@ -34,15 +47,5 @@ if(!isset($_SESSION["logged_in"])){
     $view->status = true;
 }
 
-if(isset($_POST["wishList"]))
-{
 
-      if( $_SESSION['user_id'] == $_POST["sellerID"])
-          echo '<script>alert("Item owned by you, cannot be added to watchList")</script>';
-      else {
-
-            $wishData = new WishList();
-            $wishData->insertWishItem();
-      }
-}
 require_once('Views/listing.phtml');

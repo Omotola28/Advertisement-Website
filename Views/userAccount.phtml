@@ -27,24 +27,24 @@
                 <?php foreach($view->getWish as $keys => $values) { ?>
                     <div class="sectionsWL row">
                         <div class="col-lg-4">
-                            <img src="images/<?php echo $values["wishImg"]; ?>" class="img-responsive">
+                            <img src="images/<?php echo $values["productImg"]; ?>" class="img-responsive">
                         </div>
                         <div id="watchListDetails" class="col-lg-6">
                             <div class="watchListInfo">
-                                <h4><?php echo $values["wishTitle"]; ?></h4>
+                                <h4><?php echo $values["productTitle"]; ?></h4>
                                 <ul>
-                                    <li>Color: <?php echo $values["wishColor"]; ?></li>
-                                    <li>Size: <?php echo $values["wishSize"]; ?></li>
-                                    <li>Location: <?php echo $values["wishLocation"]; ?></li>
+                                    <li>Color: <?php echo $values["productCol"]; ?></li>
+                                    <li>Size: <?php echo $values["productSize"]; ?></li>
+                                    <li>Location: <?php echo $values["country"]; ?></li>
                                 </ul>
                             </div>
 
                             <div class="watchListInfo">
                                 <h4>Contact AD Owner</h4>
                                 <ul>
-                                    <li><b>Seller Name:</b> <?php echo $values["wishSellerName"]; ?></li>
-                                    <li><b>Seller Email:</b><?php echo $values["wishSellerEmail"]; ?></li>
-                                    <li><b>Seller Phonenumber: </b><?php echo $values["wishSellerNo"]; ?></li>
+                                    <li><b>Seller Name:</b> <?php echo $values["firstName"] ." ". $values["surName"]; ?></li>
+                                    <li><b>Seller Email:</b><?php echo $values["email"]; ?></li>
+                                    <li><b>Seller Phonenumber: </b><?php echo $values["phonenumber"]; ?></li>
                                 </ul>
                             </div>
 
@@ -75,7 +75,7 @@
 
                         </div>
                         <div class="col-lg-2">
-                            <h4 class="lead"><?php echo $values["wishCurrency"]; ?><?php echo $values["wishPrice"]; ?></h4>
+                            <h4 class="lead"><?php echo $values["currency"]; ?><?php echo $values["price"]; ?></h4>
                         </div>
                     </div>
                 <?php } ?>

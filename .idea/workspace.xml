@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ed39860b-6fc6-46fb-8454-bf0789b9e0e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Pagination.php" afterPath="$PROJECT_DIR$/Models/Pagination.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.php" afterPath="$PROJECT_DIR$/register.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/WishList.php" afterPath="$PROJECT_DIR$/Models/WishList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/listing.phtml" afterPath="$PROJECT_DIR$/Views/listing.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/userAccount.phtml" afterPath="$PROJECT_DIR$/Views/userAccount.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/listing.php" afterPath="$PROJECT_DIR$/listing.php" />
     </list>
     <ignored path="MVCtemplate.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +43,7 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="lae891@helios.csesalford.com" type="e3449647:DbNodeDescriptor" />
         <item name="lae891" type="e3449647:DbNodeDescriptor" />
-        <item name="users" type="e3449647:DbNodeDescriptor" />
+        <item name="address" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
@@ -52,43 +53,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ExtractProductData.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
+      <file leaf-file-name="WishList.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/WishList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="105" column="49" lean-forward="false" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
+            <state relative-caret-position="333">
+              <caret line="80" column="49" lean-forward="false" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
               <folding>
-                <marker date="1518719190065" expanded="true" signature="1003:1254" ph="SELECT DISTI... products" />
-                <marker date="1518719190065" expanded="true" signature="1003:1360" ph="SELECT DISTI... products" />
-                <marker date="1518719190065" expanded="true" signature="2424:2786" ph="SELECT DISTI... products" />
-                <marker date="1518719190065" expanded="true" signature="3056:3269" ph="SELECT * FRO... users" />
-                <marker date="1518719190065" expanded="true" signature="4116:4156" ph="DELETE FROM " />
-                <marker date="1518719190065" expanded="true" signature="4264:4300" ph="DELETE FROM " />
+                <marker date="1520105963025" expanded="true" signature="655:720" ph="INSERT INTO WishList... " />
+                <marker date="1520105963025" expanded="true" signature="1166:1207" ph="select * fro... WishList" />
+                <marker date="1520105963025" expanded="true" signature="1504:1796" ph="select * fro... WishList" />
+                <marker date="1520105963025" expanded="true" signature="2247:2283" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="captcha.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/captcha.php">
+      <file leaf-file-name="listing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/listing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="379">
+              <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users" pinned="false" current-in-tab="false">
-        <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.users">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="userAccount.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/userAccount.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WishList" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WishList" pinned="false" current-in-tab="false">
         <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.WishList">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -97,11 +97,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="userAccount.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Views/userAccount.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="204" column="76" lean-forward="false" selection-start-line="204" selection-start-column="72" selection-end-line="204" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>border-radius</find>
       <find>.navbar</find>
       <find>.navbar-inverse</find>
       <find>border-color</find>
@@ -120,7 +129,6 @@
       <find>0</find>
       <find>.card</find>
       <find>pre</find>
-      <find>watc</find>
       <find>watchListDetails</find>
       <find>section</find>
       <find>myDetails</find>
@@ -129,6 +137,10 @@
       <find>sec</find>
       <find>SECTION</find>
       <find>sect</find>
+      <find>usersID</find>
+      <find>watc</find>
+      <find>user</find>
+      <find>my</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -155,19 +167,14 @@
         <option value="$PROJECT_DIR$/Views/template/footer.phtml" />
         <option value="$PROJECT_DIR$/Views/template/header.phtml" />
         <option value="$PROJECT_DIR$/Views/aboutListing.phtml" />
-        <option value="$PROJECT_DIR$/listing.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/Views/listing.phtml" />
         <option value="$PROJECT_DIR$/Views/admin.phtml" />
         <option value="$PROJECT_DIR$/Views/placeAd.phtml" />
-        <option value="$PROJECT_DIR$/Views/userAccount.phtml" />
-        <option value="$PROJECT_DIR$/css/my-style.css" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/Models/CustomerData.php" />
         <option value="$PROJECT_DIR$/Models/ExpiredAD.php" />
         <option value="$PROJECT_DIR$/Models/itemData.php" />
         <option value="$PROJECT_DIR$/Models/PlaceAd.php" />
-        <option value="$PROJECT_DIR$/Models/WishList.php" />
         <option value="$PROJECT_DIR$/aboutListing.php" />
         <option value="$PROJECT_DIR$/Models/ExtractProductData.php" />
         <option value="$PROJECT_DIR$/admin.php" />
@@ -176,6 +183,11 @@
         <option value="$PROJECT_DIR$/placeAd.php" />
         <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/Models/Pagination.php" />
+        <option value="$PROJECT_DIR$/Views/listing.phtml" />
+        <option value="$PROJECT_DIR$/listing.php" />
+        <option value="$PROJECT_DIR$/Views/userAccount.phtml" />
+        <option value="$PROJECT_DIR$/Models/WishList.php" />
+        <option value="$PROJECT_DIR$/css/my-style.css" />
       </list>
     </option>
   </component>
@@ -225,6 +237,16 @@
             <path>
               <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
               <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -338,17 +360,18 @@
       <workItem from="1518776263246" duration="2545000" />
       <workItem from="1518863542861" duration="8000" />
       <workItem from="1518889103854" duration="2000" />
-      <workItem from="1519985608353" duration="2238000" />
+      <workItem from="1519985608353" duration="9507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158156000" />
+    <option name="totallyTimeSpent" value="165425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16798732" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14275256" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -473,22 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/captcha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/listing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/itemData.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
@@ -511,14 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/userAccount.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="222" column="21" lean-forward="false" selection-start-line="222" selection-start-column="21" selection-end-line="222" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -526,10 +525,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ExpiredAD.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <marker date="1518716098610" expanded="true" signature="541:627" ph="SELECT publi... products" />
+            <marker date="1518716098610" expanded="true" signature="1142:1196" ph="DELETE FROM " />
+            <marker date="1518716098610" expanded="true" signature="1332:1383" ph="Delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="215" column="9" lean-forward="false" selection-start-line="215" selection-start-column="9" selection-end-line="215" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/listing.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="24" column="122" lean-forward="false" selection-start-line="24" selection-start-column="122" selection-end-line="24" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/WishList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="80" column="49" lean-forward="false" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+          <folding>
+            <marker date="1520105963025" expanded="true" signature="655:720" ph="INSERT INTO WishList... " />
+            <marker date="1520105963025" expanded="true" signature="1166:1207" ph="select * fro... WishList" />
+            <marker date="1520105963025" expanded="true" signature="1504:1796" ph="select * fro... WishList" />
+            <marker date="1520105963025" expanded="true" signature="2247:2283" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.WishList">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/my-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="376" column="17" lean-forward="false" selection-start-line="376" selection-start-column="17" selection-end-line="376" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/userAccount.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="204" column="76" lean-forward="false" selection-start-line="204" selection-start-column="72" selection-end-line="204" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>

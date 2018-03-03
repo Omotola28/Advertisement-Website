@@ -24,37 +24,19 @@ class WishList
      * insert item into the wishList table
      */
     public function  insertWishItem(){
-        if(isset($_POST['wishList'])) {
-            $id = $_GET["id"];
-            $title = $_POST['title'];
-            $price = $_POST['price'];
-            $color = $_POST['color'];
-            $image = $_POST['image'];
-            $date = $_POST['date'];
-            $sellerName = $_POST['sellerfName'];
-            $sellerEmail = $_POST['sellerEmail'];
-            $sellerPhone = $_POST['phoneNo'];
-            $location = $_POST['location'];
-            $currency = $_POST['currency'];
-            $userId = $_POST['userID'];
-            if($_POST['size'] == ''){
-                $size = 'null';
-            }else{
-                $size = $_POST['size'];
-            }
 
+            $id = $_GET["id"]; //ID FOR PRODUCT
+            $userId = $_POST['userID'];
+            echo $id, $userId;
             if($this->checkIfExist($id) != true){
-                $sql = "INSERT INTO WishList (wishID,wishImg, wishColor, wishSize, wishLocation, wishCurrency, wishPrice, wishTitle, userID, wishSellerName, wishSellerEmail, wishSellerNo, wishDate) VALUE 
-                ('$id','$image','$color',$size,'$location','$currency','$price','$title','$userId', '$sellerName', '$sellerEmail', '$sellerPhone', '$date')";
-                $result = $this->_dbConnection->query($sql);
+                $sql = "INSERT INTO WishList (productID, usersID) VALUE ('$id','$userId')";
+                $result = $this->_dbConnection->prepare($sql);
                 $result->execute();
+                echo "how many times";
             }else
             {
                 echo '<script>alert("Item Already Added")</script>';
             }
-
-
-        }
     }
 
     /**
@@ -62,11 +44,11 @@ class WishList
      * @return bool true if exist false if not
      */
     public function checkIfExist($id){
-        $sql = "select * from WishList where wishID = $id";
+        $sql = "select * from WishList where productID = $id";
         $result = $this->_dbConnection->query($sql);
         $result->execute();
 
-        if($result->rowCount() > 0){
+        if($result->rowCount() == 1 && $result->rowCount() > 0 ){
             return true;
         }else{
             return false;
@@ -76,7 +58,10 @@ class WishList
     }
 
     public function getWishList($userId){
-        $sql = "select * from WishList where userID = $userId";
+        $sql = "select * from WishList, products, address, users where WishList.usersID = 2 
+                                          and products.productsID = WishList.productID 
+										  and products.sellerID = address.userID
+                                          and address.userID = users.usersID;";
         $result = $this->_dbConnection->query($sql);
         $result->execute();
 

@@ -22,18 +22,18 @@
                                     <form method="post" action="listing.php?action=add&id=<?php echo $results->getProductId(); ?>"
                                         onsubmit= "return <?php echo json_encode($view->status)?>">
                                         <button type="submit" name="wishList" value="wishList" id="<?php echo $results->getProductId();?>" onclick="addToWatchList(this.id, <?php echo json_encode($view->status)?>)" class="addToList"><i class="fa fa-heart" aria-hidden="true"></i></button>
-                                        <input type="hidden" name="price" value="<?php echo $results->getPrice()?>">
+                                        <input type="hidden" name="sellerID" value="<?php echo $results->getSellerId()?>">
+                                        <!--<input type="hidden" name="price" value="<?php echo $results->getPrice()?>">
                                         <input type="hidden" name="title" value="<?php echo $results->getTitle()?>">
                                         <input type="hidden" name="size" value="<?php echo $results->getSize()?>">
                                         <input type="hidden" name="color" value="<?php echo $results->getColor()?>">
-                                        <input type="hidden" name="image" value="<?php echo $results->getImg()?>">
-                                        <input type="hidden" name="sellerID" value="<?php echo $results->getSellerId()?>">
+                                        <input type="hidden" name="image" value="<?php echo $results->getImg()?>"
                                         <input type="hidden" name="location" value="<?php echo $results->getCountry()?>">
                                         <input type="hidden" name="currency" value="<?php echo $results->getCurrency()?>">
                                         <input type="hidden" name="sellerfName" value="<?php echo $results->getfName()?>">
                                         <input type="hidden" name="sellerEmail" value="<?php echo $results->getEmail()?>">
                                         <input type="hidden" name="phoneNo" value="<?php echo $results->getPhoneNo()?>">
-                                        <input type="hidden" name="date" value="<?php echo $results->getDate()?>">
+                                        <input type="hidden" name="date" value="<?php echo $results->getDate()?>">-->
 
                                         <?php if(isset($_SESSION['user_id'])){?>
                                             <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>">
