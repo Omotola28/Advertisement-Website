@@ -71,15 +71,6 @@ class Pagination
         //calculate end of range for link printing
         $end = (($this->_page + $links) < $last) ? $this->_page + $links : $last;
 
-        /*echo '$total: ' . $this->_total . ' | '; //total rows
-        echo '$row_start: ' . $this->_row_start . ' | '; //total rows
-        echo '$limit: ' . $this->_limit . ' | '; //total rows per query
-        echo '$start: ' . $start . ' | '; //start printing links from
-        echo '$end: ' . $end . ' | '; //end printing links at
-        echo '$last: ' . $last . ' | '; //last page
-        echo '$page: ' . $this->_page . ' | '; //current page
-        echo '$links: ' . $links . ' <br /> '; //links*/
-
         //ul boot strap class - "pagination pagination-sm"
         $html = '<ul class="' . $list_class . '">';
 

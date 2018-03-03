@@ -16,7 +16,7 @@ $view->pageTitle = 'Register';
 $runExpired = new ExpiredAD();
 $runExpired->expiredAd();
 
-//insert new customer to database 
+//insert new customer to database
 $customerData = new CustomerData();
 $customerData->insertIntoDB();
 
