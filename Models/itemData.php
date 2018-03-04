@@ -59,6 +59,18 @@ class itemData
     }
 
     /**
+     * Deletes specific item from database
+     */
+
+    public function removeItem($itemId){
+        $sql = "DELETE FROM products WHERE productsID = $itemId";
+        $result = $this->_dbConnection->query($sql);
+        $result->execute();
+
+        echo '<script>window.location="userAccount.php"</script>';
+    }
+
+    /**
      * update an existing item by user
      */
     public function updateListing(){
