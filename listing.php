@@ -35,7 +35,6 @@ if(isset($_POST["wishList"]))
 
         $wishData = new WishList();
         $wishData->insertWishItem();
-        echo "hey x what";
     }
 }
 

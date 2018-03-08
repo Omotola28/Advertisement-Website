@@ -5,6 +5,7 @@
       <w>dateformat</w>
       <w>getf</w>
       <w>getl</w>
+      <w>htmlentities</w>
       <w>sellerf</w>
       <w>sellerl</w>
       <w>toggler</w>

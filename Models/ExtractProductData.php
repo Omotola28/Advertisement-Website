@@ -29,12 +29,15 @@ class ExtractProductData
             $maxPrice = $_POST['maxNo'];
             $minPrice = $_POST['minNo'];
             $color = $_POST['colorCategory'];
-            $size = $_POST['sizeCategory'];
+            if(!isset($_POST['sizeCategory']) ){
+                $size = 'null';
+            }else
+                $size = $_POST['sizeCategory'];
             $search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['search']);
+            
 
             $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
-                          productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address 
-                          WHERE (products.sellerID = users.usersID) AND (users.usersID = address.userID)";
+                          productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address ";
             $condition = []; //create a an array of conditions to be added to search query
 
             if($category != ""){
@@ -52,17 +55,21 @@ class ExtractProductData
             if($color != ""){
                 $condition[] = "productCol='$color'";
             }
-            if($size != ""){
+            if($size != "" && $size != 'null'){
                 $condition[] = "productSize='$size'";
             }
-            if($search != ""){
-                $condition[] = "productTitle like '%$search%' or productDes like '%$search'";
+            if($search != "" && $search !='%%'){
+                $condition[] = "productDes like '%$search%'";
+            }
+            if($search != "" && $search !='%%'){
+                $condition[] = "productTitle like '%$search%'";
             }
 
             if (count($condition) > 0) {
-                $sqlQuery .= ' AND ' . implode(' AND ', $condition);
+                $sqlQuery .= ' WHERE ' . implode(' AND ', $condition). ' AND products.sellerID = users.usersID 
+                AND users.usersID = address.userID';
             }
-
+            echo $sqlQuery;
         }else{
             //query that runs if the search bar is not being used
             $sqlQuery = 'SELECT DISTINCT productsID,category, productTitle, productDes, currency, price,
