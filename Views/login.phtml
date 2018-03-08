@@ -3,6 +3,8 @@
     <div class="bg-success lead text-center"><?php  echo $_SESSION['message'];
         unset($_SESSION['message']) ?></div>
 <?php endif; ?>
+
+
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="container form">
             <h4 class="formHeader">ACCESS YOR ACCOUNT</h4>
@@ -10,28 +12,24 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="emailInput">Email</label>
-                    <input type="email" class="form-control" value="" id="emailInput" name="emailInput" placeholder="Email">
+                    <input type="email" class="form-control" id="emailInput" name="emailInput"
+                           value="<?php if(isset($_SESSION['login'])){extract($_SESSION['login']); echo $emailInput;}   ?>" placeholder="Email">
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputPwd">Password</label>
-                    <input type="password" class="form-control" value="" id="inputPwd" name="inputPwd" placeholder="Password">
+                    <input type="password" class="form-control" id="inputPwd" name="inputPwd"
+                           value="<?php if(isset($_SESSION['login'])){extract($_SESSION['login']); echo $inputPwd;}  ?>" autocomplete="off" placeholder="Password">
                 </div>
                 <div class="form-group col-md-12">
                     <div><img class="captcha" src="captcha.php">
                         <button type="submit" name="reload" id="reload" onclick="return false"><i class="reload fas fa-sync"></i></button>
                     </div>
 
-                    <input type="text" class="form-control" value="" id="captcha" name="captcha" placeholder="Enter Text above">
+                    <input type="text" class="form-control" id="captcha" name="captcha"
+                           value="<?php if(isset($_SESSION['login'])){extract($_SESSION['login']); echo $captcha;}  ?>"  placeholder="Enter Text above">
 
                 </div>
             </div>
-           <!--<div class="form-group col-md-12">
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="checkBox"> Remember Me
-                    </label>
-                </div>
-            </div>-->
             <div class="form-group col-md-12">
                 <button type="submit" name="loginBtn" class="btn-lg btn-success">Login</button>
             </div>
@@ -41,6 +39,7 @@
             </div>
 
         </div>
+        <?php unset($_SESSION['login'])?>
     </form>
 
 

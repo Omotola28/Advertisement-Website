@@ -1,6 +1,6 @@
 <?php require('template/header.phtml') ?>
 <?php if (isset($_SESSION['message'])) : ?>
-    <div class="bg-danger lead text-center"><?php  echo $_SESSION['message'];
+    <div class="bg-danger lead text-center" xmlns="http://www.w3.org/1999/html"><?php  echo $_SESSION['message'];
     unset($_SESSION['message'])?></div>
     <?php endif; ?>
 
@@ -8,34 +8,41 @@
      <div class="container form">
             <h4 class="formHeader">REGISTER TO CONTACT SELLERS AND PURCHASE ITEMS</h4>
         <hr>
+         <?php if(isset($_SESSION['register'])){extract($_SESSION['register']);} ?>
          <div class="form-row">
              <div class="form-group col-md-6" id="firstName-div">
                  <label for="name">Firstname</label>
-                 <input type="text" name="firstName" class="form-control" id="name" placeholder="FirstName">
+                 <input type="text" name="firstName" id="name"
+                        value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $firstName;}?>" class ="form-control"  placeholder="FirstName">
              </div>
              <div class="form-group col-md-6"  id="surName-div">
                  <label for="surName">Surname</label>
-                 <input type="text" name="surName" class="form-control" id="surName" placeholder="SurName">
+                 <input type="text" name="surName" id="surName"
+                        value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $surName;}?>" class="form-control"  placeholder="SurName">
              </div>
          </div>
         <div class="form-row">
             <div class="form-group col-md-6" id="email-div">
                 <label for="email">Email</label>
-                <input type="Email" name ="email" class="form-control" id="email" placeholder="Email">
+                <input type="Email" name ="email" id="email"
+                       value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $email;}?>" class="form-control"  placeholder="Email">
             </div>
             <div class="form-group col-md-6"  id="password-div">
                 <label for="password">Password</label>
-                <input type="Password" name= "password" class="form-control" id="password" placeholder="Password">
+                <input type="Password" name= "password" id="password"
+                       value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $password;}?>" class="form-control"  placeholder="Password">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12"  id="address1-div">
                     <label for="inputAddress1">Address</label>
-                    <input type="Text" name ="addressLine1" class="form-control" id="inputAddress1" placeholder="Blk B Flat 1">
+                    <input type="Text" name ="addressLine1" id="inputAddress1"
+                           value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addressLine1;}?>" class="form-control"  placeholder="Blk B Flat 1">
             </div>
             <div class="form-group col-md-12"  id="address2-div">
                     <label for="inputAddress2">Address 2</label>
-                    <input type="Text" name ="addressLine2" class="form-control" id="inputAddress2" placeholder="Defence Quarters">
+                    <input type="Text" name ="addressLine2"  id="inputAddress2"
+                           value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addressLine2;}?>" class="form-control"placeholder="Defence Quarters">
             </div>
         </div>
         <div class="form-row"">
@@ -57,7 +64,8 @@
             </div>
             <div class="form-group col-md-4" id="number-div">
                 <label for="phoneNumber">PhoneNumber</label>
-                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control">
+                <input type="text" id="phoneNumber"
+                       value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $phoneNumber;}?>" name="phoneNumber" class="form-control">
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -65,14 +73,15 @@
               <button type="submit" name="reload" id="reload" onclick="return false"><i class="reload fas fa-sync"></i></button>
           </div>
 
-          <input type="text" class="form-control" value="" id="captcha" name="captcha" placeholder="Enter Text above">
+          <input type="text" class="form-control"
+                 value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $captcha;} ?>" id="captcha" name="captcha" placeholder="Enter Text above">
         </div>
+
          <div class="form-group col-md-12">
              <button type="submit" name="register" class="btn-lg btn-success">Register</button>
          </div>
-
-
-    </div>
+      </div>
+      <?php unset($_SESSION['register'])?>
   </form>
 
 

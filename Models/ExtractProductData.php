@@ -34,7 +34,7 @@ class ExtractProductData
             }else
                 $size = $_POST['sizeCategory'];
             $search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['search']);
-            
+
 
             $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
                           productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address ";

@@ -45,6 +45,8 @@ class CustomerData
             // We know user email exists if the rows returned are more than 0
             if ($result->rowCount() > 0) {
                 $_SESSION['message'] = 'User with this email/phoneNo already exists!';
+                $_SESSION['register'] = $_POST;
+                //print_r($_SESSION['register']);
                 header("location: register.php");
                 exit();
             } else {
@@ -83,10 +85,10 @@ class CustomerData
             $sql = "SELECT * FROM users WHERE email='$email'";
             $result = $this->_dbConnection->prepare($sql);
             $result->execute();
-
             if ($result->rowCount() == 0) {
                 $_SESSION['message'] = 'User does not exist';
                 $_SESSION['logged_in'] = false;
+                $_SESSION['login'] = $_POST;
                 header("location: login.php");
                 exit();
             }else{
@@ -114,6 +116,7 @@ class CustomerData
                 }else{
                     $_SESSION['message'] = "You have entered wrong password, try again!";
                     $_SESSION['logged_in'] = false;
+                    $_SESSION['login'] = $_POST;
                     header("location: login.php");
                     exit();
                 }
