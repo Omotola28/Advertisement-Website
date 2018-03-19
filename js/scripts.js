@@ -263,3 +263,12 @@ function hideNonVisibleDivs(panel) {
         }
     }
 }
+
+/**
+ * Reload captcha
+ */
+function reloadCaptcha() {
+    var captcha = document.getElementById('captcha');
+    var date = new Date();
+    captcha.src = "captcha.php?" + date.getTime();
+}

@@ -6,6 +6,7 @@
  * Time: 01:25
  */
 session_start();
+
 $captcha_string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
 $captcha_string = substr(str_shuffle($captcha_string), 0, 6); //shuffle string
 $_SESSION['captcha'] = $captcha_string;
@@ -25,5 +26,4 @@ imagettftext($img,$fontSize,-3, 20, 30, $black, $font,$captcha_string);
 imagejpeg($img);
 imagedestroy($img);
 
-require_once('Views/login.phtml');
 

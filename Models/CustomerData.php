@@ -79,8 +79,6 @@ class CustomerData
     public function loginUser(){
         if(isset($_POST['loginBtn'])){
             $email = $_POST['emailInput'];
-            $captcha = $_POST['captcha'];
-
             // validate user input
             $sql = "SELECT * FROM users WHERE email='$email'";
             $result = $this->_dbConnection->prepare($sql);
@@ -94,9 +92,7 @@ class CustomerData
             }else{
                 $user = $result->fetch(PDO::FETCH_ASSOC);
                 if (password_verify($_POST['inputPwd'], $user['password']) ) {
-                    if($captcha != $_SESSION['captcha']){
-                        $_SESSION['message'] = "Captcha text entered wrong";
-                    }else if($user['userRole']=== 'admin-false'){
+                    if($user['userRole']=== 'admin-false'){
                         $_SESSION['firstName'] = $user['firstName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
