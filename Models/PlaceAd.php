@@ -45,7 +45,7 @@ class PlaceAd
             }
 
 
-            $target_dir = "images/";
+            $target_dir = "images/advertImg";
             $fileName = $_FILES["file"]["name"];
             $target_file = $target_dir . basename($fileName);
             $uploadOk = 1;

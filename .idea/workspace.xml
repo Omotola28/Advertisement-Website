@@ -2,13 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed39860b-6fc6-46fb-8454-bf0789b9e0e7" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/africanCard.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/africanDress.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/basket.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/bftop.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/bkpanther.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/boyshirt.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/buttonbib.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/choker.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/clutch.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/cushions.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/dreamcatcher.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/fan.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/goldbracelets.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/hoodie.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/il_570.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/il_570xN.1414480466_rda1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/jewellerybox.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/menScarf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/napkins.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pahroah.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/romper.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/shoes.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/spirralearrings.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/tjobs-its2017bloom0694.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/vhhb.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/waxprint.jpg" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/5-2-laptop-transparent.png" afterPath="$PROJECT_DIR$/images/websiteImg/5-2-laptop-transparent.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/africa.png" afterPath="$PROJECT_DIR$/images/websiteImg/africa.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/cart.png" afterPath="$PROJECT_DIR$/images/websiteImg/cart.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/computer.png" afterPath="$PROJECT_DIR$/images/websiteImg/computer.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/images.png" afterPath="$PROJECT_DIR$/images/websiteImg/images.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/logIn.png" afterPath="$PROJECT_DIR$/images/websiteImg/logIn.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/logo.png" afterPath="$PROJECT_DIR$/images/websiteImg/logo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/megaphone.png" afterPath="$PROJECT_DIR$/images/websiteImg/megaphone.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/profile.jpg" afterPath="$PROJECT_DIR$/images/websiteImg/profile.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/register.png" afterPath="$PROJECT_DIR$/images/websiteImg/register.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/view.png" afterPath="$PROJECT_DIR$/images/websiteImg/view.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/CustomerData.php" afterPath="$PROJECT_DIR$/Models/CustomerData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/login.phtml" afterPath="$PROJECT_DIR$/Views/login.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/register.phtml" afterPath="$PROJECT_DIR$/Views/register.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/captcha.php" afterPath="$PROJECT_DIR$/captcha.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/PlaceAd.php" afterPath="$PROJECT_DIR$/Models/PlaceAd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/itemData.php" afterPath="$PROJECT_DIR$/Models/itemData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/index.phtml" afterPath="$PROJECT_DIR$/Views/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/template/header.phtml" afterPath="$PROJECT_DIR$/Views/template/header.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/my-style.css" afterPath="$PROJECT_DIR$/css/my-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/scripts.js" afterPath="$PROJECT_DIR$/js/scripts.js" />
     </list>
     <ignored path="MVCtemplate.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,52 +97,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="captcha.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/captcha.php">
+      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/index.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="382">
+              <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/register.phtml">
+      <file leaf-file-name="header.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/template/header.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+            <state relative-caret-position="425">
+              <caret line="25" column="89" lean-forward="false" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="placeAd.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/placeAd.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="114" lean-forward="false" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="114" />
               <folding>
-                <marker date="1520591927474" expanded="true" signature="3128:3285" ph="..." />
+                <marker date="1518479203390" expanded="true" signature="5428:5814" ph="..." />
+                <marker date="1518479203390" expanded="true" signature="5478:5612" ph="..." />
+                <marker date="1518479203390" expanded="true" signature="5662:5795" ph="..." />
+                <marker date="1518479203390" expanded="true" signature="5895:6369" ph="..." />
+                <marker date="1518479203390" expanded="true" signature="5945:6120" ph="..." />
+                <marker date="1518479203390" expanded="true" signature="6170:6350" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my-style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/my-style.css">
+      <file leaf-file-name="PlaceAd.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/PlaceAd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7769">
-              <caret line="457" column="0" lean-forward="false" selection-start-line="457" selection-start-column="0" selection-end-line="457" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-153">
+              <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+              <folding>
+                <marker date="1521453717570" expanded="true" signature="3060:3330" ph="INSERT INTO products... " />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/login.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerData.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CustomerData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/CustomerData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="-1151">
               <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
               <folding>
                 <marker date="1520592620338" expanded="true" signature="1183:1251" ph="SELECT * FRO... users" />
@@ -121,12 +164,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/scripts.js">
+      <file leaf-file-name="itemData.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Models/itemData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4624">
-              <caret line="272" column="50" lean-forward="false" selection-start-line="272" selection-start-column="50" selection-end-line="272" selection-end-column="50" />
-              <folding />
+            <state relative-caret-position="442">
+              <caret line="90" column="44" lean-forward="false" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
+              <folding>
+                <marker date="1521453717461" expanded="true" signature="594:653" ph="SELECT produ... products" />
+                <marker date="1521453717461" expanded="true" signature="1105:1438" ph="SELECT produ... products" />
+                <marker date="1521453717461" expanded="true" signature="1857:1897" ph="DELETE FROM " />
+                <marker date="1521453717461" expanded="true" signature="3984:4379" ph="UPDATE produ... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -179,20 +227,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Views/page1.phtml" />
-        <option value="$PROJECT_DIR$/Views/index.phtml" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/Models/Database.php" />
         <option value="$PROJECT_DIR$/Models/ExipredAD.php" />
         <option value="$PROJECT_DIR$/Models/ProductData.php" />
         <option value="$PROJECT_DIR$/Views/captcha.php" />
         <option value="$PROJECT_DIR$/Views/template/footer.phtml" />
-        <option value="$PROJECT_DIR$/Views/template/header.phtml" />
         <option value="$PROJECT_DIR$/Views/aboutListing.phtml" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Views/admin.phtml" />
         <option value="$PROJECT_DIR$/Views/placeAd.phtml" />
         <option value="$PROJECT_DIR$/Models/ExpiredAD.php" />
-        <option value="$PROJECT_DIR$/Models/PlaceAd.php" />
         <option value="$PROJECT_DIR$/aboutListing.php" />
         <option value="$PROJECT_DIR$/admin.php" />
         <option value="$PROJECT_DIR$/login.php" />
@@ -201,7 +246,6 @@
         <option value="$PROJECT_DIR$/Models/Pagination.php" />
         <option value="$PROJECT_DIR$/Models/WishList.php" />
         <option value="$PROJECT_DIR$/Views/userAccount.phtml" />
-        <option value="$PROJECT_DIR$/Models/itemData.php" />
         <option value="$PROJECT_DIR$/userAccount.php" />
         <option value="$PROJECT_DIR$/listing.php" />
         <option value="$PROJECT_DIR$/Views/listing.phtml" />
@@ -212,6 +256,10 @@
         <option value="$PROJECT_DIR$/captcha.php" />
         <option value="$PROJECT_DIR$/Views/login.phtml" />
         <option value="$PROJECT_DIR$/Models/CustomerData.php" />
+        <option value="$PROJECT_DIR$/Views/index.phtml" />
+        <option value="$PROJECT_DIR$/Views/template/header.phtml" />
+        <option value="$PROJECT_DIR$/Models/PlaceAd.php" />
+        <option value="$PROJECT_DIR$/Models/itemData.php" />
       </list>
     </option>
   </component>
@@ -262,6 +310,16 @@
               <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
               <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="MVCtemplate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseWork" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -280,16 +338,17 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\PhpstormProjects\CourseWork\images" />
-      <recent name="C:\xampp\htdocs\PhpstormProjects\CourseWork\fonts" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Views" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/css" />
       <recent name="$PROJECT_DIR$/Models" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\PhpstormProjects\CourseWork\images\websiteImg" />
+      <recent name="C:\xampp\htdocs\PhpstormProjects\CourseWork\images" />
+      <recent name="C:\xampp\htdocs\PhpstormProjects\CourseWork\fonts" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -376,17 +435,18 @@
       <workItem from="1518889103854" duration="2000" />
       <workItem from="1519985608353" duration="21394000" />
       <workItem from="1520534393385" duration="18419000" />
-      <workItem from="1521452805669" duration="34000" />
+      <workItem from="1521452805669" duration="900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195765000" />
+    <option name="totallyTimeSpent" value="196631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16798732" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14275256" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -546,6 +606,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -583,6 +644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -591,10 +653,10 @@
         <state relative-caret-position="952">
           <caret line="61" column="38" lean-forward="false" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
           <folding>
-            <marker date="1520107855841" expanded="true" signature="594:653" ph="SELECT produ... products" />
-            <marker date="1520107855841" expanded="true" signature="1105:1438" ph="SELECT produ... products" />
-            <marker date="1520107855841" expanded="true" signature="1857:1897" ph="DELETE FROM " />
-            <marker date="1520107855841" expanded="true" signature="3974:4369" ph="UPDATE produ... " />
+            <marker date="1521453717461" expanded="true" signature="594:653" ph="SELECT produ... products" />
+            <marker date="1521453717461" expanded="true" signature="1105:1438" ph="SELECT produ... products" />
+            <marker date="1521453717461" expanded="true" signature="1857:1897" ph="DELETE FROM " />
+            <marker date="1521453717461" expanded="true" signature="3984:4379" ph="UPDATE produ... " />
           </folding>
         </state>
       </provider>
@@ -624,31 +686,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/ProductData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/itemData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="65" column="53" lean-forward="false" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
-          <folding>
-            <marker date="1520107855841" expanded="true" signature="594:653" ph="SELECT produ... products" />
-            <marker date="1520107855841" expanded="true" signature="1105:1438" ph="SELECT produ... products" />
-            <marker date="1520107855841" expanded="true" signature="1857:1897" ph="DELETE FROM " />
-            <marker date="1520107855841" expanded="true" signature="3974:4369" ph="UPDATE produ... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userAccount.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -699,50 +741,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-          <folding>
-            <marker date="1520539083111" expanded="true" signature="1107:1358" ph="SELECT DISTI... products" />
-            <marker date="1520539083111" expanded="true" signature="1107:1359" ph="SELECT DISTI... products" />
-            <marker date="1520539083111" expanded="true" signature="2678:3040" ph="SELECT DISTI... products" />
-            <marker date="1520539083111" expanded="true" signature="3310:3523" ph="SELECT * FRO... users" />
-            <marker date="1520539083111" expanded="true" signature="4370:4410" ph="DELETE FROM " />
-            <marker date="1520539083111" expanded="true" signature="4518:4554" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/placeAd.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="14" column="114" lean-forward="false" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="114" />
-          <folding>
-            <marker date="1518479203390" expanded="true" signature="5428:5814" ph="..." />
-            <marker date="1518479203390" expanded="true" signature="5478:5612" ph="..." />
-            <marker date="1518479203390" expanded="true" signature="5662:5795" ph="..." />
-            <marker date="1518479203390" expanded="true" signature="5895:6369" ph="..." />
-            <marker date="1518479203390" expanded="true" signature="5945:6120" ph="..." />
-            <marker date="1518479203390" expanded="true" signature="6170:6350" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Pagination.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <marker date="1518778011248" expanded="true" signature="2642:2649" ph="«" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/listing.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
           <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -750,6 +753,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -789,7 +793,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/captcha.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="0">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
@@ -803,9 +807,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/images/websiteImg/images.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/websiteImg/computer.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/websiteImg/profile.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/tjobs-its2017bloom0694.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/waxprint.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/websiteImg/view.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/vhhb.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/template/header.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="89" lean-forward="false" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/placeAd.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="114" lean-forward="false" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="114" />
+          <folding>
+            <marker date="1518479203390" expanded="true" signature="5428:5814" ph="..." />
+            <marker date="1518479203390" expanded="true" signature="5478:5612" ph="..." />
+            <marker date="1518479203390" expanded="true" signature="5662:5795" ph="..." />
+            <marker date="1518479203390" expanded="true" signature="5895:6369" ph="..." />
+            <marker date="1518479203390" expanded="true" signature="5945:6120" ph="..." />
+            <marker date="1518479203390" expanded="true" signature="6170:6350" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/PlaceAd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+          <folding>
+            <marker date="1521453717570" expanded="true" signature="3060:3330" ph="INSERT INTO products... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ExtractProductData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-842">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <marker date="1520539083111" expanded="true" signature="1107:1358" ph="SELECT DISTI... products" />
+            <marker date="1520539083111" expanded="true" signature="1107:1359" ph="SELECT DISTI... products" />
+            <marker date="1520539083111" expanded="true" signature="2678:3040" ph="SELECT DISTI... products" />
+            <marker date="1520539083111" expanded="true" signature="3310:3523" ph="SELECT * FRO... users" />
+            <marker date="1520539083111" expanded="true" signature="4370:4410" ph="DELETE FROM " />
+            <marker date="1520539083111" expanded="true" signature="4518:4554" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ProductData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Pagination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <marker date="1518778011248" expanded="true" signature="2642:2649" ph="«" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Models/CustomerData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="-1151">
           <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
           <folding>
             <marker date="1520592620338" expanded="true" signature="1183:1251" ph="SELECT * FRO... users" />
@@ -815,6 +928,19 @@
             <marker date="1520592620338" expanded="true" signature="5318:5403" ph="SELECT * FRO... users" />
             <marker date="1520592620338" expanded="true" signature="6305:6641" ph="update users... " />
             <marker date="1520592620338" expanded="true" signature="6805:6845" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/itemData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="90" column="44" lean-forward="false" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
+          <folding>
+            <marker date="1521453717461" expanded="true" signature="594:653" ph="SELECT produ... products" />
+            <marker date="1521453717461" expanded="true" signature="1105:1438" ph="SELECT produ... products" />
+            <marker date="1521453717461" expanded="true" signature="1857:1897" ph="DELETE FROM " />
+            <marker date="1521453717461" expanded="true" signature="3984:4379" ph="UPDATE produ... " />
           </folding>
         </state>
       </provider>

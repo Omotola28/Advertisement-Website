@@ -50,7 +50,7 @@ Navigation styling for MallFromAfrica site
 }
 
 .jumbotron {
-    background: url("../images/images.png") no-repeat ;
+    background: url("../images/websiteImg/images.png") no-repeat ;
     background-size: cover;
     color: white;
     text-align: center;

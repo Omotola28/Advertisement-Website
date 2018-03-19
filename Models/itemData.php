@@ -88,7 +88,7 @@ class itemData
             $country = $_POST['country'];
             $state = $_POST['state'];
 
-            $target_dir = "images/";
+            $target_dir = "images/websiteImg";
             $fileName = $_FILES["updateImage"]["name"];
             $target_file = $target_dir . basename($fileName);
             $uploadOk = 1;
