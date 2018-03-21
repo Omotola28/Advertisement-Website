@@ -10,16 +10,24 @@
         <hr>
          <?php if(isset($_SESSION['register'])){extract($_SESSION['register']);} ?>
          <div class="form-row">
-             <div class="form-group col-md-6" id="firstName-div">
-                 <label for="name">Firstname</label>
-                 <input type="text" name="firstName" id="name"
-                        value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $firstName;}?>" class ="form-control"  placeholder="FirstName">
+             <div class="form-group col-md-12" id="fullName-div">
+                 <label for="name">FullName</label>
+                 <input type="text" name="fullName" id="name" minlength="3"
+                        value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $fullName;}?>" class ="form-control"  placeholder="Full Name">
+                 <ul class="formConstraint">
+                     <li>Must be at least 3 characters long</li>
+                     <li>Must only contain letters, no numbers or special characters.</li>
+                 </ul>
              </div>
-             <div class="form-group col-md-6"  id="surName-div">
+             <!--<div class="form-group col-md-6"  id="surName-div">
                  <label for="surName">Surname</label>
                  <input type="text" name="surName" id="surName"
                         value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $surName;}?>" class="form-control"  placeholder="SurName">
-             </div>
+                 <ul class="formConstraint">
+                     <li>Must be at least 3 characters long</li>
+                     <li>Must only contain letters, no numbers or special characters.</li>
+                 </ul>
+             </div>-->
          </div>
         <div class="form-row">
             <div class="form-group col-md-6" id="email-div">
@@ -29,20 +37,33 @@
             </div>
             <div class="form-group col-md-6"  id="password-div">
                 <label for="password">Password</label>
-                <input type="Password" name= "password" id="password"
+                <input type="Password" name= "password" id="password" minlength="6" maxlength="20"
                        value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $password;}?>" class="form-control"  placeholder="Password">
+                <ul class="formConstraint">
+                    <li>Must be at least 6 characters long (max 20 characters)</li>
+                    <li>Must contain at least 1 number</li>
+                    <li>Must contain at least 1 special character e.g (@,!)</li>
+                    <li>Must contain at least 1 lowercase and 1 uppercase</li>
+                </ul>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12"  id="address1-div">
-                    <label for="inputAddress1">Address</label>
-                    <input type="Text" name ="addressLine1" id="inputAddress1"
+                <label for="inputAddress1">Address</label>
+                <input type="Text" name ="addressLine1" id="inputAddress1"
                            value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addressLine1;}?>" class="form-control"  placeholder="Blk B Flat 1">
+                <ul class="formConstraint">
+                    <li>Must only contain letters, or numbers no special characters.</li>
+                </ul>
+
             </div>
             <div class="form-group col-md-12"  id="address2-div">
-                    <label for="inputAddress2">Address 2</label>
-                    <input type="Text" name ="addressLine2"  id="inputAddress2"
+                <label for="inputAddress2">Address 2</label>
+                <input type="Text" name ="addressLine2"  id="inputAddress2"
                            value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addressLine2;}?>" class="form-control"placeholder="Defence Quarters">
+                <ul class="formConstraint">
+                    <li>Must only contain letters, or numbers no special characters.</li>
+                </ul>
             </div>
         </div>
         <div class="form-row"">
@@ -64,8 +85,11 @@
             </div>
             <div class="form-group col-md-4" id="number-div">
                 <label for="phoneNumber">PhoneNumber</label>
-                <input type="text" id="phoneNumber"
+                <input type="text" id="phoneNumber" maxlength="15" minlength="10"
                        value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $phoneNumber;}?>" name="phoneNumber" class="form-control">
+                <ul class="formConstraint">
+                    <li>Must only contain numbers with max length of 15 digits.</li>
+                </ul>
             </div>
         </div>
         <div class="form-group col-md-12">

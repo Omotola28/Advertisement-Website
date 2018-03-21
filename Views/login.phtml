@@ -1,6 +1,6 @@
 <?php require('template/header.phtml') ?>
 <?php if (isset($_SESSION['message'])) : ?>
-    <div class="bg-success lead text-center"><?php  echo $_SESSION['message'];
+    <div id="errorM" class="bg-success lead text-center"><?php  echo $_SESSION['message'];
         unset($_SESSION['message']) ?></div>
 <?php endif; ?>
 

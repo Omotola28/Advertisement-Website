@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div id="welcomeMessage" class="col-md-12">
-            <h4>Hello <?php echo $_SESSION['firstName']?></h4>
+            <h4>Hello <?php echo $_SESSION['fullName']?></h4>
             <p>Welcome to your MallFromAfrica Account</p>
             <p>Here you can update your account details and take action on items added to your watchlist</p>
         </div>
@@ -42,7 +42,7 @@
                             <div class="watchListInfo">
                                 <h4>Contact AD Owner</h4>
                                 <ul>
-                                    <li><b>Seller Name:</b> <?php echo $values["firstName"] ." ". $values["surName"]; ?></li>
+                                    <li><b>Seller Name:</b> <?php echo $values["fullName"]; ?></li>
                                     <li><b>Seller Email:</b><?php echo $values["email"]; ?></li>
                                     <li><b>Seller Phonenumber: </b><?php echo $values["phonenumber"]; ?></li>
                                 </ul>
@@ -228,7 +228,7 @@
                             <?php foreach($view->info as $keys => $values) { ?>
                             <div class="card userInfo">
                                 <img class="img-responsive" src="images/profile.jpg" alt="userImg" style="width:100%">
-                                <h1><?php echo $values['firstName']." ".$values['surName']?></h1>
+                                <h1><?php echo $values['fullName']?></h1>
                                 <p class="title"><?php echo $values['email']?></p>
                                 <p><?php echo $values['phonenumber']?></p>
                                 <address id="userAddress">

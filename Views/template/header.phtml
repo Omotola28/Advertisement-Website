@@ -36,13 +36,13 @@
                         <?php
                         if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ){
                             if(isset($_SESSION["userRole"]) && $_SESSION['userRole'] === "admin-true"){
-                                echo "<li><div id='userName'>Hi ".$_SESSION['firstName']."</div></li>
+                                echo "<li><div id='userName'>Hi ".$_SESSION['fullName']."</div></li>
                                         <li><a href='listing.php'>Listings</a></li>
                                         <li><a href='admin.php'>Admin Panel</a></li>
                                        <li><a href='index.php?action=logout'>Logout</a></li>";
 
                             }else{
-                                echo "<li><div id='userName'>Hi ".$_SESSION['firstName']."</div></li>
+                                echo "<li><div id='userName'>Hi ".$_SESSION['fullName']."</div></li>
                                 <li class='active'><a href='index.php'>Home</a></li>
                                 <li><a href='listing.php'>Listings</a></li>
                                 <li><a href='userAccount.php'>My Account</a></li>

@@ -37,7 +37,7 @@ class ExtractProductData
 
 
             $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
-                          productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address ";
+                          productCol,productSize,productImg,publishDate,products.sellerID,fullName,surName,email,phonenumber,country, state FROM products, users, address ";
             $condition = []; //create a an array of conditions to be added to search query
 
             if($category != ""){
@@ -73,7 +73,7 @@ class ExtractProductData
         }else{
             //query that runs if the search bar is not being used
             $sqlQuery = 'SELECT DISTINCT productsID,category, productTitle, productDes, currency, price,
-             productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state FROM products, users, address WHERE 
+             productCol,productSize,productImg,publishDate,products.sellerID,fullName,surName,email,phonenumber,country, state FROM products, users, address WHERE 
              (products.sellerID = users.usersID) AND (users.usersID = address.userID)ORDER BY products.productsID ASC';
         }
         return $sqlQuery;

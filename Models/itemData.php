@@ -43,7 +43,7 @@ class itemData
     public function specificItem($item){
 
         $query = "SELECT productsID,category, productTitle, productDes, currency, price,
-             productCol,productSize,productImg,publishDate,products.sellerID,firstName,surName,email,phonenumber,country, state
+             productCol,productSize,productImg,publishDate,products.sellerID,fullName,surName,email,phonenumber,country, state
               FROM products,users,address WHERE users.usersID = address.userID and products.sellerID = users.usersID AND productsID = $item";
 
         $result = $this->_dbConnection->query($query);

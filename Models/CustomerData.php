@@ -24,8 +24,8 @@ class CustomerData
     public function insertIntoDB()
     {
         if (isset($_POST['register'])) {
-            $first_N = $_POST['firstName'];
-            $last_N = $_POST['surName'];
+            $full_N = $_POST['fullName'];
+            #$last_N = $_POST['surName'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $hash = md5(rand(0, 1000));
@@ -53,7 +53,7 @@ class CustomerData
                 if($captcha != $_SESSION['captcha'])
                     $_SESSION['message'] = "Captcha text entered wrong";
                 else {
-                    $sqlQuery1 = "INSERT INTO users (firstName,surName,email, password,hash, phonenumber) VALUES ('$first_N','$last_N','$email',
+                    $sqlQuery1 = "INSERT INTO users (fullName,email, password,hash, phonenumber) VALUES ('$full_N','$email',
                         '$password','$hash','$phoneNo')";
                     $statement = $this->_dbConnection->prepare($sqlQuery1); // prepare a PDO statement
                     $statement->execute(); // execute the PDO statement
@@ -93,14 +93,14 @@ class CustomerData
                 $user = $result->fetch(PDO::FETCH_ASSOC);
                 if (password_verify($_POST['inputPwd'], $user['password']) ) {
                     if($user['userRole']=== 'admin-false'){
-                        $_SESSION['firstName'] = $user['firstName'];
+                        $_SESSION['fullName'] = $user['fullName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
                         $_SESSION['logged_in'] = true;
                         header("location: index.php");
                         exit();
                     }else{
-                        $_SESSION['firstName'] = $user['firstName'];
+                        $_SESSION['fullName'] = $user['fullName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
                         $_SESSION['logged_in'] = true;
@@ -145,8 +145,8 @@ class CustomerData
      * @param $userID used to update specific user information in the database
      */
     public function updateInfo($userID){
-            $fname = $_POST['firstName'];
-            $lname = $_POST['surName'];
+            $fname = $_POST['fullName'];
+            #$lname = $_POST['surName'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $hash = md5(rand(0, 1000));
@@ -157,7 +157,7 @@ class CustomerData
             $state = $_POST['state'];
 
 
-            $sql = "update users, address set firstName = '$fname',surName = '$lname', email = '$email',password ='$password',
+            $sql = "update users, address set fullName = '$fname', email = '$email',password ='$password',
                     hash = '$hash', phonenumber ='$number', addressLine1 = '$addressL1', addressLine2 = '$addressL2', 
                     country = '$country', state = '$state' where users.usersID = $userID and address.userID = $userID";
             $result = $this->_dbConnection->query($sql);
