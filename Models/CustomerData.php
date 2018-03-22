@@ -35,7 +35,7 @@ class CustomerData
             $state = $_POST['state'];
             $country = $_POST['country'];
             $captcha = $_POST['captcha'];
-
+            $_SESSION['register'] = $_POST;
 
             // Check if user with that email already exists
             $sql = "SELECT * FROM users WHERE email='$email' OR phonenumber = '$phoneNo'";
@@ -45,7 +45,6 @@ class CustomerData
             // We know user email exists if the rows returned are more than 0
             if ($result->rowCount() > 0) {
                 $_SESSION['message'] = 'User with this email/phoneNo already exists!';
-                $_SESSION['register'] = $_POST;
                 //print_r($_SESSION['register']);
                 header("location: register.php");
                 exit();

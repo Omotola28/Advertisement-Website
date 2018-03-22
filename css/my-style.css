@@ -185,7 +185,7 @@ address{
     text-align: left;
     max-width: 500px;
     padding: 0;
-    margin: 10px auto;
+    margin: 10px;
     font-weight: bold;
 
 }
@@ -204,7 +204,8 @@ input:not([type="submit"]):valid{
 
 /***Transitions constraints box in and out when user hovers or focuses***/
 
-input:not([type="submit"]) + .formConstraint {
+input:not([type="submit"]) + .formConstraint,
+select + .formConstraint{
     overflow: hidden;
     max-height: 0;
     transition: max-height 1s ease-out;
@@ -212,7 +213,10 @@ input:not([type="submit"]) + .formConstraint {
 
 input:not([type="submit"]):hover + .formConstraint,
 input:not([type="submit"]):focus + .formConstraint,
-input:not([type="submit"]):active + .formConstraint {
+input:not([type="submit"]):active + .formConstraint,
+select:hover + .formConstraint,
+select:focus + .formConstraint,
+select:active + .formConstraint{
     max-height: 1000px; /* any large number (bigger then the .input-requirements list) */
     transition: max-height 1s ease-in;
 }
@@ -221,6 +225,12 @@ input:not([type="submit"]):active + .formConstraint {
     display: inline-block;
     padding-left: 10px;
     content: "\2713";
+}
+
+.formConstraint li.invalid:after{
+    display: inline-block;
+    padding-left: 10px;
+    content: '×'
 }
 /**ends here**/
 
