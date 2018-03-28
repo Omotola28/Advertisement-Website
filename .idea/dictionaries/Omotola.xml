@@ -1,15 +1,18 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Omotola">
     <words>
+      <w>addr</w>
       <w>datediff</w>
       <w>dateformat</w>
       <w>getf</w>
       <w>getl</w>
       <w>htmlentities</w>
       <w>keyup</w>
+      <w>onreadystatechange</w>
       <w>sellerf</w>
       <w>sellerl</w>
       <w>toggler</w>
+      <w>xhttp</w>
     </words>
   </dictionary>
 </component>

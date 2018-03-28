@@ -1,10 +1,9 @@
 <?php require('template/header.phtml') ?>
-<?php if (isset($_SESSION['message'])) : ?>
-    <div class="bg-danger lead text-center" xmlns="http://www.w3.org/1999/html"><?php  echo $_SESSION['message'];
-    unset($_SESSION['message'])?></div>
-    <?php endif; ?>
-
-  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<?php if(isset($_SESSION['register']))
+            unset($_SESSION['register']); ?>
+  <div id="successM" class="bg-danger lead text-center"></div>
+  <form method="post" id="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+      <div id="errorM" class="bg-danger lead text-center"></div>
      <div class="container form">
             <h4 class="formHeader">REGISTER TO CONTACT SELLERS AND PURCHASE ITEMS</h4>
         <hr>
@@ -13,24 +12,15 @@
              <div class="form-group" id="fullName-div">
                  <label for="fullName" class="col-md-12">FullName
                      <input type="text" name="fullName" id="fullName" minlength="3"
-                            value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $fullName;}?>" class ="form-control"  placeholder="Full Name" required>
+                            value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $name;}?>" class ="form-control"  placeholder="Full Name" required>
                      <ul class="formConstraint">
                          <li>Must be at least 3 characters long</li>
                          <li>Must only contain letters, no numbers or special characters.</li>
                      </ul>
                  </label>
              </div>
-             <!--<div class="form-group col-md-6"  id="surName-div">
-                 <label for="surName">Surname</label>
-                 <input type="text" name="surName" id="surName"
-                        value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $surName;}?>" class="form-control"  placeholder="SurName">
-                 <ul class="formConstraint">
-                     <li>Must be at least 3 characters long</li>
-                     <li>Must only contain letters, no numbers or special characters.</li>
-                 </ul>
-             </div>-->
          </div>
-        <div class="form-row">
+         <div class="form-row">
             <div class="form-group" id="email-div">
                 <label for="email" class="col-md-6">Email
                     <input type="Email" name ="email" id="email"
@@ -45,25 +35,26 @@
                         <li>Must be at least 6 characters long (max 20 characters)</li>
                         <li>Must contain at least 1 number</li>
                         <li>Must contain at least 1 special character e.g (@,!)</li>
-                        <li>Must contain at least 1 lowercase and 1 uppercase</li>
+                        <li>Must contain at least 1 uppercase</li>
+                        <li>Must contain at least 1 lowercase</li>
                     </ul>
                 </label>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group"  id="address1-div">
-                <label for="inputAddress1" class="col-md-12">Address
-                    <input type="Text" name ="addressLine1" id="inputAddress1"
-                               value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addressLine1;}?>" class="form-control"  placeholder="Blk B Flat 1" required>
+                <label for="addressLine1" class="col-md-12">Address
+                    <input type="Text" name ="addressLine1" id="addressLine1"
+                               value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addr1;}?>" class="form-control"  placeholder="Blk B Flat 1" required>
                     <ul class="formConstraint">
                         <li>Must only contain letters, or numbers no special characters.</li>
                     </ul>
                 </label>
             </div>
             <div class="form-group"  id="address2-div">
-                <label for="inputAddress2" class="col-md-12">Address 2
-                    <input type="Text" name ="addressLine2"  id="inputAddress2"
-                               value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addressLine2;}?>" class="form-control"placeholder="Defence Quarters" required>
+                <label for="addressLine2" class="col-md-12">Address 2
+                    <input type="text" name ="addressLine2"  id="addressLine2"
+                               value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $addr2;}?>" class="form-control" placeholder="Defence Quarters" required>
                     <ul class="formConstraint">
                         <li>Must only contain letters, or numbers no special characters.</li>
                     </ul>
@@ -73,34 +64,29 @@
         <div class="form-row"">
             <div class="form-group "  id="country-div">
                 <label for="country" class="col-md-4">Country
-                    <select id="country" name="country" class="form-control" onchange="printState(this.id, 'state');">
+                    <select id="country" name="country" class="form-control" onchange="printState(this.id, 'state');" required>
                         <option value ="" selected>Select Country</option>
                         <option value="Nigeria">Nigeria</option>
                         <option value="Kenya">Kenya</option>
                         <option value="South Africa">South Africa</option>
                         <option value="Uganda">Uganda</option>
                     </select>
-                    <ul class="formConstraint">
-                        <li>Choose a country</li>
-                    </ul>
                 </label>
             </div>
             <div class="form-group"  id="state-div">
                 <label for="state" class="col-md-4">State
-                    <select id="state" name="state" class="form-control">
+                    <select id="state" name="state" class="form-control" required>
                         <option value ="" selected>Select State</option>
                     </select>
-                    <ul class="formConstraint">
-                        <li>Choose a state</li>
-                    </ul>
                 </label>
             </div>
             <div class="form-group" id="number-div">
                 <label for="phoneNumber" class="col-md-4">PhoneNumber
-                    <input type="text" id="phoneNumber" maxlength="15" minlength="10"
-                           value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $phoneNumber;}?>" name="phoneNumber" class="form-control" required>
+                    <input type="text" id="phoneNumber"  maxlength="15" minlength="10" autocomplete="off"
+                           value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $no;}?>" name="phoneNumber" class="form-control" required>
                     <ul class="formConstraint">
-                        <li>Must only contain numbers with max length of 15 digits.</li>
+                        <li>Must only contain numbers</li>
+                        <li>Max length of 15 digits.</li>
                         <li>Start with + followed with country code then number</li>
                     </ul>
                 </label>
@@ -110,17 +96,19 @@
           <div><img id="captcha" src="captcha.php">
               <button type="submit" name="reload" id="reload" onclick="return reloadCaptcha()"><i class="reload fas fa-sync"></i></button>
           </div>
-
-          <input type="text" class="form-control"
-                 value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $captcha;} ?>" id="captcha" name="captcha" placeholder="Enter Text above">
+          <input type="text" class="form-control" id="captchaTxt" name="captchaTxt"
+                 value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $captcha;} ?>">
         </div>
 
          <div class="form-group col-md-12">
-             <button type="submit" name="register" class="btn-lg btn-success">Register</button>
+             <input type="submit" name="register" id="register" class="btn-lg btn-success">
          </div>
-      </div>
-      <?php unset($_SESSION['register'])?>
+
+     </div>
+
   </form>
+
+
 
 
 <?php require('template/footer.phtml') ?>

@@ -190,11 +190,11 @@ address{
 
 }
 
-.formConstraint li.invalid{
+.formConstraint li.invalid {
     color: #e71616;
 }
 
-.formConstraint li.valid{
+.formConstraint li.valid {
     color: #58a90e;
 }
 
@@ -244,13 +244,23 @@ select:active + .formConstraint{
     font-size: 1.5em;
     padding-left: 10px;
 }
+
 #errorM{
     position: relative;
-    top: 6em;
+    top: 5.5em;
     width: 60%;
     margin: auto;
-    background-color: #bd1d1d;
+    background-color: #423636;
     color: ghostwhite;
+}
+
+#successM{
+    width: 50%;
+    margin: 5em auto;
+    padding: 6em 0;
+    background-color: #423636;
+    color: ghostwhite;
+    display:none;
 }
 
 /**LOGIN AGE ENDS HERE **/

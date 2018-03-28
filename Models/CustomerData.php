@@ -23,18 +23,17 @@ class CustomerData
      */
     public function insertIntoDB()
     {
-        if (isset($_POST['register'])) {
-            $full_N = $_POST['fullName'];
-            #$last_N = $_POST['surName'];
+
+            $full_N = $_POST['name'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $hash = md5(rand(0, 1000));
-            $phoneNo = $_POST['phoneNumber'];
-            $address1 = $_POST['addressLine1'];
-            $address2 = $_POST['addressLine2'];
+            $phoneNo = $_POST['no'];
+            $address1 = $_POST['addr1'];
+            $address2 = $_POST['addr2'];
             $state = $_POST['state'];
             $country = $_POST['country'];
-            $captcha = $_POST['captcha'];
+            $captcha = $_POST['captchaTxt'];
             $_SESSION['register'] = $_POST;
 
             // Check if user with that email already exists
@@ -44,13 +43,14 @@ class CustomerData
 
             // We know user email exists if the rows returned are more than 0
             if ($result->rowCount() > 0) {
-                $_SESSION['message'] = 'User with this email/phoneNo already exists!';
-                //print_r($_SESSION['register']);
-                header("location: register.php");
+                echo 'User with this email/phoneNo already exists!';
+                //header("location: register.php");
                 exit();
             } else {
-                if($captcha != $_SESSION['captcha'])
-                    $_SESSION['message'] = "Captcha text entered wrong";
+                if($captcha != $_SESSION['captcha']){
+                    echo "Captcha text entered wrong";
+                    exit();
+                }
                 else {
                     $sqlQuery1 = "INSERT INTO users (fullName,email, password,hash, phonenumber) VALUES ('$full_N','$email',
                         '$password','$hash','$phoneNo')";
@@ -62,12 +62,10 @@ class CustomerData
                         '$address2', '$country', '$state',$last_id)";
                     $statement1 = $this->_dbConnection->prepare($sqlQuery2);
                     $statement1->execute();
-                    $_SESSION['message'] = 'Successfully registered!';
-                    header("location:login.php");
+                    echo 'Successfully registered';
                     exit();
                 }
             }
-        }
     }
 
     /**
@@ -145,7 +143,6 @@ class CustomerData
      */
     public function updateInfo($userID){
             $fname = $_POST['fullName'];
-            #$lname = $_POST['surName'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $hash = md5(rand(0, 1000));

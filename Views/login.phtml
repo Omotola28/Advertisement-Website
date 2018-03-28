@@ -3,11 +3,9 @@
     <div id="errorM" class="bg-success lead text-center"><?php  echo $_SESSION['message'];
         unset($_SESSION['message']) ?></div>
 <?php endif; ?>
-
-
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="container form">
-            <h4 class="formHeader">ACCESS YOR ACCOUNT</h4>
+            <h4 class="formHeader">ACCESS YOUR ACCOUNT</h4>
             <hr>
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -22,7 +20,7 @@
                 </div>
             </div>
             <div class="form-group col-md-12">
-                <button type="submit" name="loginBtn" class="btn-lg btn-success">Login</button>
+                <button type="submit" name="loginBtn" id="loginBtn" class="btn-lg btn-success">Login</button>
             </div>
             <hr>
             <div class="col-md-12">

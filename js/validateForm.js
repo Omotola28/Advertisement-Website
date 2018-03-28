@@ -5,9 +5,14 @@
  *
  * **/
 
-function ValidateForm() {
-    this.invalid = [];
-    this.checks = [];
+function ValidateForm(input) {
+    this.invalid = []; //array for invalid messages
+    this.checks = []; //array for all the checks done in order to raise invalid error message
+
+    this.inputBox = input;
+
+    //trigger method to attach the listener
+    this.assignListener();
 }
 
 ValidateForm.prototype = {
@@ -16,30 +21,67 @@ ValidateForm.prototype = {
     },
     
     getInvalidError : function () {
-        this.invalid.join('. \n')
+        return this.invalid.join('. \n')
     },
     
     checkValidity:function (input) {
-       for(var i = 0; i < this.checks.length; i++){
-           var isInvalid = this.checks[i].isInvalid(input);
-           if(isInvalid){  //if false
+       for(let i = 0; i < this.checks.length; i++){
+           let isInvalid = this.checks[i].isInvalid(input);
+           if(isInvalid) {  //if false
                this.addInvalidError(this.checks[i].invalidMessage); //add error message to invalid error list
-               this.checks[i].element.classList.add("invalid");
-               this.checks[i].element.classList.remove("valid");
-           }else { //if true
-               this.checks[i].element.classList.remove("invalid");
-               this.checks[i].element.classList.add("valid");
            }
-       }
+           let constraints = this.checks[i].element;
+           if(constraints) {
+               if (isInvalid) {
+                   this.checks[i].element.classList.add("invalid");
+                   this.checks[i].element.classList.remove("valid");
+               }
+               else {
+                   this.checks[i].element.classList.remove("invalid");
+                   this.checks[i].element.classList.add("valid");
+               }
+           }
+       } //end for loop
+    },
+
+    checkInput:function () {
+        this.inputBox.ValidateForm.invalid = [];
+        this.checkValidity(this.inputBox);
+
+        if(this.inputBox.ValidateForm.invalid.length === 0 && this.inputBox.value !== ""){
+            this.inputBox.setCustomValidity("");
+        }else {
+            let message = this.inputBox.ValidateForm.getInvalidError();
+            this.inputBox.setCustomValidity(message);
+        }
+    },
+
+    assignListener: function() { //assign the listener here
+
+        let CustomValidation = this;
+
+        this.inputBox.addEventListener('keyup', function() {
+            CustomValidation.checkInput();
+        })
     }
 };
 
+/*
+
+    VALIDATING REGISTRATION FORM STARTS HERE CHECKS INPUT
+        -full name
+        -password
+        -phonenumber
+        -address line 1
+        -address line 2
+        -captcha
+                                                        */
 /**
  * Array to check valid inputs for user full name input box
  * the array stores checks for the length of input, error message passed back
  * and feedback mechanism to help for the user
  */
-var validFNameCheck = [
+let validFNameCheck = [
     {
         isInvalid: function (input) {
             return input.value.length < 3;
@@ -49,7 +91,7 @@ var validFNameCheck = [
     },
     {
         isInvalid : function (input) {
-            var invalidCharacters = input.value.match(/[^A-Za-z]/g);
+            let invalidCharacters = input.value.match(/[^A-Za-z ]/g);
             return invalidCharacters ? true : false;
             
         },
@@ -61,22 +103,22 @@ var validFNameCheck = [
 /**
  * Validates input for password
  *  1. Password must be at least 6 characters long but less than 20 characters
- *  2. Password should contain atleast 1 upper case and atleast 1 lowercase
+ *  2. Password should contain at least 1 upper case and at least 1 lowercase
  *  3. Password should contain a number
  *  4. Password should have at least one special character
  *
  */
-var validPassWCheck = [
+let validPassWCheck = [
     {
         isInvalid: function (input) {
             return input.value.length < 6 || input.value.length > 20;
         },
-        invalidMessage : 'Your password should be atleast 6 characters',
+        invalidMessage : 'Your password should be at least 6 characters',
         element:document.querySelector('label[for="password"] li:nth-child(1)')
     },
     {
         isInvalid : function (input) {
-            return input.value.match(/[A-Z]/g);
+            return !input.value.match(/[A-Z]/g);
         },
         invalidMessage: "You are required to have at least 1 uppercase letter ",
         element: document.querySelector('label[for="password"] li:nth-child(4)')
@@ -86,7 +128,7 @@ var validPassWCheck = [
             return !input.value.match(/[a-z]/g);
         },
         invalidMessage: "You are required to have at least 1 lowercase letter ",
-        element: document.querySelector('label[for="password"] li:nth-child(4)')
+        element: document.querySelector('label[for="password"] li:nth-child(5)')
     },
     {
         isInvalid : function (input) {
@@ -110,99 +152,171 @@ var validPassWCheck = [
  * Validity checks for the phoneNumber input box
  * only numbers should be greater than 12 but less than or equal to 15
  */
-var validPhoneNoCheck = [
+let validPhoneNoCheck = [
+   {
+        isInvalid : function (input) {
+            return !input.value.match(/^\+/);
+        },
+        invalidMessage: "Start with a plus followed by country calling code and then number",
+        element: document.querySelector('label[for="phoneNumber"] li:nth-child(3)')
+    },
     {
         isInvalid : function (input) {
-            return !input.value.match(/[^A-Za-z-\!\@\#\$\%\^\&\*]/g);
+            return  input.value.length < 12 && input.value.length < 15;
+        },
+        invalidMessage: "max length is 15 digits",
+        element: document.querySelector('label[for="phoneNumber"] li:nth-child(2)')
+    },
+    {
+        isInvalid : function (input) {
+            return input.value.match(/[A-Za-z]/g);
         },
         invalidMessage: "Only numbers required ",
         element: document.querySelector('label[for="phoneNumber"] li:nth-child(1)')
-    },
-    {
-        isInvalid : function (input) {
-            return  input.value.length < 14 || input.value.length > 15;
-        },
-        invalidMessage: "max length is 15 digits",
-        element: document.querySelector('label[for="phoneNumber"] li:nth-child(1)')
-    },
-    {
-        isInvalid : function (input) {
-            return  !input.value.match(/^\+/);
-        },
-        invalidMessage: "Start with a plus followed by country calling code and then number",
-        element: document.querySelector('label[for="phoneNumber"] li:nth-child(2)')
     }
 ];
 
 /**
  * Validate address input no special characters inside the input form
  */
-var validAddress1Check =[
+let validAddress1Check =[
     {
         isInvalid : function (input) {
             return  input.value.match(/[\!\@\#\$\%\^\&\*]/g);
         },
         invalidMessage: "No special characters allowed",
-        element: document.querySelector('label[for="inputAddress1"] li:nth-child(1)')
+        element: document.querySelector('label[for="addressLine1"] li:nth-child(1)')
     }
 ];
 
-var validAddress2Check =[
+let validAddress2Check =[
     {
         isInvalid : function (input) {
             return  input.value.match(/[\!\@\#\$\%\^\&\*]/g);
         },
         invalidMessage: "No special characters allowed",
-        element: document.querySelector('label[for="inputAddress2"] li:nth-child(1)')
+        element: document.querySelector('label[for="addressLine2"] li:nth-child(1)')
     }
 ];
 
-var  validCountryCheck =[
+
+let validCaptchaCheck =[
     {
         isInvalid : function (input) {
-            return  input.value != "";
+            return  input.value.match(/[\!\@\#\$\%\^\&\*\>\<]/g);
         },
-        invalidMessage: "Choose a country",
-        element: document.querySelector('label[for="country"] li:nth-child(1)')
+        invalidMessage: "No special characters allowed",
+        element: null
     }
 ];
 
-var fullName = document.getElementById("fullName");
-var password = document.getElementById("password");
-var phoneNumber = document.getElementById("phoneNumber");
-var address1 = document.getElementById("inputAddress1");
-var address2 = document.getElementById("inputAddress2");
-var country = document.getElementById("country");
-var state = document.getElementById("state");
+/*
+    VALIDATION FOR REGISTRATION FORM ENDS HERE
+                                                */
 
-fullName.ValidateForm = new ValidateForm(); //instantiates the ValidateForm class with default error array
+/**
+ * @param id of element you want ot retrieve
+ * @returns {Element}
+ * @private
+ */
+function _(id) {
+    return document.getElementById(id);
+}
+
+let fullName = _("fullName");
+let email = _("email");
+let password = _("password");
+let phoneNumber = _("phoneNumber");
+let address1 = _("addressLine1");
+let address2 =_("addressLine2");
+let country = _("country");
+let state = _("state");
+let captcha = _("captchaTxt");
+let register = _("register");
+let errorM = _("errorM");
+let successM = _("successM");
+
+
+
+fullName.ValidateForm = new ValidateForm(fullName); //instantiates the ValidateForm class with default error array
 fullName.ValidateForm.checks = validFNameCheck; //chooses which array to store in the checks array in ValidateForm
 
-password.ValidateForm = new ValidateForm(); //instantiates the ValidateForm class with default error array
+password.ValidateForm = new ValidateForm(password); //instantiates the ValidateForm class with default error array
 password.ValidateForm.checks = validPassWCheck; //chooses which array to store in the checks array in ValidateForm
 
-phoneNumber.ValidateForm = new ValidateForm(); //instantiates the ValidateForm class with default error array
+phoneNumber.ValidateForm = new ValidateForm(phoneNumber); //instantiates the ValidateForm class with default error array
 phoneNumber.ValidateForm.checks = validPhoneNoCheck; //chooses which array to store in the checks array in ValidateForm
 
-address1.ValidateForm = new ValidateForm(); //instantiates the ValidateForm class with default error array
+address1.ValidateForm = new ValidateForm(address1); //instantiates the ValidateForm class with default error array
 address1.ValidateForm.checks = validAddress1Check; //chooses which array to store in the checks array in ValidateForm
 
-address2.ValidateForm = new ValidateForm(); //instantiates the ValidateForm class with default error array
+address2.ValidateForm = new ValidateForm(address2); //instantiates the ValidateForm class with default error array
 address2.ValidateForm.checks = validAddress2Check; //chooses which array to store in the checks array in ValidateForm
 
-country.ValidateForm = new ValidateForm(); //instantiates the ValidateForm class with default error array
-country.ValidateForm.checks = validCountryCheck; //chooses which array to store in the checks array in ValidateForm
+captcha.ValidateForm = new ValidateForm(captcha);
+captcha.ValidateForm.checks = validCaptchaCheck;
 
-//state.ValidateForm = new ValidateForm(); //instantiates the ValidateForm class with default error array
-//state.ValidateForm.checks = validStateCheck; //chooses which array to store in the checks array in ValidateForm
+function sendInput() {
+    register.disabled = true;
+    let formData = new FormData();
+    formData.append("name", fullName.value);
+    formData.append("email", email.value);
+    formData.append("password", password.value);
+    formData.append("no", phoneNumber.value);
+    formData.append("addr1", address1.value);
+    formData.append("addr2", address2.value);
+    formData.append("country", country.value);
+    formData.append("state", state.value);
+    formData.append("captchaTxt", captcha.value);
+    formData.append("register", register.value);
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "register.php", true);
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            if(xhttp.responseText === "Successfully registered"){
+                successM.style.display = "block";
+                successM.innerHTML = '<div><p>'+xhttp.responseText+ '</p>' +
+                    '<span>Click here to <a href="login.php"> Login </a></span></div>';
+                regForm.style.display = "none";
+            }
+            else {
+                errorM.innerHTML = xhttp.responseText;
+                register.disabled = false;
+            }
+        }
+    };
+    xhttp.send(formData);
+}
 
-var inputs = document.querySelectorAll('input:not([type="submit"])')
-for(var i = 0; i < inputs.length; i++){
-    inputs[i].addEventListener('keyup', function () {
-        this.ValidateForm.checkValidity(this);
-    })
+/**
+ *EventListeners for form input
+ */
+let inputs = document.querySelectorAll('input:not([type="submit"])');
+
+let submit = document.querySelector('input[type="submit"]');
+
+let regForm = _("regForm");
+
+/**
+ * Validate form input and send input to client side for further checks
+ * against database.
+ */
+function validate() {
+    let inputProcess = 0;
+    for(let i = 0; i < inputs.length; i++){
+        inputs[i].ValidateForm.checkInput();
+        inputProcess+=i;
+        if (inputProcess === inputs.length){break;}
+        sendInput();
+    }
 
 }
+
+submit.addEventListener('click', validate);
+regForm.addEventListener('submit', validate);
+
+
+
 
 
 
