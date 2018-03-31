@@ -23,7 +23,6 @@ class CustomerData
      */
     public function insertIntoDB()
     {
-
             $full_N = $_POST['name'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -74,48 +73,47 @@ class CustomerData
      * and user firstName. If credentials do not match error is thrown
      */
     public function loginUser(){
-        if(isset($_POST['loginBtn'])){
             $email = $_POST['emailInput'];
+            $pwd = $_POST['inputPwd'];
+            $_SESSION['login'] = $_POST;
+
             // validate user input
             $sql = "SELECT * FROM users WHERE email='$email'";
             $result = $this->_dbConnection->prepare($sql);
             $result->execute();
             if ($result->rowCount() == 0) {
-                $_SESSION['message'] = 'User does not exist';
+                echo 'User does not exist';
                 $_SESSION['logged_in'] = false;
                 $_SESSION['login'] = $_POST;
-                header("location: login.php");
                 exit();
             }else{
                 $user = $result->fetch(PDO::FETCH_ASSOC);
-                if (password_verify($_POST['inputPwd'], $user['password']) ) {
+                if (password_verify($pwd, $user['password']) ) {
                     if($user['userRole']=== 'admin-false'){
+                        echo 'success';
                         $_SESSION['fullName'] = $user['fullName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
                         $_SESSION['logged_in'] = true;
-                        header("location: index.php");
                         exit();
                     }else{
+                        echo 'admin';
                         $_SESSION['fullName'] = $user['fullName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
                         $_SESSION['logged_in'] = true;
                         $_SESSION['userRole'] = $user['userRole'];
-                        header("location: admin.php");
                         exit();
                     }
 
                 }else{
-                    $_SESSION['message'] = "You have entered wrong password, try again!";
+                    echo "You have entered wrong password, try again!";
                     $_SESSION['logged_in'] = false;
                     $_SESSION['login'] = $_POST;
-                    header("location: login.php");
                     exit();
                 }
 
                 }
-            }
     }
 
     /**

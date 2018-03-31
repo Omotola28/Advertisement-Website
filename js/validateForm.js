@@ -1,4 +1,62 @@
 /**
+ * @param id of element you want ot retrieve
+ * @returns {Element}
+ * @private
+ */
+function _(id) {
+    return document.getElementById(id);
+}
+
+/*
+    IDS' FOR FORMS
+                                     */
+/*
+    IDS' FOR MESSAGES
+                                    */
+let errorM = _("errorM");
+let successM = _("successM");
+
+/*
+    ID'S FOR REGISTRATION FORM
+                                    */
+let fullName = _("fullName");
+let email = _("email");
+let password = _("password");
+let phoneNumber = _("phoneNumber");
+let address1 = _("addressLine1");
+let address2 =_("addressLine2");
+let country = _("country");
+let state = _("state");
+let captcha = _("captchaTxt");
+let register = _("register");
+
+/*
+    ID'S FOR LOGIN FORM
+                                        */
+let emailInput = _("emailInput");
+let inputPwd = _("inputPwd");
+let loginBtn = _("loginBtn");
+
+
+
+/**
+ *EventListeners for form input
+ */
+let inputs = document.querySelectorAll('input:not([type="submit"])');
+
+let reg = document.querySelector('input[name="register"]');
+
+let login = document.querySelector('input[name="loginBtn"]');
+
+let regForm = _("regForm");
+let loginForm = _("loginForm");
+
+
+
+
+
+
+/**
  * Validate form class helps keep track of error messages derived from user input, it also
  * checks for inputs of user are meeting constraints set for the form. This class also does check that
  * input is valid and then sends feedback to the user.
@@ -19,29 +77,29 @@ ValidateForm.prototype = {
     addInvalidError : function (message) {
         this.invalid.push(message);
     },
-    
+
     getInvalidError : function () {
         return this.invalid.join('. \n')
     },
-    
+
     checkValidity:function (input) {
-       for(let i = 0; i < this.checks.length; i++){
-           let isInvalid = this.checks[i].isInvalid(input);
-           if(isInvalid) {  //if false
-               this.addInvalidError(this.checks[i].invalidMessage); //add error message to invalid error list
-           }
-           let constraints = this.checks[i].element;
-           if(constraints) {
-               if (isInvalid) {
-                   this.checks[i].element.classList.add("invalid");
-                   this.checks[i].element.classList.remove("valid");
-               }
-               else {
-                   this.checks[i].element.classList.remove("invalid");
-                   this.checks[i].element.classList.add("valid");
-               }
-           }
-       } //end for loop
+        for(let i = 0; i < this.checks.length; i++){
+            let isInvalid = this.checks[i].isInvalid(input);
+            if(isInvalid) {  //if false
+                this.addInvalidError(this.checks[i].invalidMessage); //add error message to invalid error list
+            }
+            let constraints = this.checks[i].element;
+            if(constraints) {
+                if (isInvalid) {
+                    this.checks[i].element.classList.add("invalid");
+                    this.checks[i].element.classList.remove("valid");
+                }
+                else {
+                    this.checks[i].element.classList.remove("invalid");
+                    this.checks[i].element.classList.add("valid");
+                }
+            }
+        } //end for loop
     },
 
     checkInput:function () {
@@ -67,15 +125,78 @@ ValidateForm.prototype = {
 };
 
 /*
+                                         END OF VALIDATE FORM CLASS
+                                                                                                 */
 
-    VALIDATING REGISTRATION FORM STARTS HERE CHECKS INPUT
-        -full name
-        -password
-        -phonenumber
-        -address line 1
-        -address line 2
-        -captcha
-                                                        */
+/**
+ * @constructor for Registration form used to send data via an ajax call to the client side
+ * and also use Validate form to validate form inputs
+ */
+function RegistrationForm() {
+
+}
+
+RegistrationForm.prototype.sendRegister= function() {
+    register.disabled = true;
+    let formData = new FormData();
+    formData.append("name", fullName.value);
+    formData.append("email", email.value);
+    formData.append("password", password.value);
+    formData.append("no", phoneNumber.value);
+    formData.append("addr1", address1.value);
+    formData.append("addr2", address2.value);
+    formData.append("country", country.value);
+    formData.append("state", state.value);
+    formData.append("captchaTxt", captcha.value);
+    formData.append("register", register.value);
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "register.php", true);
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            switch (xhttp.responseText){
+                case "Successfully registered":
+                    successM.style.display = "block";
+                    successM.innerHTML = '<div>'+xhttp.responseText+ '</div>'+
+                        '<span>Click here to <a href="login.php">Login</a></span></div>';
+                    regForm.style.display = "none";
+                    break;
+                default:
+                    errorM.innerHTML = xhttp.responseText;
+                    register.disabled = false;
+            }
+
+        }
+    };
+    xhttp.send(formData);
+};
+
+/**
+ * Validate form input and send input to client side for further checks
+ * against database.
+ */
+
+RegistrationForm.prototype.validate = function() {
+    let inputProcess = 0;
+    for(let i = 0; i < inputs.length; i++){
+        inputs[i].ValidateForm.checkInput();
+        inputProcess++;
+        if (inputProcess === inputs.length){break;}
+        registration.sendRegister();
+    }
+
+};
+let registration = new RegistrationForm();
+
+/*
+
+        VALIDATING REGISTRATION FORM STARTS HERE CHECKS INPUT
+            -full name
+            -password
+            -phonenumber
+            -address line 1
+            -address line 2
+            -captcha
+                                                                                                    */
 /**
  * Array to check valid inputs for user full name input box
  * the array stores checks for the length of input, error message passed back
@@ -93,7 +214,7 @@ let validFNameCheck = [
         isInvalid : function (input) {
             let invalidCharacters = input.value.match(/[^A-Za-z ]/g);
             return invalidCharacters ? true : false;
-            
+
         },
         invalidMessage: "Only letters allowed",
         element: document.querySelector('label[for="fullName"] li:nth-child(2)')
@@ -153,7 +274,7 @@ let validPassWCheck = [
  * only numbers should be greater than 12 but less than or equal to 15
  */
 let validPhoneNoCheck = [
-   {
+    {
         isInvalid : function (input) {
             return !input.value.match(/^\+/);
         },
@@ -211,109 +332,136 @@ let validCaptchaCheck =[
 ];
 
 /*
-    VALIDATION FOR REGISTRATION FORM ENDS HERE
-                                                */
+        INSTANTIATES THE VALIDATE FROM CLASS WITH A DEFAULT ERROR ARRAY AND CHOOSES WHICH ARRAY TO STORE
+        IN THE CHECKS ARRAY IN VALIDATE FORM
+                                                                                                            */
+if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/register.php'){
+    fullName.ValidateForm = new ValidateForm(fullName);
+    fullName.ValidateForm.checks = validFNameCheck;
 
-/**
- * @param id of element you want ot retrieve
- * @returns {Element}
- * @private
- */
-function _(id) {
-    return document.getElementById(id);
+    password.ValidateForm = new ValidateForm(password);
+    password.ValidateForm.checks = validPassWCheck;
+
+    phoneNumber.ValidateForm = new ValidateForm(phoneNumber);
+    phoneNumber.ValidateForm.checks = validPhoneNoCheck;
+
+    address1.ValidateForm = new ValidateForm(address1);
+    address1.ValidateForm.checks = validAddress1Check;
+
+    address2.ValidateForm = new ValidateForm(address2);
+    address2.ValidateForm.checks = validAddress2Check;
+
+    captcha.ValidateForm = new ValidateForm(captcha);
+    captcha.ValidateForm.checks = validCaptchaCheck;
+
+    reg.addEventListener('click', registration.validate);
+    regForm.addEventListener('submit', registration.validate);
 }
 
-let fullName = _("fullName");
-let email = _("email");
-let password = _("password");
-let phoneNumber = _("phoneNumber");
-let address1 = _("addressLine1");
-let address2 =_("addressLine2");
-let country = _("country");
-let state = _("state");
-let captcha = _("captchaTxt");
-let register = _("register");
-let errorM = _("errorM");
-let successM = _("successM");
+/*
+                                END OF REGISTRATION FROM
+                                                                                                     */
 
+/**
+ * @constructor for LoginForm used to validate and send loginform details to client server and receieve responses
+ * to display to users
+ */
+function LoginForm() {
 
+}
 
-fullName.ValidateForm = new ValidateForm(fullName); //instantiates the ValidateForm class with default error array
-fullName.ValidateForm.checks = validFNameCheck; //chooses which array to store in the checks array in ValidateForm
-
-password.ValidateForm = new ValidateForm(password); //instantiates the ValidateForm class with default error array
-password.ValidateForm.checks = validPassWCheck; //chooses which array to store in the checks array in ValidateForm
-
-phoneNumber.ValidateForm = new ValidateForm(phoneNumber); //instantiates the ValidateForm class with default error array
-phoneNumber.ValidateForm.checks = validPhoneNoCheck; //chooses which array to store in the checks array in ValidateForm
-
-address1.ValidateForm = new ValidateForm(address1); //instantiates the ValidateForm class with default error array
-address1.ValidateForm.checks = validAddress1Check; //chooses which array to store in the checks array in ValidateForm
-
-address2.ValidateForm = new ValidateForm(address2); //instantiates the ValidateForm class with default error array
-address2.ValidateForm.checks = validAddress2Check; //chooses which array to store in the checks array in ValidateForm
-
-captcha.ValidateForm = new ValidateForm(captcha);
-captcha.ValidateForm.checks = validCaptchaCheck;
-
-function sendInput() {
-    register.disabled = true;
+LoginForm.prototype.sendLog = function () {
+    loginBtn.disabled = true;
     let formData = new FormData();
-    formData.append("name", fullName.value);
-    formData.append("email", email.value);
-    formData.append("password", password.value);
-    formData.append("no", phoneNumber.value);
-    formData.append("addr1", address1.value);
-    formData.append("addr2", address2.value);
-    formData.append("country", country.value);
-    formData.append("state", state.value);
-    formData.append("captchaTxt", captcha.value);
-    formData.append("register", register.value);
+    formData.append("emailInput", emailInput.value);
+    formData.append("inputPwd", inputPwd.value);
+    formData.append("loginBtn", loginBtn.value);
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "register.php", true);
+    xhttp.open("POST", "login.php", true);
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
-            if(xhttp.responseText === "Successfully registered"){
-                successM.style.display = "block";
-                successM.innerHTML = '<div><p>'+xhttp.responseText+ '</p>' +
-                    '<span>Click here to <a href="login.php"> Login </a></span></div>';
-                regForm.style.display = "none";
+            switch (xhttp.responseText){
+                case "success":
+                    window.location.assign("index.php");
+                    break;
+                case "admin" :
+                    window.location.assign("admin.php");
+                    break;
+                default:
+                    errorM.innerHTML = xhttp.responseText;
+                    loginBtn.disabled = false;
             }
-            else {
-                errorM.innerHTML = xhttp.responseText;
-                register.disabled = false;
-            }
+
         }
     };
     xhttp.send(formData);
-}
+};
 
-/**
- *EventListeners for form input
- */
-let inputs = document.querySelectorAll('input:not([type="submit"])');
-
-let submit = document.querySelector('input[type="submit"]');
-
-let regForm = _("regForm");
-
-/**
- * Validate form input and send input to client side for further checks
- * against database.
- */
-function validate() {
+LoginForm.prototype.checkLog = function () {
     let inputProcess = 0;
     for(let i = 0; i < inputs.length; i++){
         inputs[i].ValidateForm.checkInput();
-        inputProcess+=i;
+        inputProcess++;
         if (inputProcess === inputs.length){break;}
-        sendInput();
+        logs.sendLog();
     }
+};
 
+let logs = new LoginForm();
+/*
+    VALIDATING INPUTS FOR LOGIN FORM STARTS HERE
+        -emailInput
+        -inputPwd
+                                                                                  */
+let validLoginEmail =[
+    {
+        isInvalid : function (input) {
+            return  input.value.match(/[\!\+\#\$\%\^\&\*\>\<]/g);
+        },
+        invalidMessage: "No special characters allowed",
+        element: null
+    }
+];
+
+let validLoginPwd =[
+    {
+        isInvalid : function (input) {
+            return  input.value.match(/[\$\%\^\*\>\<]/g);
+        },
+        invalidMessage: "only these special characters allowed @!#&",
+        element: null
+    }
+];
+
+if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/login.php'){
+
+    emailInput.ValidateForm = new ValidateForm(emailInput);
+    emailInput.ValidateForm.checks = validLoginEmail;
+
+    inputPwd.ValidateForm = new ValidateForm(inputPwd);
+    inputPwd.ValidateForm.checks = validLoginPwd;
+
+
+    login.addEventListener('click',logs.checkLog);
+    loginForm.addEventListener('submit',logs.checkLog);
 }
 
-submit.addEventListener('click', validate);
-regForm.addEventListener('submit', validate);
+
+/*
+             END OF VALIDATING LOGIN FORM
+                                                                                     */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

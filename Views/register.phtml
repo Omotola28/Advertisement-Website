@@ -4,10 +4,9 @@
   <div id="successM" class="bg-danger lead text-center"></div>
   <form method="post" id="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
       <div id="errorM" class="bg-danger lead text-center"></div>
-     <div class="container form">
+     <div id="registrationForm" class="container form">
             <h4 class="formHeader">REGISTER TO CONTACT SELLERS AND PURCHASE ITEMS</h4>
         <hr>
-         <?php if(isset($_SESSION['register'])){extract($_SESSION['register']);} ?>
          <div class="form-row">
              <div class="form-group" id="fullName-div">
                  <label for="fullName" class="col-md-12">FullName
@@ -105,7 +104,6 @@
          </div>
 
      </div>
-
   </form>
 
 

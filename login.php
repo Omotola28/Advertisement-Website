@@ -17,6 +17,9 @@ $runExpired->expiredAd();
 
 //login user
 $customerData = new CustomerData();
-$customerData->loginUser();
+if(isset($_POST['loginBtn'])){
+    $customerData->loginUser();
+}
+
 
 require_once('Views/login.phtml');

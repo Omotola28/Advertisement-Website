@@ -24,5 +24,4 @@ if(isset($_POST['register'])){
 
 
 
-
 require_once('Views/register.phtml');

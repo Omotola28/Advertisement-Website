@@ -1,9 +1,8 @@
 <?php require('template/header.phtml') ?>
-<?php if (isset($_SESSION['message'])) : ?>
-    <div id="errorM" class="bg-success lead text-center"><?php  echo $_SESSION['message'];
-        unset($_SESSION['message']) ?></div>
-<?php endif; ?>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<?php if (isset($_SESSION['login']))  unset($_SESSION['login']); ?>
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="loginForm">
+        <div id="errorM" class="bg-danger lead text-center"></div>
         <div class="container form">
             <h4 class="formHeader">ACCESS YOUR ACCOUNT</h4>
             <hr>
@@ -11,16 +10,16 @@
                 <div class="form-group col-md-12">
                     <label for="emailInput">Email</label>
                     <input type="email" class="form-control" id="emailInput" name="emailInput"
-                           value="<?php if(isset($_SESSION['login'])){extract($_SESSION['login']); echo $emailInput;}   ?>" placeholder="Email">
+                           value="<?php if(isset($_SESSION['login'])){extract($_SESSION['login']); echo $email;}   ?>" placeholder="Email" required>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputPwd">Password</label>
                     <input type="password" class="form-control" id="inputPwd" name="inputPwd"
-                           value="<?php if(isset($_SESSION['login'])){extract($_SESSION['login']); echo $inputPwd;}  ?>" autocomplete="off" placeholder="Password">
+                           value="<?php if(isset($_SESSION['login'])){extract($_SESSION['login']); echo $pwd;}  ?>" autocomplete="off" placeholder="Password" required>
                 </div>
             </div>
             <div class="form-group col-md-12">
-                <button type="submit" name="loginBtn" id="loginBtn" class="btn-lg btn-success">Login</button>
+                <input type="submit" name="loginBtn" id="loginBtn" class="btn-lg btn-success">
             </div>
             <hr>
             <div class="col-md-12">
@@ -28,7 +27,7 @@
             </div>
 
         </div>
-        <?php unset($_SESSION['login'])?>
+
     </form>
 
 
