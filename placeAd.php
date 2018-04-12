@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 /**
  * Created by PhpStorm.
@@ -17,7 +18,9 @@ $runExpired->expiredAd();
 
 //insert product into database
 $placeAd = new PlaceAd();
-$placeAd->insertAd();
 
+if(isset($_POST['adBtn'])){
+    $placeAd->insertAd();
+}
 
 require_once('Views/placeAd.phtml');

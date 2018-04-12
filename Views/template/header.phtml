@@ -70,8 +70,9 @@
                     <h1 class="display-3">Africa To Uk</h1>
                     <p class="lead">The site that accommodates adverts directly from Africa and delivers to your door step
                         in the UK.</p>
-
-                    <a href="placeAd.php"><button class="btn btn-primary">Place Free Ad</button></a>
+                    <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
+                       echo "<a href = 'placeAd.php' ><button class='btn btn-primary'> Place Free Ad </button ></a>";
+                    }?>
                 </div>
             </div>
         <?php endif;?>

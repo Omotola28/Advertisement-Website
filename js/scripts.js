@@ -1,33 +1,10 @@
-/**
- *
- * @param country collects the id for the country selected
- * @param state collects id for associated states of the country
- *
- * printState dynamically loads states depending on what country is chosen
- */
+
 function printState(country, state) {
-    let selectedCountry = document.getElementById(country);
-    let printState = document.getElementById(state);
-    let optionArray;
-    printState.innerHTML = "";
-    if(selectedCountry.value === "Nigeria"){
-        optionArray = ["|", "abuja|Abuja", "lagos|Lagos", "bayelsa|Bayelsa"];
-    }else if(selectedCountry.value === "Kenya"){
-        optionArray = ["|", "nairobi|Nairobi", "mombasa|Mombasa", "nakuru|Nakuru"];
-    }else if(selectedCountry.value === "South Africa") {
-        optionArray = ["|", "cape town|Cape Town", "johannesburg|Johannesburg", "durban|Durban"];
-    }
-    for(let option in optionArray){
-        let pair = optionArray[option].split("|");
-        let newOption = document.createElement("option");
-        newOption.value = pair[0];
-        newOption.innerHTML = pair[1];
-        printState.options.add(newOption);
-    }
+
 }
 
 
-function select(category, size) {
+/*function select(category, size) {
     let category = document.getElementById(category);
     let size = document.getElementById(size);
     if(category.value === "Accessory" || category.value ==="Jewellery"){
@@ -36,7 +13,7 @@ function select(category, size) {
     else
         size.disabled = false;
 
-}
+}*/
 
 /**
  * When users visit site and they want to add items to wishlist a popup shows

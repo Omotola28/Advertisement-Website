@@ -78,7 +78,8 @@ class CustomerData
             $_SESSION['login'] = $_POST;
 
             // validate user input
-            $sql = "SELECT * FROM users WHERE email='$email'";
+            $sql = "SELECT * FROM users, address WHERE email='$email' and 
+                    users.usersID = address.userID";
             $result = $this->_dbConnection->prepare($sql);
             $result->execute();
             if ($result->rowCount() == 0) {
@@ -94,6 +95,8 @@ class CustomerData
                         $_SESSION['fullName'] = $user['fullName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
+                        $_SESSION['country'] = $user['country'];
+                        $_SESSION['state'] = $user['state'];
                         $_SESSION['logged_in'] = true;
                         exit();
                     }else{
@@ -101,8 +104,8 @@ class CustomerData
                         $_SESSION['fullName'] = $user['fullName'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['user_id'] = $user['usersID'];
-                        $_SESSION['logged_in'] = true;
                         $_SESSION['userRole'] = $user['userRole'];
+                        $_SESSION['logged_in'] = true;
                         exit();
                     }
 

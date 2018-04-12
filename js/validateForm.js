@@ -7,6 +7,26 @@ function _(id) {
     return document.getElementById(id);
 }
 
+
+Array.prototype.inArray = function (value)
+{
+    // Returns true if the passed value is found in the
+    // array. Returns false if it is not.
+    for (let i=0; i < this.length; i++)
+    {
+        if (this[i] === value)
+        {
+            return true;
+        }
+    }
+    return false;
+};
+
+/**
+ * Ajax connect XMLHttpRequest() initialization
+ */
+let xhttp = new XMLHttpRequest();
+
 /*
     IDS' FOR FORMS
                                      */
@@ -37,6 +57,21 @@ let emailInput = _("emailInput");
 let inputPwd = _("inputPwd");
 let loginBtn = _("loginBtn");
 
+/*
+        ID'S FOR PLACEAD FORM
+                                                 */
+
+let category = _("category");
+let size = _("size");
+let publishBtn = _("publish");
+let adTitle = _("title");
+let adDescription = _("description");
+let adPrice = _("amount");
+let adColor = _("color");
+let adPicture = _("file");
+let imgPreview = _("previewImg");
+
+let fileReader = new FileReader();
 
 
 /**
@@ -48,8 +83,11 @@ let reg = document.querySelector('input[name="register"]');
 
 let login = document.querySelector('input[name="loginBtn"]');
 
+let placeAdBtn = document.querySelector('input[name="publish"]');
+
 let regForm = _("regForm");
 let loginForm = _("loginForm");
+let placeAdForm = _("placeAdForm");
 
 
 
@@ -149,7 +187,6 @@ RegistrationForm.prototype.sendRegister= function() {
     formData.append("state", state.value);
     formData.append("captchaTxt", captcha.value);
     formData.append("register", register.value);
-    let xhttp = new XMLHttpRequest();
     xhttp.open("POST", "register.php", true);
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
@@ -180,11 +217,43 @@ RegistrationForm.prototype.validate = function() {
     for(let i = 0; i < inputs.length; i++){
         inputs[i].ValidateForm.checkInput();
         inputProcess++;
-        if (inputProcess === inputs.length){break;}
+        if(inputProcess === inputs.length){
+            break;
+        }
+        alert(inputProcess);
+        //callback();
         registration.sendRegister();
     }
 
+
+
 };
+
+/**
+ * country collects the id for the country selected
+ * state collects id for associated states of the country
+ *
+ * printState dynamically loads states depending on what country is chosen
+ */
+RegistrationForm.printState = function () {
+    let optionArray;
+    state.innerHTML = "";
+    if(country.value === "Nigeria"){
+        optionArray = ["|", "abuja|Abuja", "lagos|Lagos", "bayelsa|Bayelsa"];
+    }else if(country.value === "Kenya"){
+        optionArray = ["|", "nairobi|Nairobi", "mombasa|Mombasa", "nakuru|Nakuru"];
+    }else if(country.value === "South Africa") {
+        optionArray = ["|", "cape town|Cape Town", "johannesburg|Johannesburg", "durban|Durban"];
+    }
+    for(let option in optionArray){
+        let pair = optionArray[option].split("|");
+        let newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        state.options.add(newOption);
+    }
+};
+
 let registration = new RegistrationForm();
 
 /*
@@ -354,6 +423,8 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/regist
     captcha.ValidateForm = new ValidateForm(captcha);
     captcha.ValidateForm.checks = validCaptchaCheck;
 
+    country.addEventListener('change',RegistrationForm.printState);
+
     reg.addEventListener('click', registration.validate);
     regForm.addEventListener('submit', registration.validate);
 }
@@ -363,7 +434,7 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/regist
                                                                                                      */
 
 /**
- * @constructor for LoginForm used to validate and send loginform details to client server and receieve responses
+ * @constructor for LoginForm used to validate and send login form details to client server and receieve responses
  * to display to users
  */
 function LoginForm() {
@@ -450,20 +521,150 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/login.
 /*
              END OF VALIDATING LOGIN FORM
                                                                                      */
+/**
+ * @constructor for PlaceAd form, this form sends product data to the database,
+ * it has methods selectCategory(), sendProducts() and validate() to check form inputs
+ */
+function PlaceAdForm() {
+
+}
+
+PlaceAdForm.prototype.sendProducts = function () {
+    publishBtn.disabled = true;
+    let formData = new FormData();
+    formData.append("adCategory", category.value);
+    formData.append("adTitle", adTitle.value);
+    formData.append("adDescription", adDescription.value);
+    formData.append("adPrice", adPrice.value);
+    formData.append("adColor", adColor.value);
+    formData.append("adSize", size.value);
+    formData.append("adPicture", adPicture.files[0]);
+    formData.append("adBtn", publishBtn.value);
+    xhttp.open("POST", "placeAd.php", true);
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            console.log(xhttp.responseText);
+            switch (xhttp.responseText){
+                case 'Image uploaded':
+                    successM.style.display = "block";
+                    successM.innerHTML = '<div>'+xhttp.responseText+ '</div>'+
+                        '<span>Click here to place another <a href="placeAd.php">AD</a></span></div>';
+                    placeAdForm.style.display = "none";
+                    break;
+                default:
+                    errorM.innerHTML = xhttp.responseText;
+                    publishBtn.disabled = false;
+            }
+
+        }
+    };
+    xhttp.send(formData);
+};
+
+PlaceAdForm.prototype.sendAd = function () {
+    let inputProcess = 0;
+    for(let i = 0; i < inputs.length; i++){
+        inputs[i].ValidateForm.checkInput();
+        inputProcess++;
+        if (inputProcess === inputs.length){break;}
+        placeAd.sendProducts();
+    }
+
+
+};
+
+PlaceAdForm.prototype.selectCategory = function () {
+    category.value === "Accessory" || category.value ==="Jewellery" ?
+        size.disabled = true : size.disabled = false;
+
+};
+
+PlaceAdForm.prototype.filePreview = function () {
+    let file = adPicture.files[0];
+    fileReader.addEventListener("load", function () {
+        imgPreview.src = fileReader.result;
+    }, false);
+
+    if(file){ //the file has been chosen
+        imgPreview.style.display = "block";
+        fileReader.readAsDataURL(file);
+    }
+};
+
+let placeAd = new PlaceAdForm();
+
+
+let validImageInput =[
+    {
+        isInvalid : function (input) {
+            let adImageName = input.name;
+            let adImgextension = adImageName.split(".").pop().toLowerCase();
+            let extensions = ['gif', 'png', 'jpg', 'jpeg'];
+            return extensions.inArray(adImgextension) === -1
+        },
+        invalidMessage: "Invalid image type uploaded",
+        element: document.querySelector('div[id="fileDiv"] li:nth-child(2)')
+    },
+    {
+        isInvalid : function (input) {
+            let adImgSize = input.size;
+            return  adImgSize > 500000;
+        },
+        invalidMessage: "size of image is too large",
+        element: document.querySelector('div[id="fileDiv"] li:nth-child(1)')
+    }
+];
+
+
+let validTitleInput =[
+    {
+        isInvalid : function (input) {
+            return  input.value.match(/[\%\^\~\>\<]/g);
+        },
+        invalidMessage: "No html special characters allowed",
+        element: document.querySelector('div[id="titleDiv"] li:nth-child(1)')
+    },
+];
+
+let validPriceInput =[
+    {
+        isInvalid : function (input) {
+            return  input.value.match(/[A-Za-z ]/g);
+        },
+        invalidMessage: "Only numbers allowed in the price input box",
+        element: document.querySelector('div[id="priceDiv"] li:nth-child(1)')
+    },
+    {
+        isInvalid : function (input) {
+            return  input.value.match(/[\!\+\#\$\%\^\&\*\>\<\?\@\<\>\ ]/g);
+        },
+        invalidMessage: "No special characters allowed in the price input box",
+        element: document.querySelector('div[id="priceDiv"] li:nth-child(2)')
+    }
+];
 
 
 
+if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/placeAd.php') {
+
+    adPicture.ValidateForm = new ValidateForm(adPicture);
+    adPicture.ValidateForm.checks = validImageInput;
+
+    adTitle.ValidateForm = new ValidateForm(adTitle);
+    adTitle.ValidateForm.checks = validTitleInput;
+
+    adPrice.ValidateForm = new ValidateForm(adPrice);
+    adPrice.ValidateForm.checks = validPriceInput;
+
+    placeAdBtn.addEventListener('click',placeAd.sendAd);
+    placeAdForm.addEventListener('submit',placeAd.sendAd);
+
+    category.addEventListener('change', placeAd.selectCategory);
+
+    adPicture.addEventListener('change', placeAd.filePreview);
 
 
-
-
-
-
-
-
-
-
-
+}
 
 
 

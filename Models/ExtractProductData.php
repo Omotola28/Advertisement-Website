@@ -105,9 +105,10 @@ class ExtractProductData
      * @return array an array of the results
      */
     public function executeQuery($sql){
-        $result = $this->_dbConnection->query($sql);
+        $result = $this->_dbConnection->prepare($sql);
         $result->execute();
-
+        if ($result->rowCount() == 0)
+            echo 'No products listed';
         $results = [];
         while ( $row = $result->fetch() ) {
             //store this array in $result[] below
@@ -121,11 +122,11 @@ class ExtractProductData
      */
     public function adminDeleteAd($id){
         $query = "DELETE FROM products WHERE productsID = $id";
-        $result = $this->_dbConnection->query($query);
+        $result = $this->_dbConnection->prepare($query);
         $result->execute();
 
         $query = "DELETE FROM WishList WHERE wishID = $id";
-        $result = $this->_dbConnection->query($query);
+        $result = $this->_dbConnection->prepare($query);
         $result->execute();
         header("location: admin.php");
 

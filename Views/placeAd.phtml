@@ -3,49 +3,60 @@
     <div class="bg-danger lead text-center"><?php  echo $_SESSION['adMessage'];
         unset($_SESSION['adMessage'])?></div>
 <?php endif; ?>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+    <div id="successM" class="bg-danger lead text-center"></div>
+    <form id="placeAdForm" name="placeAdForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+       <div id="errorM" class="bg-danger lead text-center"></div>
         <div class="container form">
             <h4 class="formHeader">PUBLISH A LISTING</h4>
             <hr>
-            <h3>General Information</h3>
-            <hr>
+            <div id="headerPlaceAd" class="form-group col-md-12">
+                <div class="form-group col-md-6">
+                    <h3>General Information</h3>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="adDate" for="date">Date:</label>
+                    <?php echo "<span class='adDate'>" .date('l jS \of F Y')."</span>"?>
+                </div>
+            </div>
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="category">Categories</label>
-                    <select id="category" name="category" class="form-control" onchange="select(this.id, 'size');">
-                        <option selected>Clothing</option>
+                    <select id="category" name="category" class="form-control">
+                        <option selected>Choose Category</option>
+                        <option>Clothing</option>
                         <option>Jewellery</option>
                         <option>Accessory</option>
                     </select>
                 </div>
-                <div class="form-group col-md-6">
+                <div id="titleDiv" class="form-group col-md-6">
                     <label for="title">Title</label>
-                    <input type="title" name="title" class="form-control" id="title">
+                        <input type="text" name="title" class="form-control" id="title" required>
+                        <ul class="formConstraint">
+                            <li>No html special characters input</li>
+                        </ul>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="description">Description</label>
-                    <textarea type="text" name="description" class="form-control" id="description"></textarea>
+                    <textarea name="description" class="form-control" id="description" required></textarea>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="currency">Currency</label>
-                    <select id="currency" name="currency" class="form-control">
-                        <option selected>&#8358;</option>
-                        <option>KSh</option>
-                        <option>R</option>
-                        <option>USh</option>
-                    </select>
+                <div id="priceDiv" class="form-group col-md-4">
+                    <label for="amount">Price(£)</label>
+                    <!--<div class="input-group">
+                        <!--<span class="input-group-addon">&pound;</span>-->
+                        <input id="amount" name="amount" type="text" class="form-control" required>
+                        <ul class="formConstraint">
+                            <li>Enter price as a number</li>
+                            <li>No special characters allowed</li>
+                        </ul>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="amount">Price</label>
-                    <input id="amount" name="amount" type="number" class="form-control">
-                </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                     <label for="color">Color</label>
-                    <select id="color" name="color" class="form-control">
+                    <select id="color" name="color" class="form-control" required>
                         <option selected>Black</option>
                         <option>White</option>
                         <option>Red</option>
@@ -62,9 +73,9 @@
                         <option>Multicolored</option>
                     </select>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                     <label for="size">Size</label>
-                    <select type="number" id="size" name="size" class="form-control">
+                    <select id="size" name="size" class="form-control" required>
                         <option selected>4</option>
                         <option>6</option>
                         <option>8</option>
@@ -74,36 +85,14 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group col-md-6">
-                <label for="date">Date</label>
-                <input id="date" name="date" type="date" class="form-control">
-            </div>
-            <div class="form-group col-md-6">
+            <div id="fileDiv" class="form-group col-md-12">
                 <label for="file">Upload Picture</label>
-                <input id="file" name="file" type="file" class="uploadPicture file">
-            </div>
-            <div class="col-md-12">
-                <hr>
-                <h3>Listing Location</h3>
-                <hr>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="country">Country</label>
-                    <select id="country" name="country" class="form-control" onchange="printState(this.id, 'state');">
-                        <option value ="" selected>Select Country</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="Kenya">Kenya</option>
-                        <option value="South Africa">South Africa</option>
-                        <option value="Uganda">Uganda</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="state">State</label>
-                    <select id="state" name="state" class="form-control">
-                        <<option value ="" selected>Select State</option>
-                    </select>
-                </div>
+                <input id="file" name="file" type="file" class="uploadPicture file" required>
+                <ul class="formConstraint">
+                    <li>File format correct</li>
+                    <li>File size less than limit for file upload</li>
+                </ul>
+                <img src="" id="previewImg" height="200" alt="Image preview">
             </div>
             <div class="col-md-12">
                 <hr>
@@ -112,33 +101,24 @@
             </div>
             <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ){
                 echo '<div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="sellerName">Name</label>
-                    <p>'.$_SESSION['firstName'].'</p>
+                    <p>'.$_SESSION['fullName'].'</p>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="sellerEmail">Email</label>
                      <p>'.$_SESSION['email'].'</p>
                 </div>
+                <div class="form-group col-md-4">
+                    <label for="sellerLocation">Location</label>
+                     <p>'.$_SESSION['country'].', '.$_SESSION['state'].'</p>
+                </div>
             </div>';
 
             }
-            else{
-                echo ' <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="sellerName">Name</label>
-                    <input type="text" name="sellerName" class="form-control" id="sellerName">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="sellerEmail">Email</label>
-                    <input type="email" name="sellerEmail" class="form-control" id="sellerEmail">
-                </div>
-            </div>';
-            }
-
             ?>
             <div class="form-group col-md-12">
-                <button type="submit" name="publish" class="btn-lg btn-success">Publish</button>
+                <input type="submit" id="publish" value="Publish" name="publish" class="btn-lg btn-success">
             </div>
 
         </div>

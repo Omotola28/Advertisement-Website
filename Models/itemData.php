@@ -94,8 +94,6 @@ class itemData
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-
-            echo $id,$title,$description,$size,$color,$currency,$price,$country,$state,$fileName;
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                 $_SESSION['updateError'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                 $uploadOk = 0;

@@ -205,7 +205,7 @@ input:not([type="submit"]):valid{
 /***Transitions constraints box in and out when user hovers or focuses***/
 
 input:not([type="submit"]) + .formConstraint,
-select + .formConstraint{
+select + .formConstraint {
     overflow: hidden;
     max-height: 0;
     transition: max-height 1s ease-out;
@@ -217,7 +217,8 @@ input:not([type="submit"]):active + .formConstraint,
 select:hover + .formConstraint,
 select:focus + .formConstraint,
 select:active + .formConstraint{
-    max-height: 1000px; /* any large number (bigger then the .input-requirements list) */
+    overflow: visible;
+    max-height: 1000px;
     transition: max-height 1s ease-in;
 }
 
@@ -266,6 +267,33 @@ select:active + .formConstraint{
 
 /**LOGIN AGE ENDS HERE **/
 
+/**
+PLACE AD BEGINS HERE
+ */
+#headerPlaceAd{
+    border-bottom: 1px solid gainsboro;
+}
+
+#headerPlaceAd h3{
+    margin: 0;
+}
+
+#headerPlaceAd div:nth-child(2){
+    text-align: center;
+}
+
+.adDate{
+    color: #bf002c;
+    font-weight: 700;
+    text-align: center;
+}
+
+#previewImg{
+    display: none;
+}
+/**
+PLACEAD ENDS HERE
+ */
 /*Listing page starts here **/
 
 .listing{
@@ -540,6 +568,14 @@ div.myDetails{
 #adminNav{
     padding: 100% 0;
     background-color: cadetblue;
+}
+
+#adminAdList{
+    display: none;
+}
+
+#adminUsersList{
+    display: none;
 }
 
 .navIcons{
