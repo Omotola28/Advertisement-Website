@@ -26,7 +26,7 @@ class PlaceAd
     public function insertAd()
     {
         $specialChar = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
-        $titlePattern ='/[^\~\>\<]/';
+        //$titlePattern ='/[^\~\>\<]/';
         $category = $_POST['adCategory'];
         $title = $this->test_input($_POST['adTitle']);
         $description = $this->test_input($_POST['adDescription']);
@@ -54,13 +54,9 @@ class PlaceAd
                 echo 'Only numbers allowed in price input box';
                 exit();
             }
-            if(preg_match($titlePattern,$title) ){
-                echo 'No html special character allowed in title box';
-                exit();
-            }
             if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-                $uploadOk = 0;
                 echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $uploadOk = 0;
                 exit();
             }
             // Check if $uploadOk is set to 0 by an error

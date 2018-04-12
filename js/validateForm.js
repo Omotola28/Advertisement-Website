@@ -598,7 +598,7 @@ PlaceAdForm.prototype.filePreview = function () {
 let placeAd = new PlaceAdForm();
 
 
-let validImageInput =[
+ /*let validImageInput =[
     {
         isInvalid : function (input) {
             let adImageName = input.name;
@@ -618,7 +618,7 @@ let validImageInput =[
         element: document.querySelector('div[id="fileDiv"] li:nth-child(1)')
     }
 ];
-
+*/
 
 let validTitleInput =[
     {
@@ -640,7 +640,7 @@ let validPriceInput =[
     },
     {
         isInvalid : function (input) {
-            return  input.value.match(/[\!\+\#\$\%\^\&\*\>\<\?\@\<\>\ ]/g);
+            return  !input.value.match(/^\d+$/);
         },
         invalidMessage: "No special characters allowed in the price input box",
         element: document.querySelector('div[id="priceDiv"] li:nth-child(2)')
@@ -651,8 +651,8 @@ let validPriceInput =[
 
 if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/placeAd.php') {
 
-    adPicture.ValidateForm = new ValidateForm(adPicture);
-    adPicture.ValidateForm.checks = validImageInput;
+    //adPicture.ValidateForm = new ValidateForm(adPicture);
+    //adPicture.ValidateForm.checks = validImageInput;
 
     adTitle.ValidateForm = new ValidateForm(adTitle);
     adTitle.ValidateForm.checks = validTitleInput;

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed39860b-6fc6-46fb-8454-bf0789b9e0e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/register.phtml" afterPath="$PROJECT_DIR$/Views/register.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/PlaceAd.php" afterPath="$PROJECT_DIR$/Models/PlaceAd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/placeAd.phtml" afterPath="$PROJECT_DIR$/Views/placeAd.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/validateForm.js" afterPath="$PROJECT_DIR$/js/validateForm.js" />
     </list>
     <ignored path="MVCtemplate.iws" />
@@ -82,13 +84,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlaceAd.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlaceAd.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/PlaceAd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="27" column="73" lean-forward="true" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+            <state relative-caret-position="374">
+              <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
               <folding>
-                <marker date="1523106417890" expanded="true" signature="2775:3011" ph="INSERT INTO products... " />
+                <marker date="1523575440526" expanded="true" signature="2617:2853" ph="INSERT INTO products... " />
               </folding>
             </state>
           </provider>
@@ -97,7 +99,7 @@
       <file leaf-file-name="CustomerData.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/CustomerData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1552">
+            <state relative-caret-position="-675">
               <caret line="98" column="60" lean-forward="false" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
               <folding>
                 <marker date="1522617516980" expanded="true" signature="1118:1186" ph="SELECT * FRO... users" />
@@ -115,43 +117,23 @@
       <file leaf-file-name="validateForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/validateForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1282">
-              <caret line="562" column="29" lean-forward="false" selection-start-line="562" selection-start-column="29" selection-end-line="562" selection-end-column="29" />
+            <state relative-caret-position="61">
+              <caret line="653" column="6" lean-forward="false" selection-start-line="653" selection-start-column="6" selection-end-line="653" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listing.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/listing.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="64" lean-forward="false" selection-start-line="44" selection-start-column="76" selection-end-line="45" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/register.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="98" column="123" lean-forward="false" selection-start-line="98" selection-start-column="123" selection-end-line="98" selection-end-column="123" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="placeAd.phtml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="placeAd.phtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/placeAd.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
-              <caret line="93" column="21" lean-forward="false" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+            <state relative-caret-position="382">
+              <caret line="89" column="93" lean-forward="false" selection-start-line="89" selection-start-column="93" selection-end-line="89" selection-end-column="93" />
               <folding>
-                <marker date="1523105191197" expanded="true" signature="5088:5688" ph="..." />
-                <marker date="1523105191197" expanded="true" signature="5138:5271" ph="..." />
-                <marker date="1523105191197" expanded="true" signature="5321:5454" ph="..." />
-                <marker date="1523105191197" expanded="true" signature="5504:5669" ph="..." />
+                <marker date="1523575890416" expanded="true" signature="4902:5502" ph="..." />
+                <marker date="1523575890416" expanded="true" signature="4952:5085" ph="..." />
+                <marker date="1523575890416" expanded="true" signature="5135:5268" ph="..." />
+                <marker date="1523575890416" expanded="true" signature="5318:5483" ph="..." />
               </folding>
             </state>
           </provider>
@@ -160,7 +142,7 @@
       <file leaf-file-name="my-style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/my-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3723">
+            <state relative-caret-position="391">
               <caret line="219" column="22" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="22" />
               <folding />
             </state>
@@ -252,11 +234,11 @@
         <option value="$PROJECT_DIR$/css/my-style.css" />
         <option value="$PROJECT_DIR$/placeAd.php" />
         <option value="$PROJECT_DIR$/Models/itemData.php" />
-        <option value="$PROJECT_DIR$/Views/placeAd.phtml" />
-        <option value="$PROJECT_DIR$/Models/PlaceAd.php" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/Views/register.phtml" />
+        <option value="$PROJECT_DIR$/Models/PlaceAd.php" />
         <option value="$PROJECT_DIR$/js/validateForm.js" />
+        <option value="$PROJECT_DIR$/Views/placeAd.phtml" />
       </list>
     </option>
   </component>
@@ -468,12 +450,12 @@
       <workItem from="1522169678678" duration="41515000" />
       <workItem from="1522260575852" duration="64169000" />
       <workItem from="1522880187939" duration="54013000" />
-      <workItem from="1523531220277" duration="22419000" />
+      <workItem from="1523531220277" duration="25384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="446994000" />
+    <option name="totallyTimeSpent" value="449959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -823,31 +805,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/my-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3723">
-          <caret line="219" column="22" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/7e923045/c6f81e4f-0b76-4be7-8a25-eb1da3af01eb/lae891.products">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/placeAd.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="93" column="21" lean-forward="false" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
-          <folding>
-            <marker date="1523105191197" expanded="true" signature="5088:5688" ph="..." />
-            <marker date="1523105191197" expanded="true" signature="5138:5271" ph="..." />
-            <marker date="1523105191197" expanded="true" signature="5321:5454" ph="..." />
-            <marker date="1523105191197" expanded="true" signature="5504:5669" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -865,30 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/listing.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="64" lean-forward="false" selection-start-line="44" selection-start-column="76" selection-end-line="45" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/placeAd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/itemData.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
@@ -902,9 +839,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Views/register.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="98" column="123" lean-forward="false" selection-start-line="98" selection-start-column="123" selection-end-line="98" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/listing.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="64" lean-forward="false" selection-start-line="44" selection-start-column="76" selection-end-line="45" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/my-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="219" column="22" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Models/CustomerData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1552">
+        <state relative-caret-position="-675">
           <caret line="98" column="60" lean-forward="false" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
           <folding>
             <marker date="1522617516980" expanded="true" signature="1118:1186" ph="SELECT * FRO... users" />
@@ -918,28 +879,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/register.phtml">
+    <entry file="file://$PROJECT_DIR$/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="98" column="123" lean-forward="false" selection-start-line="98" selection-start-column="123" selection-end-line="98" selection-end-column="123" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/validateForm.js">
+    <entry file="file://$PROJECT_DIR$/placeAd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1282">
-          <caret line="562" column="29" lean-forward="false" selection-start-line="562" selection-start-column="29" selection-end-line="562" selection-end-column="29" />
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/PlaceAd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="27" column="73" lean-forward="true" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="73" />
+        <state relative-caret-position="374">
+          <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
           <folding>
-            <marker date="1523106417890" expanded="true" signature="2775:3011" ph="INSERT INTO products... " />
+            <marker date="1523575440526" expanded="true" signature="2617:2853" ph="INSERT INTO products... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/validateForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="653" column="6" lean-forward="false" selection-start-line="653" selection-start-column="6" selection-end-line="653" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/placeAd.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="89" column="93" lean-forward="false" selection-start-line="89" selection-start-column="93" selection-end-line="89" selection-end-column="93" />
+          <folding>
+            <marker date="1523575890416" expanded="true" signature="4902:5502" ph="..." />
+            <marker date="1523575890416" expanded="true" signature="4952:5085" ph="..." />
+            <marker date="1523575890416" expanded="true" signature="5135:5268" ph="..." />
+            <marker date="1523575890416" expanded="true" signature="5318:5483" ph="..." />
           </folding>
         </state>
       </provider>
