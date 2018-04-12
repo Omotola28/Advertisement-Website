@@ -96,7 +96,7 @@
               <button type="submit" name="reload" id="reload" onclick="return reloadCaptcha()"><i class="reload fas fa-sync"></i></button>
           </div>
           <input type="text" class="form-control" id="captchaTxt" name="captchaTxt" autocomplete="off"
-                 value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $captcha;} ?>">
+                 value="<?php if(isset($_SESSION['register'])){extract($_SESSION['register']); echo $captcha;} ?>" required>
         </div>
 
          <div class="form-group col-md-12">

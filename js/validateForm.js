@@ -89,6 +89,8 @@ let regForm = _("regForm");
 let loginForm = _("loginForm");
 let placeAdForm = _("placeAdForm");
 
+let completeChecks;
+
 
 
 
@@ -104,7 +106,6 @@ let placeAdForm = _("placeAdForm");
 function ValidateForm(input) {
     this.invalid = []; //array for invalid messages
     this.checks = []; //array for all the checks done in order to raise invalid error message
-
     this.inputBox = input;
 
     //trigger method to attach the listener
@@ -122,7 +123,7 @@ ValidateForm.prototype = {
 
     checkValidity:function (input) {
         for(let i = 0; i < this.checks.length; i++){
-            let isInvalid = this.checks[i].isInvalid(input);
+            let isInvalid = this.checks[i].isInvalid(input); //returns boolean from array key isInvalid
             if(isInvalid) {  //if false
                 this.addInvalidError(this.checks[i].invalidMessage); //add error message to invalid error list
             }
@@ -146,18 +147,20 @@ ValidateForm.prototype = {
 
         if(this.inputBox.ValidateForm.invalid.length === 0 && this.inputBox.value !== ""){
             this.inputBox.setCustomValidity("");
+            return true;
         }else {
             let message = this.inputBox.ValidateForm.getInvalidError();
             this.inputBox.setCustomValidity(message);
+            return false;
         }
     },
 
     assignListener: function() { //assign the listener here
 
-        let CustomValidation = this;
+        let ValidateForm = this;
 
         this.inputBox.addEventListener('keyup', function() {
-            CustomValidation.checkInput();
+            completeChecks = ValidateForm.checkInput();
         })
     }
 };
@@ -175,36 +178,39 @@ function RegistrationForm() {
 }
 
 RegistrationForm.prototype.sendRegister= function() {
-    register.disabled = true;
-    let formData = new FormData();
-    formData.append("name", fullName.value);
-    formData.append("email", email.value);
-    formData.append("password", password.value);
-    formData.append("no", phoneNumber.value);
-    formData.append("addr1", address1.value);
-    formData.append("addr2", address2.value);
-    formData.append("country", country.value);
-    formData.append("state", state.value);
-    formData.append("captchaTxt", captcha.value);
-    formData.append("register", register.value);
-    xhttp.open("POST", "register.php", true);
-    xhttp.onreadystatechange = function () {
-        if (xhttp.readyState === 4 && xhttp.status === 200) {
-            switch (xhttp.responseText){
-                case "Successfully registered":
-                    successM.style.display = "block";
-                    successM.innerHTML = '<div>'+xhttp.responseText+ '</div>'+
-                        '<span>Click here to <a href="login.php">Login</a></span></div>';
-                    regForm.style.display = "none";
-                    break;
-                default:
-                    errorM.innerHTML = xhttp.responseText;
-                    register.disabled = false;
-            }
+    if(completeChecks) {
+        register.disabled = true;
+        let formData = new FormData();
+        formData.append("name", fullName.value);
+        formData.append("email", email.value);
+        formData.append("password", password.value);
+        formData.append("no", phoneNumber.value);
+        formData.append("addr1", address1.value);
+        formData.append("addr2", address2.value);
+        formData.append("country", country.value);
+        formData.append("state", state.value);
+        formData.append("captchaTxt", captcha.value);
+        formData.append("register", register.value);
+        xhttp.open("POST", "register.php", true);
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                switch (xhttp.responseText) {
+                    case "Successfully registered":
+                        successM.style.display = "block";
+                        successM.innerHTML = '<div>' + xhttp.responseText + '</div>' +
+                            '<span>Click here to <a href="login.php">Login</a></span></div>';
+                        regForm.style.display = "none";
+                        break;
+                    default:
+                        errorM.innerHTML = xhttp.responseText;
+                        register.disabled = false;
+                }
 
-        }
-    };
-    xhttp.send(formData);
+            }
+        };
+        xhttp.send(formData);
+    }
+
 };
 
 /**
@@ -212,22 +218,14 @@ RegistrationForm.prototype.sendRegister= function() {
  * against database.
  */
 
-RegistrationForm.prototype.validate = function() {
-    let inputProcess = 0;
+/*RegistrationForm.prototype.validate = function() {
     for(let i = 0; i < inputs.length; i++){
         inputs[i].ValidateForm.checkInput();
-        inputProcess++;
-        if(inputProcess === inputs.length){
-            break;
-        }
-        alert(inputProcess);
-        //callback();
-        registration.sendRegister();
+
     }
 
-
-
-};
+    //registration.sendRegister();
+};*/
 
 /**
  * country collects the id for the country selected
@@ -425,8 +423,8 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/regist
 
     country.addEventListener('change',RegistrationForm.printState);
 
-    reg.addEventListener('click', registration.validate);
-    regForm.addEventListener('submit', registration.validate);
+    reg.addEventListener('click', registration.sendRegister);
+    regForm.addEventListener('submit', registration.sendRegister);
 }
 
 /*
@@ -442,33 +440,36 @@ function LoginForm() {
 }
 
 LoginForm.prototype.sendLog = function () {
-    loginBtn.disabled = true;
-    let formData = new FormData();
-    formData.append("emailInput", emailInput.value);
-    formData.append("inputPwd", inputPwd.value);
-    formData.append("loginBtn", loginBtn.value);
-    let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "login.php", true);
-    xhttp.onreadystatechange = function () {
-        if (xhttp.readyState === 4 && xhttp.status === 200) {
-            switch (xhttp.responseText){
-                case "success":
-                    window.location.assign("index.php");
-                    break;
-                case "admin" :
-                    window.location.assign("admin.php");
-                    break;
-                default:
-                    errorM.innerHTML = xhttp.responseText;
-                    loginBtn.disabled = false;
-            }
+    if(completeChecks){
+        loginBtn.disabled = true;
+        let formData = new FormData();
+        formData.append("emailInput", emailInput.value);
+        formData.append("inputPwd", inputPwd.value);
+        formData.append("loginBtn", loginBtn.value);
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "login.php", true);
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                switch (xhttp.responseText){
+                    case "success":
+                        window.location.assign("index.php");
+                        break;
+                    case "admin" :
+                        window.location.assign("admin.php");
+                        break;
+                    default:
+                        errorM.innerHTML = xhttp.responseText;
+                        loginBtn.disabled = false;
+                }
 
-        }
-    };
-    xhttp.send(formData);
+            }
+        };
+        xhttp.send(formData);
+    }
+
 };
 
-LoginForm.prototype.checkLog = function () {
+/*LoginForm.prototype.checkLog = function () {
     let inputProcess = 0;
     for(let i = 0; i < inputs.length; i++){
         inputs[i].ValidateForm.checkInput();
@@ -476,7 +477,7 @@ LoginForm.prototype.checkLog = function () {
         if (inputProcess === inputs.length){break;}
         logs.sendLog();
     }
-};
+};*/
 
 let logs = new LoginForm();
 /*
@@ -513,8 +514,8 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/login.
     inputPwd.ValidateForm.checks = validLoginPwd;
 
 
-    login.addEventListener('click',logs.checkLog);
-    loginForm.addEventListener('submit',logs.checkLog);
+    login.addEventListener('click',logs.sendLog);
+    loginForm.addEventListener('submit',logs.sendLog);
 }
 
 
@@ -530,37 +531,40 @@ function PlaceAdForm() {
 }
 
 PlaceAdForm.prototype.sendProducts = function () {
-    publishBtn.disabled = true;
-    let formData = new FormData();
-    formData.append("adCategory", category.value);
-    formData.append("adTitle", adTitle.value);
-    formData.append("adDescription", adDescription.value);
-    formData.append("adPrice", adPrice.value);
-    formData.append("adColor", adColor.value);
-    formData.append("adSize", size.value);
-    formData.append("adPicture", adPicture.files[0]);
-    formData.append("adBtn", publishBtn.value);
-    xhttp.open("POST", "placeAd.php", true);
-    xhttp.onreadystatechange = function () {
-        if (xhttp.readyState === 4 && xhttp.status === 200) {
-            console.log(xhttp.responseText);
-            switch (xhttp.responseText){
-                case 'Image uploaded':
-                    successM.style.display = "block";
-                    successM.innerHTML = '<div>'+xhttp.responseText+ '</div>'+
-                        '<span>Click here to place another <a href="placeAd.php">AD</a></span></div>';
-                    placeAdForm.style.display = "none";
-                    break;
-                default:
-                    errorM.innerHTML = xhttp.responseText;
-                    publishBtn.disabled = false;
+    if(completeChecks){
+        publishBtn.disabled = true;
+        let formData = new FormData();
+        formData.append("adCategory", category.value);
+        formData.append("adTitle", adTitle.value);
+        formData.append("adDescription", adDescription.value);
+        formData.append("adPrice", adPrice.value);
+        formData.append("adColor", adColor.value);
+        formData.append("adSize", size.value);
+        formData.append("adPicture", adPicture.files[0]);
+        formData.append("adBtn", publishBtn.value);
+        xhttp.open("POST", "placeAd.php", true);
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                console.log(xhttp.responseText);
+                switch (xhttp.responseText){
+                    case 'Image uploaded':
+                        successM.style.display = "block";
+                        successM.innerHTML = '<div>'+xhttp.responseText+ '</div>'+
+                            '<span>Click here to place another <a href="placeAd.php">AD</a></span></div>';
+                        placeAdForm.style.display = "none";
+                        break;
+                    default:
+                        errorM.innerHTML = xhttp.responseText;
+                        publishBtn.disabled = false;
+                }
+
             }
+        };
+        xhttp.send(formData);
+    }
 
-        }
-    };
-    xhttp.send(formData);
 };
-
+/*
 PlaceAdForm.prototype.sendAd = function () {
     let inputProcess = 0;
     for(let i = 0; i < inputs.length; i++){
@@ -571,7 +575,7 @@ PlaceAdForm.prototype.sendAd = function () {
     }
 
 
-};
+};*/
 
 PlaceAdForm.prototype.selectCategory = function () {
     category.value === "Accessory" || category.value ==="Jewellery" ?
@@ -656,8 +660,8 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/placeA
     adPrice.ValidateForm = new ValidateForm(adPrice);
     adPrice.ValidateForm.checks = validPriceInput;
 
-    placeAdBtn.addEventListener('click',placeAd.sendAd);
-    placeAdForm.addEventListener('submit',placeAd.sendAd);
+    placeAdBtn.addEventListener('click',placeAd.sendProducts);
+    placeAdForm.addEventListener('submit',placeAd.sendProducts);
 
     category.addEventListener('change', placeAd.selectCategory);
 
