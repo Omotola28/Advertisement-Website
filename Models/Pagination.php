@@ -34,30 +34,47 @@ class Pagination
     /**
      * @param $limit on the number of items that can be shown on each page
      * @param $page number of current page
+     * @param $status
+     * @param $loggedUser
      * @return array
      */
-    public function getData($limit, $page){
+    public function getData($limit, $page, $status, $loggedUser)
+    {
         $this->_limit = $limit;
         $this->_page = $page;
 
         //create the query, limiting records from page, to limit
-        $this->_row_start = ( ( $this->_page - 1 ) * $this->_limit );
+        $this->_row_start = (($this->_page - 1) * $this->_limit);
         $this->query = $this->_query .
             //add to original query: ( minus one because of the way SQL works )
-                " LIMIT {$this->_row_start}, $this->_limit";
+            " LIMIT {$this->_row_start}, $this->_limit";
 
         $result = $this->_dbConnection->prepare($this->query);
         $result->execute();
-        if($result->rowCount()== 0){
-            $_SESSION['errorM'] = "There was no result found";
+        if ($result->rowCount() == 0) {
+            echo "There was no result found";
+            exit();
         }
 
         $results = [];
-        while ( $row = $result->fetch() ) {
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             //store this array in $result[] below
-            $results[]  = new ProductData($row);
+            //$results[]  = new ProductData($row);
+            $results[] =
+                ["Title" => $row['productTitle'], "Des" => $row['productDes'],
+                    "ID" => $row['productsID'], "currency" => $row['currency'], "price" => $row['price'],
+                    "color" => $row['productCol'], "size" => $row['productSize'], "img" => $row['productImg'],
+                    "date" => $row['publishDate'], "sellerID" => $row['sellerID'], "fname" => $row['fullName'],
+                    "email" => $row['email'], "country" => $row['country'], "state" => $row['state'],
+                    "phoneNo" => $row['phonenumber'], "loginStatus" => $status, "loggedUserID" => $loggedUser];
+
         }
-        return $results;
+        if(isset($_POST['applyBtn'])){
+            echo json_encode($results);
+            exit();
+        }else
+            return $results;
+
     }
 
     public function createLinks( $links, $list_class )

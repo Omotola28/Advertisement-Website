@@ -20,11 +20,11 @@ $runExpired->expiredAd();
 
 $wishData = new WishList();
 $view->getWish = $wishData->getWishList($_SESSION['user_id']);
-
 $deleteItem = new itemData();
+
 if(isset($_POST['removeItem'])){
     $delete = $_GET['item'];
-    $deleteItem->removeItem($delete);
+    $wishData->removeItem($delete);
 
 }
 

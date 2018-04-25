@@ -9,7 +9,7 @@
 class ProductData
 {
     protected $product_id, $category, $productTitle, $productDes,$currency, $price,$productColor, $productSize,
-    $productImg,$publishDate, $seller_id, $fName,$lName, $email, $country, $state, $phoneNumber;
+    $productImg,$publishDate, $seller_id, $fName, $email, $country, $state, $phoneNumber;
 
     public function __construct($dbRow) {
         $this->product_id = $dbRow['productsID'];
@@ -23,8 +23,7 @@ class ProductData
         $this->productImg= $dbRow['productImg'];
         $this->publishDate = $dbRow['publishDate'];
         $this-> seller_id = $dbRow['sellerID'];
-        $this->fName= $dbRow['firstName'];
-        $this->lName = $dbRow['surName'];
+        $this->fName = $dbRow['fullName'];
         $this->email=$dbRow['email'];
         $this->country= $dbRow['country'];
         $this->state=$dbRow['state'];
@@ -79,14 +78,9 @@ class ProductData
         return $this->publishDate;
     }
 
-    public function getfName()
+    public function getFName()
     {
         return $this->fName;
-    }
-
-    public function getlName()
-    {
-        return $this->lName;
     }
 
     public function getEmail()

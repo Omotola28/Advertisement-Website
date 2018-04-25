@@ -7,21 +7,6 @@ function _(id) {
     return document.getElementById(id);
 }
 
-
-Array.prototype.inArray = function (value)
-{
-    // Returns true if the passed value is found in the
-    // array. Returns false if it is not.
-    for (let i=0; i < this.length; i++)
-    {
-        if (this[i] === value)
-        {
-            return true;
-        }
-    }
-    return false;
-};
-
 /**
  * Ajax connect XMLHttpRequest() initialization
  */
@@ -77,7 +62,7 @@ let fileReader = new FileReader();
 /**
  *EventListeners for form input
  */
-let inputs = document.querySelectorAll('input:not([type="submit"])');
+//let inputs = document.querySelectorAll('input:not([type="submit"])');
 
 let reg = document.querySelector('input[name="register"]');
 
@@ -89,7 +74,7 @@ let regForm = _("regForm");
 let loginForm = _("loginForm");
 let placeAdForm = _("placeAdForm");
 
-let completeChecks;
+let completeChecks; //boolean variable to check if input boxes have been validated
 
 
 
@@ -213,19 +198,6 @@ RegistrationForm.prototype.sendRegister= function() {
 
 };
 
-/**
- * Validate form input and send input to client side for further checks
- * against database.
- */
-
-/*RegistrationForm.prototype.validate = function() {
-    for(let i = 0; i < inputs.length; i++){
-        inputs[i].ValidateForm.checkInput();
-
-    }
-
-    //registration.sendRegister();
-};*/
 
 /**
  * country collects the id for the country selected
@@ -446,7 +418,6 @@ LoginForm.prototype.sendLog = function () {
         formData.append("emailInput", emailInput.value);
         formData.append("inputPwd", inputPwd.value);
         formData.append("loginBtn", loginBtn.value);
-        let xhttp = new XMLHttpRequest();
         xhttp.open("POST", "login.php", true);
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
@@ -468,16 +439,6 @@ LoginForm.prototype.sendLog = function () {
     }
 
 };
-
-/*LoginForm.prototype.checkLog = function () {
-    let inputProcess = 0;
-    for(let i = 0; i < inputs.length; i++){
-        inputs[i].ValidateForm.checkInput();
-        inputProcess++;
-        if (inputProcess === inputs.length){break;}
-        logs.sendLog();
-    }
-};*/
 
 let logs = new LoginForm();
 /*
@@ -545,7 +506,6 @@ PlaceAdForm.prototype.sendProducts = function () {
         xhttp.open("POST", "placeAd.php", true);
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
-                console.log(xhttp.responseText);
                 switch (xhttp.responseText){
                     case 'Image uploaded':
                         successM.style.display = "block";
@@ -564,18 +524,6 @@ PlaceAdForm.prototype.sendProducts = function () {
     }
 
 };
-/*
-PlaceAdForm.prototype.sendAd = function () {
-    let inputProcess = 0;
-    for(let i = 0; i < inputs.length; i++){
-        inputs[i].ValidateForm.checkInput();
-        inputProcess++;
-        if (inputProcess === inputs.length){break;}
-        placeAd.sendProducts();
-    }
-
-
-};*/
 
 PlaceAdForm.prototype.selectCategory = function () {
     category.value === "Accessory" || category.value ==="Jewellery" ?
@@ -640,7 +588,7 @@ let validPriceInput =[
     },
     {
         isInvalid : function (input) {
-            return  !input.value.match(/^\d+$/);
+            return  !input.value.match(/[0-9.]/);
         },
         invalidMessage: "No special characters allowed in the price input box",
         element: document.querySelector('div[id="priceDiv"] li:nth-child(2)')
@@ -671,10 +619,186 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/placeA
 }
 
 
+/*
+            IMPLEMENTING THE LIVE SEARCH FOR THE SEARCH INPUT BOX
+                                                                                        */
+let searchBox = _("search");
+let listBox = _("txtHint");
+
+let filterCategory = _("filterCategory");
+let loc = _("location");
+let minPrice = _("minNo");
+let maxPrice = _("maxNo");
+let colorCat = _("colorCategory");
+let sizeCat = _("sizeCategory");
+let apply = _("apply");
+
+let resultMessage  =_("resultMessage");
+let itemList = _("itemList");
+
+
+function FilterForm() {
+
+}
+
+
+FilterForm.prototype.addToWatchList = function (buttonID, status) {
+    let popUp = document.getElementById("itemPopUp"+buttonID);
+    if(status === false){
+        popUp.classList.toggle("show");
+        buttonID.disabled = true;
+        return false;
+    }else if(status === true){
+        popUp.style.display = "none";
+        buttonID.disabled = false;
+        return true;
+    }
+};
+
+FilterForm.prototype.sendFilter = function () {
+        let obj;
+        apply.disabled = true;
+        let formData = new FormData();
+        formData.append("searchFilter", searchBox.value);
+        formData.append("filterCat", filterCategory.value);
+        formData.append("loc", loc.value);
+        formData.append("minP", minPrice.value);
+        formData.append("maxP", maxPrice.value);
+        formData.append("colorCat", colorCat.value);
+        formData.append("sizeCat", sizeCat.value);
+        formData.append("applyBtn", apply.value);
+        xhttp.open("POST", "listing.php", true);
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                switch (xhttp.responseText){
+                    case 'There was no result found':
+                        resultMessage.style.display = "block";
+                        resultMessage.innerHTML = xhttp.responseText;
+                        itemList.style.display = "none";
+                        break;
+                    default:
+                        obj = JSON.parse(this.responseText);
+                        console.log(obj);
+                        itemList.innerHTML ='';
+                        obj.forEach(function (obj) {
+                            itemList.innerHTML += "<div class='listing-card col-sm-4'>"+
+                                    "<div class='card'>" +
+                                        "<div class='card-block'>" +
+                                            "<img class='card-img-top' alt='Card image cap' src= images/advertImg/"+ obj.img+">"+
+                                            "<a href='aboutListing.php?item="+obj.ID +"'><h3 class='card-title'>"+obj.Title+"</h3></a>"+
+                                            "<p class='card-text'>"+obj.Des+"</p>"+
+                                            "<div class='row'>" +
+                                                "<div class='col-md-6'>" +
+                                                    "<span class='price'>"+obj.currency+""+obj.price+"</span>"+
+                                                "</div>"+
+                                                "<div class='col-md-6'>" +
+                                                    "<form method='post' action='listing.php?action=add&id="+obj.ID+"' onsubmit='return "+obj.loginStatus+"'>" +
+                                                        "<button type='submit' name='wishList' value='wishList' id='"+obj.ID+"' onclick='filter.addToWatchList(this.id, "+obj.loginStatus+")' class='addToList'><i class='fa fa-heart' aria-hidden='true'></i></button>"+
+                                                        "<input type='hidden' name='sellerID' value='"+obj.sellerID+"'>"+
+                                                        "<input type='hidden' name='userID' value='"+obj.loggedUserID+"'>"+
+                                                    "</form>"+
+                                                    "<div class='popUp show'>" +
+                                                        "<span class='popupText' id='itemPopUp"+obj.ID+"'>SignUp/LogIn to add to watchList</span>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "</div>"
+                        });
+
+                        apply.disabled = false;
+                }
+
+            }
+        };
+        xhttp.send(formData);
+};
+
+FilterForm.prototype.selectCategory = function () {
+    filterCategory.value === "Accessory" || filterCategory.value ==="Jewellery" ?
+        sizeCat.disabled = true : sizeCat.disabled = false;
+
+};
+
+
+FilterForm.prototype.showHint = function () {
+    let list;
+    let data;
+    let searchValue = searchBox.value;
+    if (searchValue.length === 0 ) {
+        listBox.innerHTML = "";
+        listBox.style.display = 'none';
+
+    } else {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                if(this.responseText !== 'no suggestions' && this.responseText !== ''){
+                    data = JSON.parse(this.responseText);
+                    console.log(data);
+                    for(let i = 0; i < data.length; i++) {
+                        let obj = data[i];
+                        console.log(obj);
+                        list = document.createElement('li');
+                        list.innerHTML = obj.title[i];
+                        listBox.appendChild(list);
+                        listBox.style.display = 'block';
+                    }
+                    data = [];
+
+                    listBox.addEventListener('click', function (e) {
+                        let target = e.target; // Clicked element
+                        console.log(target.innerHTML);
+                        searchBox.value = target.innerHTML;
+                        listBox.style.display = 'none'
+                    });
+
+
+                }else if (this.responseText === 'no suggestions') {
+                    listBox.innerHTML = '<li>' + this.responseText +'</li>';
+                }
+
+
+            }
+        };
+        xhttp.open("GET", "listing.php?q=" + searchValue, true);
+        xhttp.send();
+    }
+};
+
+let filter = new FilterForm();
+
+if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/listing.php') {
+
+    searchBox.addEventListener('keyup', filter.showHint);
+    apply.addEventListener('click', filter.sendFilter);
+    filterCategory.addEventListener('change', filter.selectCategory);
+}
+
+
+/*                                  END OF LIVE SEARCH INPUT BOX                                      */
 
 
 
 
+/*
+let wishBtn = document.getElementsByName('wishList');
+
+function wishThis() {
+    wishBtn.disabled = true;
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            alert(this.responseText);
+            //document.getElementById("demo").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "listing.php?btn="+ wishBtn.id, true);
+    xhttp.send();
+}
+
+wishBtn.addEventListener('click',wishThis);
+*/
 
 
 

@@ -1,34 +1,32 @@
 <?php require('template/header.phtml') ?>
+<?php $obj = json_decode($view->list)?>
 <div class="container">
         <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-            <?php if (isset($_SESSION['errorM'])) : ?>
-                <div class="bg-success lead text-center"><?php  echo $_SESSION['errorM'];
-                    unset($_SESSION['errorM']) ?></div>
-            <?php endif; ?>
-            <div class="row listing">
-            <?php  foreach ($view->results as $results){ ?>
+            <div id="resultMessage" class="bg-success lead text-center"></div>
+            <div id="itemList" class="row listing">
+            <?php  foreach ($obj as $results){ ?>
                 <div class="listing-card col-sm-4">
                     <div class="card">
                         <div class="card-block">
-                            <img class="card-img-top" alt="Card image cap" src=images/<?php echo $results->getImg();?>>
-                            <a href="aboutListing.php?item=<?php echo $results->getProductId();?>"><h3 class="card-title"><?php echo $results->getTitle();?></h3></a>
-                            <p class="card-text"><?php echo $results->getDescription();?></p>
+                            <img class="card-img-top" alt="Card image cap" src=images/advertImg/<?php echo $results->{'img'};?>>
+                            <a href="aboutListing.php?item=<?php echo $results->{'ID'};?>"><h3 class="card-title"><?php echo $results->{'Title'};?></h3></a>
+                            <p class="card-text"><?php echo $results->{'Des'};?></p>
                             <div class="row">
                                 <div class="col-md-6">
-                                   <span class="price"><?php echo $results->getCurrency();?><?php echo $results->getPrice();?></span>
+                                   <span class="price"><?php echo $results->{'currency'};?><?php echo $results->{'price'};?></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <form method="post" action="listing.php?action=add&id=<?php echo $results->getProductId(); ?>"
+                                    <form method="post" action="listing.php?action=add&id=<?php echo $results->{'ID'}; ?>"
                                         onsubmit= "return <?php echo json_encode($view->status)?>">
-                                        <button type="submit" name="wishList" value="wishList" id="<?php echo $results->getProductId();?>" onclick="addToWatchList(this.id, <?php echo json_encode($view->status)?>)" class="addToList"><i class="fa fa-heart" aria-hidden="true"></i></button>
-                                        <input type="hidden" name="sellerID" value="<?php echo $results->getSellerId()?>">
+                                        <button type="submit" name="wishList" value="wishList" id="<?php echo $results->{'ID'};?>" onclick="filter.addToWatchList(this.id, <?php echo json_encode($view->status)?>)" class="addToList"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                                        <input type="hidden" name="sellerID" value="<?php echo $results->{'sellerID'}?>">
                                         <?php if(isset($_SESSION['user_id'])){?>
                                             <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>">
                                         <?php } ?>
                                     </form>
                                    <div class="popUp show" >
-                                      <span class="popupText" id="itemPopUp<?php echo $results->getProductId();?>">SignUp/LogIn to add to watchList</span>
+                                      <span class="popupText" id="itemPopUp<?php echo $results->{'ID'};?>">SignUp/LogIn to add to watchList</span>
                                    </div>
                                 </div>
                             </div>
@@ -36,6 +34,7 @@
                     </div>
                 </div>
                 <?php } ?> <!--end of foreach loop-->
+
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -43,11 +42,12 @@
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <div class=" form-group col-lg-12 searchCategory">
                         <input type="text" name="search" id="search" value="<?php if(isset($_POST['search'])){
-                        echo htmlentities($_POST['search']);};?>" class="form-control" placeholder="Search">
+                        echo htmlentities($_POST['search']);};?>" class="form-control" placeholder="Search Title" autocomplete="off" required>
+                        <ul class="list-group" id="txtHint"></ul>
                     </div>
                     <div class=" form-group col-lg-12 searchCategory">
-                        <label for="category">Category</label>
-                        <select id="category" name="category" class="form-control"  onchange="select(this.id, 'sizeCategory');">
+                        <label for="filterCategory">Category</label>
+                        <select id="filterCategory" name="filterCategory" class="form-control"  onchange="select(this.id, 'sizeCategory');">
                             <option value="">Select Category</option>
                             <option value="Jewellery"<?php if (isset($_POST['category']) && $_POST['category']== "Jewellery") echo "selected='selected'";?>>Jewellery</option>
                             <option value="Accessory"<?php if (isset($_POST['category']) && $_POST['category']== "Accessory") echo "selected='selected'";?>>Accessory</option>
@@ -74,7 +74,7 @@
                         <div class="form-group col-md-5">
                             <label for="maxNo">MaxPrice</label>
                             <input type="text" name="maxNo" class="form-control" id="maxNo"
-                              value="<?php if(isset($_POST['search'])){echo htmlentities($_POST['search']);};?>">
+                              value="<?php if(isset($_POST['maxNo'])){echo htmlentities($_POST['maxNo']);};?>">
                         </div>
 
                     </div>

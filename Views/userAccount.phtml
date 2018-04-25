@@ -27,7 +27,7 @@
                 <?php foreach($view->getWish as $keys => $values) { ?>
                     <div class="sectionsWL row">
                         <div class="col-lg-4">
-                            <img src="images/<?php echo $values["productImg"]; ?>" class="img-responsive">
+                            <img src="images/advertImg/<?php echo $values["productImg"]; ?>" class="img-responsive">
                         </div>
                         <div id="watchListDetails" class="col-lg-6">
                             <div class="watchListInfo">
@@ -85,7 +85,7 @@
                 <?php foreach($view->products as $keys => $values) { ?>
                     <div  class="sectionList row">
                         <div class="col-lg-4">
-                            <img src="images/<?php echo $values["productImg"]; ?>" class="img-responsive">
+                            <img src="images/advertImg/<?php echo $values["productImg"]; ?>" class="img-responsive">
                         </div>
                         <div id="watchListDetails" class="col-lg-6">
                             <h4><?php echo $values["productTitle"]; ?></h4>
@@ -227,7 +227,7 @@
 
                             <?php foreach($view->info as $keys => $values) { ?>
                             <div class="card userInfo">
-                                <img class="img-responsive" src="images/profile.jpg" alt="userImg" style="width:100%">
+                                <img class="img-responsive" src="images/websiteImg/profile.jpg" alt="userImg" style="width:100%">
                                 <h1><?php echo $values['fullName']?></h1>
                                 <p class="title"><?php echo $values['email']?></p>
                                 <p><?php echo $values['phonenumber']?></p>

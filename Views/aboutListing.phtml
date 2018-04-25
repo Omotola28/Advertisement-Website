@@ -18,7 +18,7 @@
             </div>
              
             <div class="itemImg">
-                <img class="img-responsive" src=images/'.$value->getImg().'>
+                <img class="img-responsive" src=images/advertImg/'.$value->getImg().'>
             </div>
             <!--For this section I want to add the description, available sizes, color and add to watchList-->
             <div class="usefulInfo">
@@ -43,7 +43,7 @@
                 <div id="contactHeader">
                     <h2 class="lead">Contact Publisher</h2>
                     <?php foreach ($view->values as $value)
-                        echo ' <p><b>Seller Name:</b> '.$value->getfName().' '.$value->getlName().'</p>
+                        echo ' <p><b>Seller Name:</b> '.$value->getfName().'</p>
                                   <p><b>Seller Email:</b>'.$value->getEmail().'</p>
                                   <p><b>Seller Mobile No:</b>(44+).'.$value->getPhoneNo().'</p>'
 

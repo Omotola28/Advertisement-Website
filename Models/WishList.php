@@ -32,7 +32,6 @@ class WishList
                 $sql = "INSERT INTO WishList (productID, usersID) VALUE ('$id','$userId')";
                 $result = $this->_dbConnection->prepare($sql);
                 $result->execute();
-                echo "how many times";
             }else
             {
                 echo '<script>alert("Item Already Added")</script>';
@@ -58,7 +57,7 @@ class WishList
     }
 
     public function getWishList($userId){
-        $sql = "select * from WishList, products, address, users where WishList.usersID = 2 
+        $sql = "select * from WishList, products, address, users where WishList.usersID = $userId 
                                           and products.productsID = WishList.productID 
 										  and products.sellerID = address.userID
                                           and address.userID = users.usersID;";

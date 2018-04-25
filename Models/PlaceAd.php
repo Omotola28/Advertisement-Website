@@ -25,7 +25,7 @@ class PlaceAd
 
     public function insertAd()
     {
-        $specialChar = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/';
+        $specialChar = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\?\\\]/';
         //$titlePattern ='/[^\~\>\<]/';
         $category = $_POST['adCategory'];
         $title = $this->test_input($_POST['adTitle']);

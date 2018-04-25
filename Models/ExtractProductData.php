@@ -23,21 +23,21 @@ class ExtractProductData
 
     public function fetchAll()
     {
-        if (isset($_POST['apply'])) {
-            $category = $_POST['category'];
-            $location = $_POST['location'];
-            $maxPrice = $_POST['maxNo'];
-            $minPrice = $_POST['minNo'];
-            $color = $_POST['colorCategory'];
-            if(!isset($_POST['sizeCategory']) ){
+
+        if (isset($_POST['applyBtn'])) {
+            $category = $_POST['filterCat'];
+            $location = $_POST['loc'];
+            $maxPrice = $_POST['maxP'];
+            $minPrice = $_POST['minP'];
+            $color = $_POST['colorCat'];
+            if(!isset($_POST['sizeCat']) ){
                 $size = 'null';
             }else
-                $size = $_POST['sizeCategory'];
-            $search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['search']);
-
+                $size = $_POST['sizeCat'];
+            $search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['searchFilter']);
 
             $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
-                          productCol,productSize,productImg,publishDate,products.sellerID,fullName,surName,email,phonenumber,country, state FROM products, users, address ";
+                          productCol,productSize,productImg,publishDate,products.sellerID,fullName,email,phonenumber,country, state FROM products, users, address ";
             $condition = []; //create a an array of conditions to be added to search query
 
             if($category != ""){
@@ -58,25 +58,29 @@ class ExtractProductData
             if($size != "" && $size != 'null'){
                 $condition[] = "productSize='$size'";
             }
-            if($search != "" && $search !='%%'){
+           /* if($search != "" && $search !='%%'){
                 $condition[] = "productDes like '%$search%'";
-            }
+            }*/
             if($search != "" && $search !='%%'){
                 $condition[] = "productTitle like '%$search%'";
             }
 
             if (count($condition) > 0) {
-                $sqlQuery .= ' WHERE ' . implode(' AND ', $condition). ' AND products.sellerID = users.usersID 
+                $sqlQuery .= ' WHERE ' . implode(' OR ', $condition). ' AND products.sellerID = users.usersID 
                 AND users.usersID = address.userID';
             }
-            echo $sqlQuery;
+
+            return $sqlQuery;
         }else{
             //query that runs if the search bar is not being used
             $sqlQuery = 'SELECT DISTINCT productsID,category, productTitle, productDes, currency, price,
-             productCol,productSize,productImg,publishDate,products.sellerID,fullName,surName,email,phonenumber,country, state FROM products, users, address WHERE 
+             productCol,productSize,productImg,publishDate,products.sellerID,fullName,email,phonenumber,country, state FROM products, users, address WHERE 
              (products.sellerID = users.usersID) AND (users.usersID = address.userID)ORDER BY products.productsID ASC';
+
+            return $sqlQuery;
         }
-        return $sqlQuery;
+
+
     }
 
     /**
@@ -89,7 +93,7 @@ class ExtractProductData
                 INNER JOIN products ON products.sellerID= users.usersID
                 INNER JOIN address ON address.userID = users.usersID
                 AND users.usersID = $users;";
-        $result = $this->_dbConnection->query($sql);
+        $result = $this->_dbConnection->prepare($sql);
         $result->execute();
 
         $results = [];
@@ -101,7 +105,7 @@ class ExtractProductData
     }
 
     /**
-     * @param $query to be executed
+     * @param $sql
      * @return array an array of the results
      */
     public function executeQuery($sql){
@@ -133,5 +137,42 @@ class ExtractProductData
     }
 
 
+    public function liveSearch($str)
+    {
+        $data = [];
+        $str = $this->test_input($str);
+        $len = strlen($str);
+        if ($len > 5 && $str !== "" ) {
+            $query = "SELECT productTitle
+                      FROM products
+	                  where productTitle like '%" . $str . "%'";
+            $result = $this->_dbConnection->prepare($query);
+            $result->execute();
+            if($result->rowCount() === 0){
+                echo 'no suggestions';
+                exit();
+            }else{
 
+                while ($row = $result->fetch(PDO::FETCH_ASSOC) ){
+                    $data[] = ['title' => preg_split("/[,.-]+/", $row['productTitle'])];
+                }
+
+                echo json_encode($data);
+                exit();
+            }
+
+        }
+        else{
+            echo '';
+            exit();
+        }
+    }
+
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        $data = preg_replace("#[']#i", '', $data);
+        return $data;
+    }
 }

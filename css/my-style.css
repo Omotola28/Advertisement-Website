@@ -251,7 +251,7 @@ select:active + .formConstraint{
     top: 5.5em;
     width: 60%;
     margin: auto;
-    background-color: #423636;
+    background-color: #ce1111;
     color: ghostwhite;
 }
 
@@ -308,6 +308,10 @@ PLACEAD ENDS HERE
     text-overflow: clip;
 }
 
+#resultMessage{
+    display: none;
+}
+
 #searchBar{
     padding: 6px;
     background-color: #CDCDCD;
@@ -334,6 +338,26 @@ p.card-text{
     height: 10em;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+#txtHint{
+    list-style: none;
+    background: ghostwhite;
+    position: relative;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+#txtHint li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
 }
 
 .card-title{

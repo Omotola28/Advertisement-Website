@@ -15,26 +15,7 @@ function printState(country, state) {
 
 }*/
 
-/**
- * When users visit site and they want to add items to wishlist a popup shows
- * to inform user to login first
- * @param buttonID identifies which button was pressed
- * @param status identifies if user is logged in or not
- * @returns {boolean}
- */
-function addToWatchList(buttonID, status) {
-    let popUp = document.getElementById("itemPopUp"+buttonID);
-       if(status === false){
-           popUp.classList.toggle("show");
-           buttonID.disabled = true;
-           return false;
-       }else if(status === true){
-           popUp.style.display = "none";
-           buttonID.disabled = false;
-           return true;
-       }
 
-}
 
 /**
  * Toggles the admin panels divs to show pages without refreshing page

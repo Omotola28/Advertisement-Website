@@ -23,19 +23,12 @@ $page = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1; //starting page
 $links = 5;
 
 $extractProduct = new ExtractProductData();
-$pagination = new Pagination($extractProduct->fetchAll()); //__constructor is called
-$view->results = $pagination->getData( $limit, $page );
 
-if(isset($_POST["wishList"]))
-{
-
-    if( $_SESSION['user_id'] == $_POST["sellerID"])
-        echo '<script>alert("Item owned by you, cannot be added to watchList")</script>';
-    else {
-
-        $wishData = new WishList();
-        $wishData->insertWishItem();
-    }
+// get the q parameter, the text typed in, from URL
+$q = "";
+if(isset($_REQUEST['q'])){
+    $q = $_REQUEST['q'];
+    $extractProduct->liveSearch($q);
 }
 
 $view->status = false;
@@ -45,6 +38,29 @@ if(!isset($_SESSION["logged_in"])){
 }else if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ){
     $view->status = true;
 }
+
+isset($_SESSION["user_id"]) ? $loggedUserID = $_SESSION['user_id'] : $loggedUserID = '';
+
+
+$pagination = new Pagination($extractProduct->fetchAll()); //__constructor is called
+
+$results = $pagination->getData( $limit, $page,$view->status, $loggedUserID );
+$view->list = json_encode($results);
+
+
+if(isset($_POST["wishList"]))
+{
+    if( $_SESSION['user_id'] === $_POST["sellerID"])
+
+        echo '<script>alert("Item owned by you, cannot be added to watchList")</script>';
+    else {
+
+        $wishData = new WishList();
+        $wishData->insertWishItem();
+    }
+}
+
+
 
 
 require_once('Views/listing.phtml');
