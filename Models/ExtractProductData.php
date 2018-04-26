@@ -142,10 +142,10 @@ class ExtractProductData
         $data = [];
         $str = $this->test_input($str);
         $len = strlen($str);
-        if ($len > 5 && $str !== "" ) {
+        if ($len > 3 && $str !== "" ) {
             $query = "SELECT productTitle
                       FROM products
-	                  where productTitle like '%" . $str . "%'";
+	                  where productTitle like '%" . $str . "%' LIMIT 0,1";
             $result = $this->_dbConnection->prepare($query);
             $result->execute();
             if($result->rowCount() === 0){
@@ -154,7 +154,8 @@ class ExtractProductData
             }else{
 
                 while ($row = $result->fetch(PDO::FETCH_ASSOC) ){
-                    $data[] = ['title' => preg_split("/[,.-]+/", $row['productTitle'])];
+                    //$data[] = ['title' => $row['productTitle']];
+                   $data[] = ['title' => preg_split("/[,.-]+/", $row['productTitle'])];
                 }
 
                 echo json_encode($data);

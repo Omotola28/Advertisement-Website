@@ -737,19 +737,27 @@ FilterForm.prototype.showHint = function () {
                 if(this.responseText !== 'no suggestions' && this.responseText !== ''){
                     data = JSON.parse(this.responseText);
                     console.log(data);
-                    for(let i = 0; i < data.length; i++) {
+                    data.forEach(function (obj) {
+                        for(let i = 0; i < obj.title.length; i++){
+                            list = document.createElement('li');
+                            list.innerHTML = obj.title[i];
+                            listBox.appendChild(list);
+                            listBox.style.display = 'block';
+
+                        }
+
+                    });
+                    /*for(let i = 0; i < data.length; i++) {
                         let obj = data[i];
-                        console.log(obj);
                         list = document.createElement('li');
                         list.innerHTML = obj.title[i];
                         listBox.appendChild(list);
                         listBox.style.display = 'block';
-                    }
-                    data = [];
+                    }*/
+                    //data = [];
 
                     listBox.addEventListener('click', function (e) {
                         let target = e.target; // Clicked element
-                        console.log(target.innerHTML);
                         searchBox.value = target.innerHTML;
                         listBox.style.display = 'none'
                     });
