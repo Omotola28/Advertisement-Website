@@ -707,13 +707,14 @@ FilterForm.prototype.sendFilter = function () {
                                 "</div>"
                         });
 
-                        apply.disabled = false;
                 }
+                apply.disabled = false;
 
             }
         };
         xhttp.send(formData);
 };
+
 
 FilterForm.prototype.selectCategory = function () {
     filterCategory.value === "Accessory" || filterCategory.value ==="Jewellery" ?
@@ -725,46 +726,46 @@ FilterForm.prototype.selectCategory = function () {
 FilterForm.prototype.showHint = function () {
     let list;
     let data;
+    let thumbnail;
     let searchValue = searchBox.value;
     if (searchValue.length === 0 ) {
         listBox.innerHTML = "";
         listBox.style.display = 'none';
 
     } else {
-        let xhttp = new XMLHttpRequest();
+        xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 if(this.responseText !== 'no suggestions' && this.responseText !== ''){
                     data = JSON.parse(this.responseText);
                     console.log(data);
                     data.forEach(function (obj) {
-                        for(let i = 0; i < obj.title.length; i++){
-                            list = document.createElement('li');
-                            list.innerHTML = obj.title[i];
-                            listBox.appendChild(list);
-                            listBox.style.display = 'block';
-
-                        }
-
-                    });
-                    /*for(let i = 0; i < data.length; i++) {
-                        let obj = data[i];
-                        list = document.createElement('li');
-                        list.innerHTML = obj.title[i];
+                        list = document.createElement('div');
+                        list.className ='thumbStyle';
+                        thumbnail= document.createElement('img');
+                        thumbnail.src = 'images/thumbImg/' + obj.thumbNail;
+                        list.innerHTML = "<p><a href='aboutListing.php?item="+obj.ID +"'>" + obj.title + "</a></p>";
+                        list.appendChild(thumbnail);
                         listBox.appendChild(list);
                         listBox.style.display = 'block';
-                    }*/
-                    //data = [];
+
+                        /*for(let i = 0; i < obj.length; i++){
+
+                        }*/
+                    });
 
                     listBox.addEventListener('click', function (e) {
                         let target = e.target; // Clicked element
-                        searchBox.value = target.innerHTML;
+                        searchBox.value = target.innerText;
                         listBox.style.display = 'none'
                     });
 
 
+
+
+
                 }else if (this.responseText === 'no suggestions') {
-                    listBox.innerHTML = '<li>' + this.responseText +'</li>';
+                    listBox.innerHTML = '<div>' + this.responseText +'</div>';
                 }
 
 
@@ -782,65 +783,9 @@ if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/listin
     searchBox.addEventListener('keyup', filter.showHint);
     apply.addEventListener('click', filter.sendFilter);
     filterCategory.addEventListener('change', filter.selectCategory);
+
 }
 
 
 /*                                  END OF LIVE SEARCH INPUT BOX                                      */
 
-
-
-
-/*
-let wishBtn = document.getElementsByName('wishList');
-
-function wishThis() {
-    wishBtn.disabled = true;
-    xhttp.onreadystatechange = function () {
-        if (xhttp.readyState === 4 && xhttp.status === 200) {
-            alert(this.responseText);
-            //document.getElementById("demo").innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "listing.php?btn="+ wishBtn.id, true);
-    xhttp.send();
-}
-
-wishBtn.addEventListener('click',wishThis);
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- if(input.value.length < 3){
-            this.addInvalidError("Your fullName is less than 3 characters");
-            var element = document.querySelector('label[for="fullName"] li:nth-child(1)');
-            element.classList.add("invalid");
-            element.classList.remove("valid");
-        }else {
-            var element = document.querySelector('label[for="fullName"] li:nth-child(1)');
-            element.classList.remove("invalid");
-            element.classList.add("valid");
-        }
-
-        if(input.value.match(/[^A-Za-z]/g)){
-            this.addInvalidError("Only letters allowed")
-            var element = document.querySelector('label[for="fullName"] li:nth-child(2)');
-            element.classList.add("invalid");
-            element.classList.remove("valid");
-        }else {
-            var element = document.querySelector('label[for="fullName"] li:nth-child(2)');
-            element.classList.remove("invalid");
-            element.classList.add("valid");
-        }
- */

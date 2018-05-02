@@ -19,6 +19,8 @@ class PlaceAd
 
     }
 
+
+
     /**
      * insert products into the products table
      */
@@ -26,7 +28,6 @@ class PlaceAd
     public function insertAd()
     {
         $specialChar = '/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\?\\\]/';
-        //$titlePattern ='/[^\~\>\<]/';
         $category = $_POST['adCategory'];
         $title = $this->test_input($_POST['adTitle']);
         $description = $this->test_input($_POST['adDescription']);
@@ -42,8 +43,10 @@ class PlaceAd
             $_SESSION['logged_in'] = false;
         }
 
-        $target_dir = "images/advertImg/";
+
         $fileName = $_FILES["adPicture"]["name"];
+        $target_dir = "images/advertImg/";
+        $thumb_dir ="images/thumbImg/".$fileName;
         $target_file = $target_dir . basename($fileName);
         global $uploadOk;
         $uploadOk =1;
@@ -73,8 +76,9 @@ class PlaceAd
                     exit();
                 } else if (move_uploaded_file($_FILES["adPicture"]["tmp_name"], $target_file)) {
                     $userID = $_SESSION['user_id'];
-                    $sqlQuery = "INSERT INTO products (category,productTitle,productDes,price,productCol,productSize,productImg,publishDate, sellerID)
-                    VALUES ('$category','$title','$description','$price','$color',$size,'$fileName','$date','$userID')";
+                    $thumb = $this->createThumbnail($target_file, $thumb_dir, 100, 100,array(255,255,255));
+                    $sqlQuery = "INSERT INTO products (category,productTitle,productDes,price,productCol,productSize,productImg,publishDate, sellerID, thumbImg)
+                    VALUES ('$category','$title','$description','$price','$color',$size,'$fileName','$date','$userID','$thumb')";
                     $statement = $this->_dbConnection->prepare($sqlQuery); // prepare a PDO statement
                     $statement->execute(); // execute the PDO statement
                     echo "Image uploaded";
@@ -91,6 +95,55 @@ class PlaceAd
 
 
     }
+
+
+
+    function createThumbnail($filePath, $thumbPath, $thumbW, $thumbH, $background = false)
+    {
+        global $newHeight, $newWidth;
+        list($originalW, $originalH, $originalType) = getimagesize($filePath);
+        if ($originalW > $originalH) {
+            $newWidth = $thumbW;
+            $newHeight = intval($originalH * $newWidth / $originalW);
+        } else {
+            $newHeight = $thumbH;
+            $newWidth = intval($originalW * $newHeight / $originalH);
+        }
+        $dest_x = intval(($thumbW - $newWidth) / 2);
+        $dest_y = intval(($thumbH - $newHeight) / 2);
+
+        if ($originalType === 1) {
+            $imgt = "ImageGIF";
+            $imgcreatefrom = "ImageCreateFromGIF";
+        } else if ($originalType === 2) {
+            $imgt = "ImageJPEG";
+            $imgcreatefrom = "ImageCreateFromJPEG";
+        } else if ($originalType === 3) {
+            $imgt = "ImagePNG";
+            $imgcreatefrom = "ImageCreateFromPNG";
+        } else {
+            return false;
+        }
+        $old_image = $imgcreatefrom($filePath);
+        $new_image = imagecreatetruecolor($thumbW, $thumbH); // creates new image, but with a black background
+
+        // figuring out the color for the background
+        if(is_array($background) && count($background) === 3) {
+            list($red, $green, $blue) = $background;
+            $color = imagecolorallocate($new_image, $red, $green, $blue);
+            imagefill($new_image, 0, 0, $color);
+            // apply transparent background only if is a png image
+        } else if($background === 'transparent' && $originalType === 3) {
+            imagesavealpha($new_image, TRUE);
+            $color = imagecolorallocatealpha($new_image, 0, 0, 0, 127);
+            imagefill($new_image, 0, 0, $color);
+        }
+        imagecopyresampled($new_image, $old_image, $dest_x, $dest_y, 0, 0, $newWidth, $newHeight, $originalW, $originalH);
+        $imgt($new_image, $thumbPath);
+        #return file_exists($thumbPath);
+        return basename($thumbPath);
+    }
+
 
     /**
      * Checks input from form and strips any unwanted characters making sure to remove sql injections

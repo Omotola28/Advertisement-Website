@@ -172,7 +172,7 @@
     <column id="40" parent="7" name="currency">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
-      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&amp;pound;&apos;</DefaultExpression>
     </column>
     <column id="41" parent="7" name="price">
       <Position>6</Position>
@@ -203,58 +203,62 @@
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="47" parent="7" name="sellerid_fk_idx">
+    <column id="47" parent="7" name="thumbImg">
+      <Position>12</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="48" parent="7" name="sellerid_fk_idx">
       <ColNames>sellerID</ColNames>
     </index>
-    <key id="48" parent="7" name="PRIMARY">
+    <key id="49" parent="7" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>productsID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="49" parent="7" name="sellerid_fk">
+    <foreign-key id="50" parent="7" name="sellerid_fk">
       <ColNames>sellerID</ColNames>
       <RefSchemaName>lae891</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>usersID</RefColNames>
     </foreign-key>
-    <column id="50" parent="8" name="usersID">
+    <column id="51" parent="8" name="usersID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="51" parent="8" name="fullName">
+    <column id="52" parent="8" name="fullName">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="52" parent="8" name="email">
+    <column id="53" parent="8" name="email">
       <Position>3</Position>
       <DataType>varchar(150)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="53" parent="8" name="password">
+    <column id="54" parent="8" name="password">
       <Position>4</Position>
       <DataType>varchar(256)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="54" parent="8" name="hash">
+    <column id="55" parent="8" name="hash">
       <Position>5</Position>
       <DataType>varchar(256)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="8" name="phonenumber">
+    <column id="56" parent="8" name="phonenumber">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="56" parent="8" name="userRole">
+    <column id="57" parent="8" name="userRole">
       <Position>7</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;admin-false&apos;</DefaultExpression>
     </column>
-    <key id="57" parent="8" name="PRIMARY">
+    <key id="58" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>usersID</ColNames>
       <Primary>1</Primary>

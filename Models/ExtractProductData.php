@@ -34,7 +34,8 @@ class ExtractProductData
                 $size = 'null';
             }else
                 $size = $_POST['sizeCat'];
-            $search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['searchFilter']);
+            $search = $this->test_input($_POST['searchFilter']);
+            //$search = preg_replace('#[^a-z 0-9?!-]#i', '', $_POST['searchFilter']);
 
             $sqlQuery = "SELECT DISTINCT  productsID,category, productTitle, productDes, currency, price,
                           productCol,productSize,productImg,publishDate,products.sellerID,fullName,email,phonenumber,country, state FROM products, users, address ";
@@ -69,7 +70,6 @@ class ExtractProductData
                 $sqlQuery .= ' WHERE ' . implode(' OR ', $condition). ' AND products.sellerID = users.usersID 
                 AND users.usersID = address.userID';
             }
-
             return $sqlQuery;
         }else{
             //query that runs if the search bar is not being used
@@ -142,10 +142,10 @@ class ExtractProductData
         $data = [];
         $str = $this->test_input($str);
         $len = strlen($str);
-        if ($len > 3 && $str !== "" ) {
-            $query = "SELECT productTitle
+        if ($len >=4 && $str !== "" && $len < 5) {
+            $query = "SELECT productTitle, thumbImg, productsID
                       FROM products
-	                  where productTitle like '%" . $str . "%' LIMIT 0,1";
+	                  where productTitle like '%" . $str . "%' LIMIT 0,5";
             $result = $this->_dbConnection->prepare($query);
             $result->execute();
             if($result->rowCount() === 0){
@@ -155,7 +155,8 @@ class ExtractProductData
 
                 while ($row = $result->fetch(PDO::FETCH_ASSOC) ){
                     //$data[] = ['title' => $row['productTitle']];
-                   $data[] = ['title' => preg_split("/[,.-]+/", $row['productTitle'])];
+                    //preg_split("/[,.-]+/", $row['productTitle']);
+                   $data[] = ['title' => $row['productTitle'], 'thumbNail'=> $row['thumbImg'], 'ID' => $row['productsID']];
                 }
 
                 echo json_encode($data);

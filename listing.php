@@ -14,8 +14,8 @@ $view = new stdClass();
 $view->pageTitle = 'Listing';
 
 //Checks to see if any item has reached threshold and then deletes it from the database
-$runExpired = new ExpiredAD();
-$runExpired->expiredAd();
+/*$runExpired = new ExpiredAD();
+$runExpired->expiredAd();*/
 
 //these variables are passed via URL
 $limit = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 6; //listing  per page

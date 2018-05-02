@@ -4,10 +4,13 @@
       <w>addr</w>
       <w>datediff</w>
       <w>dateformat</w>
+      <w>dest</w>
       <w>getf</w>
       <w>getl</w>
       <w>htmlentities</w>
+      <w>imgcreatefrom</w>
       <w>imgextension</w>
+      <w>imgt</w>
       <w>keyup</w>
       <w>onreadystatechange</w>
       <w>sellerf</w>

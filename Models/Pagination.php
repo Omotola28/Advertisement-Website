@@ -52,8 +52,10 @@ class Pagination
         $result = $this->_dbConnection->prepare($this->query);
         $result->execute();
         if ($result->rowCount() == 0) {
-            echo "There was no result found";
-            exit();
+            if(isset($_POST['applyBtn'])) {
+                echo "There was no result found";
+                exit();
+            }
         }
 
         $results = [];
