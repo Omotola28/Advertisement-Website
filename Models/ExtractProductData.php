@@ -154,8 +154,6 @@ class ExtractProductData
             }else{
 
                 while ($row = $result->fetch(PDO::FETCH_ASSOC) ){
-                    //$data[] = ['title' => $row['productTitle']];
-                    //preg_split("/[,.-]+/", $row['productTitle']);
                    $data[] = ['title' => $row['productTitle'], 'thumbNail'=> $row['thumbImg'], 'ID' => $row['productsID']];
                 }
 

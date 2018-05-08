@@ -59,6 +59,9 @@ let imgPreview = _("previewImg");
 let fileReader = new FileReader();
 
 
+/* Token to secure ajax request   */
+let token =_("token");
+
 /**
  *EventListeners for form input
  */
@@ -417,6 +420,7 @@ LoginForm.prototype.sendLog = function () {
         let formData = new FormData();
         formData.append("emailInput", emailInput.value);
         formData.append("inputPwd", inputPwd.value);
+        formData.append("token", token.value);
         formData.append("loginBtn", loginBtn.value);
         xhttp.open("POST", "login.php", true);
         xhttp.onreadystatechange = function () {
@@ -503,6 +507,7 @@ PlaceAdForm.prototype.sendProducts = function () {
         formData.append("adSize", size.value);
         formData.append("adPicture", adPicture.files[0]);
         formData.append("adBtn", publishBtn.value);
+        formData.append("token",token.value);
         xhttp.open("POST", "placeAd.php", true);
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
@@ -748,10 +753,6 @@ FilterForm.prototype.showHint = function () {
                         list.appendChild(thumbnail);
                         listBox.appendChild(list);
                         listBox.style.display = 'block';
-
-                        /*for(let i = 0; i < obj.length; i++){
-
-                        }*/
                     });
 
                     listBox.addEventListener('click', function (e) {
