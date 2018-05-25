@@ -550,29 +550,6 @@ PlaceAdForm.prototype.filePreview = function () {
 
 let placeAd = new PlaceAdForm();
 
-
- /*let validImageInput =[
-    {
-        isInvalid : function (input) {
-            let adImageName = input.name;
-            let adImgextension = adImageName.split(".").pop().toLowerCase();
-            let extensions = ['gif', 'png', 'jpg', 'jpeg'];
-            return extensions.inArray(adImgextension) === -1
-        },
-        invalidMessage: "Invalid image type uploaded",
-        element: document.querySelector('div[id="fileDiv"] li:nth-child(2)')
-    },
-    {
-        isInvalid : function (input) {
-            let adImgSize = input.size;
-            return  adImgSize > 500000;
-        },
-        invalidMessage: "size of image is too large",
-        element: document.querySelector('div[id="fileDiv"] li:nth-child(1)')
-    }
-];
-*/
-
 let validTitleInput =[
     {
         isInvalid : function (input) {
@@ -604,8 +581,6 @@ let validPriceInput =[
 
 if(window.location.href === 'http://localhost/PhpstormProjects/CourseWork/placeAd.php') {
 
-    //adPicture.ValidateForm = new ValidateForm(adPicture);
-    //adPicture.ValidateForm.checks = validImageInput;
 
     adTitle.ValidateForm = new ValidateForm(adTitle);
     adTitle.ValidateForm.checks = validTitleInput;

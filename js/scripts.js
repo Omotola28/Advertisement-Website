@@ -1,22 +1,4 @@
 
-function printState(country, state) {
-
-}
-
-
-/*function select(category, size) {
-    let category = document.getElementById(category);
-    let size = document.getElementById(size);
-    if(category.value === "Accessory" || category.value ==="Jewellery"){
-        size.disabled = true;
-    }
-    else
-        size.disabled = false;
-
-}*/
-
-
-
 /**
  * Toggles the admin panels divs to show pages without refreshing page
  */

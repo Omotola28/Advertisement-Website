@@ -23,10 +23,12 @@ $placeAd = new PlaceAd();
 
 //check that a post request is sent before page is loaded
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(isset($_POST['token']) || $_POST['token'] === $_SESSION['token']){
+    if(isset($_POST['token']) && $_POST['token'] != $_SESSION['token']){
         if(isset($_POST['adBtn'])){
             $placeAd->insertAd();
         }
+    }else{
+        die("error loading page " );
     }
 }
 

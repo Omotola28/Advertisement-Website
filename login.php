@@ -19,15 +19,16 @@ $runExpired->expiredAd();
 //login user
 $customerData = new CustomerData();
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['token'])){
-    if($_POST['token'] !== $_SESSION['token']){
-        if(isset($_POST['loginBtn'])){
-            $customerData->loginUser();
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if(isset($_SESSION['token']) && isset($_POST['token'])){
+        if($_SESSION['token'] != $_POST['token']){
+            if(isset($_POST['loginBtn'])){
+                $customerData->loginUser();
+            }
+        }else{
+            die("error loading page " . $_SESSION['token'] . " not same as ". $_POST['token']);
         }
-    }else{
-        die("error loading page" . $_SESSION['token']. "not same as". $_POST['token']);
     }
-
 }
 
 
