@@ -20,7 +20,7 @@
             </div>
             <div class="form-group col-md-12">
                 <input type="submit" value="Submit" name="loginBtn" id="loginBtn" class="btn-lg btn-success">
-                <input type="hidden" id="token" name="token" value=" <?php if(isset($_SESSION['token'])) echo $_SESSION['token']?>">
+                <input type="hidden" id="token" name="token" value="<?php if(isset($_SESSION['token'])) echo $_SESSION['token']?>">
             </div>
             <hr>
             <div class="col-md-12">
