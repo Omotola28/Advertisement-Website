@@ -507,7 +507,6 @@ PlaceAdForm.prototype.sendProducts = function () {
         formData.append("adSize", size.value);
         formData.append("adPicture", adPicture.files[0]);
         formData.append("adBtn", publishBtn.value);
-        formData.append("token",token.value);
         xhttp.open("POST", "placeAd.php", true);
         xhttp.onreadystatechange = function () {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
